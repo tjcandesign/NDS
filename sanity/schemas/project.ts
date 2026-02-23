@@ -1,0 +1,125 @@
+import { defineField, defineType } from 'sanity'
+
+export default defineType({
+  name: 'project',
+  title: 'Portfolio Project',
+  type: 'document',
+  fields: [
+    defineField({
+      name: 'title',
+      title: 'Title',
+      type: 'string',
+      validation: (Rule) => Rule.required(),
+    }),
+    defineField({
+      name: 'slug',
+      title: 'Slug',
+      type: 'slug',
+      options: { source: 'title', maxLength: 96 },
+      validation: (Rule) => Rule.required(),
+    }),
+    defineField({
+      name: 'category',
+      title: 'Category',
+      type: 'string',
+      options: {
+        list: [
+          { title: 'Residential', value: 'residential' },
+          { title: 'Commercial', value: 'commercial' },
+          { title: 'Hospitality', value: 'hospitality' },
+          { title: 'Other', value: 'other' },
+        ],
+      },
+    }),
+    defineField({
+      name: 'location',
+      title: 'Location',
+      type: 'string',
+    }),
+    defineField({
+      name: 'completionYear',
+      title: 'Completion Year',
+      type: 'number',
+    }),
+    defineField({
+      name: 'coverImage',
+      title: 'Cover Image',
+      type: 'image',
+      options: { hotspot: true },
+      fields: [
+        defineField({
+          name: 'alt',
+          title: 'Alt Text',
+          type: 'string',
+        }),
+      ],
+    }),
+    defineField({
+      name: 'images',
+      title: 'Project Images',
+      type: 'array',
+      of: [
+        {
+          type: 'image',
+          options: { hotspot: true },
+          fields: [
+            defineField({
+              name: 'alt',
+              title: 'Alt Text',
+              type: 'string',
+            }),
+            defineField({
+              name: 'caption',
+              title: 'Caption',
+              type: 'string',
+            }),
+          ],
+        },
+      ],
+    }),
+    defineField({
+      name: 'shortDescription',
+      title: 'Short Description',
+      type: 'text',
+      rows: 3,
+      description: 'Brief summary shown on the portfolio grid.',
+    }),
+    defineField({
+      name: 'body',
+      title: 'Full Description',
+      type: 'array',
+      of: [{ type: 'block' }, { type: 'image', options: { hotspot: true } }],
+    }),
+    defineField({
+      name: 'featured',
+      title: 'Featured on Homepage',
+      type: 'boolean',
+      initialValue: false,
+    }),
+    defineField({
+      name: 'order',
+      title: 'Display Order',
+      type: 'number',
+      description: 'Lower numbers appear first.',
+    }),
+  ],
+  orderings: [
+    {
+      title: 'Display Order',
+      name: 'orderAsc',
+      by: [{ field: 'order', direction: 'asc' }],
+    },
+    {
+      title: 'Completion Year, Newest',
+      name: 'completionYearDesc',
+      by: [{ field: 'completionYear', direction: 'desc' }],
+    },
+  ],
+  preview: {
+    select: {
+      title: 'title',
+      subtitle: 'category',
+      media: 'coverImage',
+    },
+  },
+})
