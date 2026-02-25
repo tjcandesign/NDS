@@ -42,6 +42,20 @@ export default defineType({
       type: 'number',
     }),
     defineField({
+      name: 'projectSize',
+      title: 'Project Size',
+      type: 'string',
+      description: 'e.g. 2,400 sq ft',
+    }),
+    defineField({
+      name: 'scope',
+      title: 'Scope of Work',
+      type: 'array',
+      of: [{ type: 'string' }],
+      options: { layout: 'tags' },
+      description: 'e.g. Full Renovation, Space Planning, Finish Selection',
+    }),
+    defineField({
       name: 'coverImage',
       title: 'Cover Image',
       type: 'image',

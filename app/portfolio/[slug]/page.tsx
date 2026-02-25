@@ -5,12 +5,13 @@ import Link from 'next/link'
 import { client } from '@/sanity/lib/client'
 import { urlFor } from '@/sanity/lib/image'
 import { PortableText } from 'next-sanity'
+import GalleryLightbox from '@/components/GalleryLightbox'
 
 async function getProject(slug: string) {
   return client.fetch(`
     *[_type == "project" && slug.current == $slug][0] {
       _id, title, slug, category, location, completionYear,
-      shortDescription, coverImage, images, body, featured
+      projectSize, scope, shortDescription, coverImage, images, body, featured
     }
   `, { slug })
 }
@@ -39,79 +40,114 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
   const project = await getProject(slug)
   if (!project) notFound()
 
+  const images: any[] = project.images ?? []
+
   return (
     <>
-      {/* Header */}
-      <section className="pt-32 pb-12 px-6 max-w-6xl mx-auto">
-        <Link
-          href="/portfolio"
-          className="text-xs tracking-widest uppercase text-stone-400 hover:text-stone-700 transition-colors mb-8 inline-block"
-        >
-          ← Portfolio
-        </Link>
-        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4">
-          <div>
-            <p className="text-xs tracking-widest uppercase text-stone-400 mb-2">
+      {/* ── Full-bleed hero ───────────────────────────────────────── */}
+      {project.coverImage && (
+        <div className="relative w-full h-[88vh] min-h-[560px] bg-stone-200 overflow-hidden">
+          <Image
+            src={urlFor(project.coverImage).width(2400).height(1600).url()}
+            alt={project.coverImage.alt || project.title}
+            fill
+            className="object-cover"
+            priority
+            sizes="100vw"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-stone-900/75 via-stone-900/10 to-transparent" />
+
+          <Link
+            href="/portfolio"
+            className="absolute top-24 left-6 md:left-10 text-xs tracking-widest uppercase text-white/60 hover:text-white transition-colors"
+          >
+            ← Portfolio
+          </Link>
+
+          <div className="absolute bottom-10 left-6 md:left-10 right-6 md:right-10">
+            <p className="text-xs tracking-[0.3em] uppercase text-white/50 mb-4">
               {project.category}
               {project.location && ` · ${project.location}`}
-              {project.completionYear && ` · ${project.completionYear}`}
             </p>
-            <h1 className="font-serif text-4xl md:text-5xl leading-tight">{project.title}</h1>
+            <h1 className="font-serif text-4xl md:text-6xl lg:text-7xl text-white leading-tight max-w-3xl">
+              {project.title}
+            </h1>
           </div>
         </div>
-      </section>
-
-      {/* Cover image */}
-      {project.coverImage && (
-        <section className="max-w-6xl mx-auto px-6 mb-12">
-          <div className="aspect-[16/9] bg-stone-200 overflow-hidden">
-            <Image
-              src={urlFor(project.coverImage).width(1200).height(675).url()}
-              alt={project.coverImage.alt || project.title}
-              width={1200}
-              height={675}
-              className="w-full h-full object-cover"
-              priority
-            />
-          </div>
-        </section>
       )}
 
-      {/* Body */}
-      <section className="max-w-3xl mx-auto px-6 pb-16">
-        {project.shortDescription && (
-          <p className="text-xl text-stone-600 leading-relaxed mb-10 font-serif">
-            {project.shortDescription}
-          </p>
-        )}
-        {project.body && (
-          <div className="prose prose-stone prose-lg max-w-none">
-            <PortableText value={project.body} />
+      {/* ── Project info strip ────────────────────────────────────── */}
+      <section className="border-b border-stone-200">
+        <div className="max-w-6xl mx-auto px-6 py-10 grid grid-cols-2 md:grid-cols-4 gap-8">
+          {project.completionYear && (
+            <div>
+              <p className="text-xs tracking-widest uppercase text-stone-400 mb-2">Year</p>
+              <p className="text-stone-800 font-light text-lg">{project.completionYear}</p>
+            </div>
+          )}
+          {project.location && (
+            <div>
+              <p className="text-xs tracking-widest uppercase text-stone-400 mb-2">Location</p>
+              <p className="text-stone-800 font-light text-lg">{project.location}</p>
+            </div>
+          )}
+          {project.projectSize && (
+            <div>
+              <p className="text-xs tracking-widest uppercase text-stone-400 mb-2">Size</p>
+              <p className="text-stone-800 font-light text-lg">{project.projectSize}</p>
+            </div>
+          )}
+          {project.scope && project.scope.length > 0 && (
+            <div className="col-span-2 md:col-span-1">
+              <p className="text-xs tracking-widest uppercase text-stone-400 mb-2">Scope</p>
+              <p className="text-stone-800 font-light leading-relaxed">
+                {project.scope.join(' · ')}
+              </p>
+            </div>
+          )}
+        </div>
+
+        {/* Description below the stats */}
+        {(project.shortDescription || project.body) && (
+          <div className="max-w-6xl mx-auto px-6 pb-12">
+            <div className="max-w-2xl">
+              {project.shortDescription && (
+                <p className="font-serif text-xl md:text-2xl text-stone-600 leading-relaxed">
+                  {project.shortDescription}
+                </p>
+              )}
+              {project.body && (
+                <div className="prose prose-stone prose-lg max-w-none mt-6">
+                  <PortableText value={project.body} />
+                </div>
+              )}
+            </div>
           </div>
         )}
       </section>
 
-      {/* Image gallery */}
-      {project.images && project.images.length > 0 && (
-        <section className="max-w-6xl mx-auto px-6 pb-24">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {project.images.map((img: any, i: number) => (
-              <div key={i} className="aspect-[4/3] bg-stone-200 overflow-hidden">
-                <Image
-                  src={urlFor(img).width(800).height(600).url()}
-                  alt={img.alt || `${project.title} image ${i + 1}`}
-                  width={800}
-                  height={600}
-                  className="w-full h-full object-cover"
-                />
-                {img.caption && (
-                  <p className="text-xs text-stone-400 mt-2">{img.caption}</p>
-                )}
-              </div>
-            ))}
-          </div>
-        </section>
+      {/* ── Gallery with lightbox ─────────────────────────────────── */}
+      {images.length > 0 && (
+        <div className="mt-2 md:mt-3">
+          <GalleryLightbox images={images} title={project.title} />
+        </div>
       )}
+
+      {/* ── Footer nav ───────────────────────────────────────────── */}
+      <div className="max-w-6xl mx-auto px-6 pb-20 flex justify-between items-center border-t border-stone-200 pt-10">
+        <Link
+          href="/portfolio"
+          className="text-xs tracking-widest uppercase text-stone-400 hover:text-stone-900 transition-colors"
+        >
+          ← All Projects
+        </Link>
+        <Link
+          href="/contact"
+          className="text-xs tracking-widest uppercase text-stone-400 hover:text-stone-900 transition-colors"
+        >
+          Start a Project →
+        </Link>
+      </div>
     </>
   )
 }
