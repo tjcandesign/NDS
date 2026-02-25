@@ -1,0 +1,27 @@
+================================================================================
+NDS (NICHE DESIGN STUDIOS) - VERCEL ENVIRONMENT VARIABLES
+================================================================================
+
+Copy and paste these into Vercel Settings → Environment Variables
+
+NEXT_PUBLIC_SANITY_PROJECT_ID
+qb84mjun
+
+NEXT_PUBLIC_SANITY_DATASET
+production
+
+SANITY_WRITE_TOKEN
+skTz7sanqr4HZX2TxOCGkB5heW8owdaGEqyK5Xx2x92aLL6WukDf102evIW2xmxgdjIpPLpz5ZqlzWmk3tWyrCfSjbUj2cGViR8QdgA6Nl5xyVgtIqpdlRSyFjocidUYPADKh5A2T5NFrGpHjgvG1g0Kd8TgHFKraohGnhRE7yV5rftx0uqg
+
+================================================================================
+DEPLOYMENT STEPS:
+================================================================================
+
+1. Go to https://vercel.com/dashboard
+2. Click "Add New" → "Project"
+3. Import GitHub repo: tjcandesign/NDS
+4. Add all environment variables from above
+5. Click "Deploy"
+6. After deployment, set up custom domain (optional)
+
+================================================================================
