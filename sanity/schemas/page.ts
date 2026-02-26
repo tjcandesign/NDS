@@ -75,6 +75,6 @@ export default defineType({
     }),
   ],
   preview: {
-    select: { title: 'title', subtitle: 'identifier' },
+    select: { title: 'title', subtitle: 'slug.current' },
   },
 })
