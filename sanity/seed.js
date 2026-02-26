@@ -1,15 +1,15 @@
-import { createClient } from '@sanity/client'
-import dotenv from 'dotenv'
+// Use native fetch (built-in Node 18+)
 
-dotenv.config({ path: '.env.local' })
+const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || 'qb84mjun'
+const dataset = process.env.NEXT_PUBLIC_SANITY_DATASET || 'production'
+const token = process.env.SANITY_WRITE_TOKEN
 
-const client = createClient({
-  projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || 'qb84mjun',
-  dataset: process.env.NEXT_PUBLIC_SANITY_DATASET || 'production',
-  apiVersion: '2024-01-01',
-  token: process.env.SANITY_WRITE_TOKEN,
-  useCdn: false,
-})
+if (!token) {
+  console.error('❌ Error: SANITY_WRITE_TOKEN not found in environment variables')
+  process.exit(1)
+}
+
+const apiUrl = `https://${projectId}.api.sanity.io/v2021-06-07/data/mutate/${dataset}`
 
 const pages = [
   {
@@ -38,20 +38,39 @@ const pages = [
 
 async function seedSanity() {
   try {
-    console.log('Starting seed...\n')
+    console.log('🌱 Starting seed...\n')
 
     for (const page of pages) {
       try {
-        const existing = await client.fetch(
-          `*[_type == "page" && slug.current == $slug][0]._id`,
-          { slug: page.slug.current }
-        )
+        // Check if page exists
+        const query = encodeURIComponent(`*[_type == "page" && slug.current == "${page.slug.current}"][0]._id`)
+        const checkUrl = `https://${projectId}.api.sanity.io/v2021-06-07/data/query/${dataset}?query=${query}`
 
-        if (existing) {
+        const checkResponse = await fetch(checkUrl, {
+          headers: { Authorization: `Bearer ${token}` },
+        })
+        const checkData = await checkResponse.json()
+
+        if (checkData.result) {
           console.log(`✓ Page "${page.title}" already exists`)
         } else {
-          const created = await client.create(page)
-          console.log(`✓ Created page: "${created.title}" (${created._id})`)
+          const mutations = [{ create: page }]
+          const response = await fetch(apiUrl, {
+            method: 'POST',
+            headers: {
+              'Content-type': 'application/json',
+              Authorization: `Bearer ${token}`,
+            },
+            body: JSON.stringify({ mutations }),
+          })
+
+          const data = await response.json()
+
+          if (response.ok) {
+            console.log(`✓ Created page: "${page.title}"`)
+          } else {
+            console.error(`✗ Error creating "${page.title}":`, data.message)
+          }
         }
       } catch (error) {
         console.error(`✗ Error with page "${page.title}":`, error.message)
@@ -60,7 +79,7 @@ async function seedSanity() {
 
     console.log('\n✨ Seed complete!')
   } catch (error) {
-    console.error('Error seeding Sanity:', error.message)
+    console.error('❌ Error seeding Sanity:', error.message)
     process.exit(1)
   }
 }
