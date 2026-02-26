@@ -5,11 +5,9 @@ import { usePathname } from 'next/navigation'
 import { useState } from 'react'
 
 const links = [
-  { href: '/', label: 'Home' },
   { href: '/about', label: 'About' },
   { href: '/portfolio', label: 'Portfolio' },
-  { href: '/blog', label: 'Journal' },
-  { href: '/contact', label: 'Contact' },
+  { href: '/contact', label: 'Project Inquiry' },
 ]
 
 export default function Nav() {
@@ -19,11 +17,12 @@ export default function Nav() {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-stone-50/90 backdrop-blur-sm border-b border-stone-200">
       <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-        <Link
-          href="/"
-          className="font-serif text-lg tracking-wide text-stone-900 hover:text-stone-600 transition-colors"
-        >
-          Niche Design Studios
+        <Link href="/" className="flex items-center">
+          <img
+            src="/nds-logo.svg"
+            alt="Niche Design Studios"
+            className="h-12 w-auto"
+          />
         </Link>
 
         {/* Desktop nav */}
