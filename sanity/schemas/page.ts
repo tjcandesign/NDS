@@ -12,29 +12,36 @@ export default defineType({
       validation: (Rule) => Rule.required(),
     }),
     defineField({
-      name: 'identifier',
-      title: 'Page Identifier',
-      type: 'string',
-      description: 'Internal identifier: home, about, contact',
+      name: 'slug',
+      title: 'Slug',
+      type: 'slug',
       options: {
-        list: [
-          { title: 'Home', value: 'home' },
-          { title: 'About', value: 'about' },
-          { title: 'Contact', value: 'contact' },
-        ],
+        source: 'title',
+        slugify: (input) => input
+          .toLowerCase()
+          .replace(/\s+/g, '-')
+          .slice(0, 200),
       },
       validation: (Rule) => Rule.required(),
     }),
     defineField({
-      name: 'heroHeading',
-      title: 'Hero Heading',
+      name: 'heroSubtitle',
+      title: 'Hero Subtitle',
       type: 'string',
+      description: 'Subtitle shown above main heading',
     }),
     defineField({
-      name: 'heroSubheading',
-      title: 'Hero Subheading',
+      name: 'heroDescription',
+      title: 'Hero Description',
       type: 'text',
-      rows: 2,
+      rows: 3,
+      description: 'Description text under the main heading',
+    }),
+    defineField({
+      name: 'philosophyQuote',
+      title: 'Philosophy Quote',
+      type: 'string',
+      description: 'Quote to display in philosophy section',
     }),
     defineField({
       name: 'heroImage',

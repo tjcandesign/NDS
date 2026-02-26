@@ -2,6 +2,7 @@ import Link from 'next/link'
 import { client } from '@/sanity/lib/client'
 import { urlFor } from '@/sanity/lib/image'
 import Image from 'next/image'
+import { PortableText } from 'next-sanity'
 
 async function getProjects() {
   try {
@@ -15,8 +16,26 @@ async function getProjects() {
   }
 }
 
+async function getHomePage() {
+  try {
+    return await client.fetch(`
+      *[_type == "page" && slug.current == "home"][0] {
+        title, heroSubtitle, heroDescription, philosophyQuote, body
+      }
+    `)
+  } catch {
+    return {
+      title: 'Spaces That Tell Your Story',
+      heroSubtitle: 'Interior Architecture · Capitol Hill, DC',
+      heroDescription: 'We craft interiors that balance beauty, function, and the spirit of the people who inhabit them.',
+      philosophyQuote: '"Good design isn\'t decorating space — it\'s revealing it."'
+    }
+  }
+}
+
 export default async function Home() {
   const projects = await getProjects()
+  const homePage = await getHomePage()
   const heroProject = projects[0] // Use first project's cover for hero
   const featuredProjects = projects.slice(0, 6) // First 6 for featured section
 
@@ -42,13 +61,13 @@ export default async function Home() {
         {/* Hero content */}
         <div className="relative z-10 text-center px-6 max-w-3xl mx-auto">
           <p className="text-xs tracking-[0.3em] uppercase text-stone-300 mb-6">
-            Interior Architecture · Capitol Hill, DC
+            {homePage?.heroSubtitle || 'Interior Architecture · Capitol Hill, DC'}
           </p>
           <h1 className="font-serif text-5xl md:text-7xl lg:text-8xl leading-tight mb-6 text-white">
-            Spaces That Tell Your Story
+            {homePage?.title || 'Spaces That Tell Your Story'}
           </h1>
           <p className="text-stone-200 text-lg md:text-xl leading-relaxed mb-10 max-w-xl mx-auto">
-            We craft interiors that balance beauty, function, and the spirit of the people who inhabit them.
+            {homePage?.heroDescription || 'We craft interiors that balance beauty, function, and the spirit of the people who inhabit them.'}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
@@ -150,7 +169,7 @@ export default async function Home() {
           <div className="flex flex-col items-center justify-center py-20 md:py-32 px-6 md:px-10 text-stone-50 order-2 md:order-1">
             <div className="max-w-md">
               <p className="font-serif text-2xl md:text-3xl leading-relaxed text-stone-200 mb-8">
-                "Good design isn't decorating space — it's revealing it."
+                {homePage?.philosophyQuote || '"Good design isn\'t decorating space — it\'s revealing it."'}
               </p>
               <Link
                 href="/about"
