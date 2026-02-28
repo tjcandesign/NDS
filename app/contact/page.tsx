@@ -1,39 +1,52 @@
-import type { Metadata } from 'next'
+'use client'
 
-export const metadata: Metadata = {
-  title: 'Project Inquiry',
-  description: 'Submit a project inquiry to Niche Design Studios.',
-}
+import { useState } from 'react'
 
 const inputClass =
-  'w-full border-b border-stone-300 bg-transparent py-2 text-stone-900 placeholder:text-stone-300 focus:outline-none focus:border-stone-700 transition-colors'
+  'w-full border-b border-stone-300 bg-transparent py-2 text-stone-900 placeholder:text-stone-600 focus:outline-none focus:border-stone-700 transition-colors'
 
-const labelClass = 'block text-xs tracking-widest uppercase text-stone-400 mb-2'
+const labelClass = 'block text-xs tracking-widest uppercase text-stone-700 mb-3 font-medium'
 
 const optionalBadge = (
-  <span className="ml-2 text-stone-300 normal-case tracking-normal text-xs font-normal">
+  <span className="ml-2 text-stone-500 normal-case tracking-normal text-xs font-normal">
     optional
   </span>
 )
 
-export default function Contact() {
+const projectTypes = ['New Home', 'Renovation', 'Addition', 'Interiors', 'Kitchen', 'Bathroom']
+const timelineOptions = [
+  { label: 'Next 3 months', value: 'next-3-months' },
+  { label: '3-6 months', value: '3-6-months' },
+  { label: '6-12 months', value: '6-12-months' },
+  { label: '12+ months', value: '12-plus-months' },
+  { label: 'Flexible/Open', value: 'flexible' },
+]
+
+function Page() {
+  const [submitted, setSubmitted] = useState(false)
+
+  const handleFirstSubmit = (e: React.FormEvent) => {
+    e.preventDefault()
+    setSubmitted(true)
+  }
+
   return (
     <>
       {/* Header */}
-      <section className="pt-32 pb-16 px-6 max-w-6xl mx-auto">
+      <section className="pt-32 pb-16 px-6 max-w-4xl mx-auto">
         <p className="text-xs tracking-widest uppercase text-stone-400 mb-4">Get In Touch</p>
         <h1 className="font-serif text-4xl md:text-6xl max-w-2xl leading-tight">
           Project Inquiry
         </h1>
-        <p className="mt-6 text-stone-500 max-w-xl leading-relaxed">
+        <p className="mt-6 text-stone-600 max-w-xl leading-relaxed">
           We accept a limited number of projects each year to ensure every client receives
           our full attention. Fill out the form below and we'll be in touch shortly.
         </p>
       </section>
 
-      <section className="max-w-3xl mx-auto px-6 pb-24">
+      <section className="max-w-4xl mx-auto px-6 pb-24">
         {/* Contact info strip */}
-        <div className="flex flex-wrap gap-x-10 gap-y-3 mb-12 text-sm text-stone-500 border-t border-b border-stone-200 py-5">
+        <div className="flex flex-wrap gap-x-10 gap-y-3 mb-12 text-sm text-stone-600 border-t border-b border-stone-200 py-5">
           <span>Capitol Hill, Washington DC</span>
           <a href="mailto:hello@nichedesignstudios.com" className="hover:text-stone-900 transition-colors">
             hello@nichedesignstudios.com
@@ -41,17 +54,13 @@ export default function Contact() {
           <span>Mon – Fri, 9am – 6pm EST</span>
         </div>
 
-        {/* Form — action points to Formspree; replace endpoint before launch */}
-        <form
-          className="space-y-10"
-          action="https://formspree.io/f/placeholder"
-          method="POST"
-        >
-          {/* ── Section 1: About You ─────────────────────────────── */}
-          <fieldset className="space-y-6">
-            <legend className="text-xs tracking-[0.3em] uppercase text-stone-400 border-b border-stone-200 pb-2 w-full mb-6">
-              About You
-            </legend>
+        {!submitted ? (
+          <form onSubmit={handleFirstSubmit} className="space-y-12">
+            {/* ── Section 1: About You ─────────────────────────────── */}
+            <fieldset className="space-y-6">
+              <legend className="text-xs tracking-[0.3em] uppercase text-stone-500 border-b border-stone-200 pb-3 w-full mb-8 font-semibold">
+                About You
+              </legend>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               <div>
@@ -116,18 +125,24 @@ export default function Contact() {
               </div>
             </div>
 
-            <div>
-              <label htmlFor="project-description" className={labelClass}>
-                Please explain your project <span className="text-stone-900">*</span>
+            <div className="pt-4">
+              <label className={labelClass}>
+                What type of project are you interested in? <span className="text-stone-900">*</span>
               </label>
-              <p className="text-xs text-stone-400 mb-2">e.g. New home, Renovation, Addition, Interiors</p>
-              <textarea
-                id="project-description"
-                name="project-description"
-                rows={4}
-                required
-                className={`${inputClass} resize-none`}
-              />
+              <div className="space-y-3 mt-2">
+                {projectTypes.map((type) => (
+                  <label key={type} className="flex items-center gap-3 text-sm text-stone-700 cursor-pointer">
+                    <input
+                      type="radio"
+                      name="project-type"
+                      value={type.toLowerCase()}
+                      required
+                      className="accent-stone-700 w-4 h-4"
+                    />
+                    {type}
+                  </label>
+                ))}
+              </div>
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
@@ -186,25 +201,57 @@ export default function Contact() {
             </div>
 
             <div>
-              <label htmlFor="schedule" className={labelClass}>
-                Do you have a schedule or timetable in mind? <span className="text-stone-900">*</span>
+              <label htmlFor="timeline" className={labelClass}>
+                What's your timeline? <span className="text-stone-900">*</span>
               </label>
-              <textarea
-                id="schedule"
-                name="schedule"
-                rows={2}
-                required
-                className={`${inputClass} resize-none`}
-                placeholder="e.g. hoping to start by fall, need to complete before lease ends..."
-              />
+              <select id="timeline" name="timeline" required className={`${inputClass} cursor-pointer`}>
+                <option value="">Select timeframe</option>
+                {timelineOptions.map((opt) => (
+                  <option key={opt.value} value={opt.value}>
+                    {opt.label}
+                  </option>
+                ))}
+              </select>
             </div>
-          </fieldset>
+            </fieldset>
 
-          {/* ── Section 3: Your Vision ─────────────────────────────── */}
-          <fieldset className="space-y-6">
-            <legend className="text-xs tracking-[0.3em] uppercase text-stone-400 border-b border-stone-200 pb-2 w-full mb-6">
-              Your Vision
-            </legend>
+            {/* ── Section 3: Your Vision (Hidden, for initial submit) ─────────────────────────────── */}
+            {/* This section appears after submission */}
+
+            <button
+              type="submit"
+              className="w-full py-4 bg-stone-900 text-stone-50 text-sm tracking-widest uppercase hover:bg-stone-700 transition-colors font-medium"
+            >
+              Submit Inquiry
+            </button>
+
+            <p className="text-xs text-stone-500 text-center">
+              Fields marked <span className="text-stone-700 font-medium">*</span> are required.
+              We'll respond within 2–3 business days.
+            </p>
+          </form>
+        ) : (
+          /* Thank you screen with optional additional questions */
+          <div className="max-w-2xl">
+            <div className="bg-stone-50 border border-stone-200 rounded-sm p-8 mb-12">
+              <h2 className="font-serif text-2xl text-stone-900 mb-3">Thank You!</h2>
+              <p className="text-stone-700 leading-relaxed mb-4">
+                We've received your project inquiry and will review it carefully. We'll be in touch within 2–3 business days.
+              </p>
+              <p className="text-stone-700 leading-relaxed">
+                In the meantime, would you like to answer a few additional questions to help us better understand your vision?
+              </p>
+            </div>
+
+            <form action="https://formspree.io/f/placeholder" method="POST" className="space-y-12">
+              {/* Hidden - submit first form data */}
+              <input type="hidden" name="_next" value={typeof window !== 'undefined' ? window.location.href : ''} />
+
+              {/* ── Additional Vision Questions ─────────────────────────────── */}
+              <fieldset className="space-y-6">
+                <legend className="text-xs tracking-[0.3em] uppercase text-stone-500 border-b border-stone-200 pb-3 w-full mb-8 font-semibold">
+                  Your Vision (Optional)
+                </legend>
 
             <div>
               <label htmlFor="vision" className={labelClass}>
@@ -284,22 +331,37 @@ export default function Contact() {
                 rows={3}
                 className={`${inputClass} resize-none`}
               />
-            </div>
-          </fieldset>
+              </div>
 
-          <button
-            type="submit"
-            className="w-full py-4 bg-stone-900 text-stone-50 text-sm tracking-widest uppercase hover:bg-stone-700 transition-colors"
-          >
-            Submit Inquiry
-          </button>
+              <div>
+                <label htmlFor="comments" className={labelClass}>
+                  Additional Comments{optionalBadge}
+                </label>
+                <textarea
+                  id="comments"
+                  name="comments"
+                  rows={3}
+                  className={`${inputClass} resize-none`}
+                />
+              </div>
+              </fieldset>
 
-          <p className="text-xs text-stone-400 text-center">
-            Fields marked <span className="text-stone-900">*</span> are required.
-            We'll respond within 2–3 business days.
-          </p>
-        </form>
+              <button
+                type="submit"
+                className="w-full py-4 bg-stone-900 text-stone-50 text-sm tracking-widest uppercase hover:bg-stone-700 transition-colors font-medium"
+              >
+                Submit Additional Information
+              </button>
+
+              <p className="text-xs text-stone-500 text-center">
+                Thank you for providing more details. We'll use this to better serve your project!
+              </p>
+            </form>
+          </div>
+        )}
       </section>
     </>
   )
 }
+
+export default Page

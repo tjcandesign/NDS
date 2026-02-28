@@ -35,7 +35,7 @@ export default async function Portfolio() {
         {projects.length === 0 ? (
           <p className="text-stone-400 text-sm">Projects coming soon.</p>
         ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {projects.map((project: any) => (
               <Link
                 key={project._id}

@@ -16,12 +16,12 @@ export default function Nav() {
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-stone-50/90 backdrop-blur-sm border-b border-stone-200">
-      <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-        <Link href="/" className="flex items-center">
+      <div className="max-w-6xl mx-auto px-6 h-14 flex items-center justify-between">
+        <Link href="/" className="flex items-center h-full">
           <img
             src="/nds-logo.svg"
             alt="Niche Design Studios"
-            className="h-12 w-auto"
+            className="h-9 w-auto"
           />
         </Link>
 

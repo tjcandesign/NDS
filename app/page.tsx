@@ -118,7 +118,7 @@ export default async function Home() {
                       src={urlFor(project.coverImage).width(1400).height(800).url()}
                       alt={project.coverImage.alt || project.title}
                       fill
-                      className="object-cover group-hover:scale-110 transition-transform duration-700"
+                      className="object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
                     />
                   )}
 
