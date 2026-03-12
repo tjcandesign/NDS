@@ -88,12 +88,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
           )}
 
           {/* Right: Sidebar - sticky on desktop */}
-          <aside className="md:sticky md:top-32 px-3 md:px-0">
-            {/* Project Title */}
-            <h2 className="font-serif text-3xl md:text-4xl text-stone-900 mb-8 leading-tight">
-              {project.title}
-            </h2>
-
+          <aside className="md:sticky md:top-0 px-3 md:px-0">
             {/* Project Metadata - vertical stack */}
             <div className="mb-12 space-y-6">
               {project.completionYear && (
