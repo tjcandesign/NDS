@@ -79,7 +79,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
 
       {/* ── Gallery & Sidebar layout ──────────────────────────────── */}
       <section className="py-16">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-3 md:gap-16 md:max-w-6xl md:mx-auto md:px-6">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-3 md:gap-16 md:max-w-6xl md:mx-auto md:px-6 md:items-start">
           {/* Left: Gallery - 3 columns wide on desktop */}
           {images.length > 0 && (
             <div className="md:col-span-3 px-3 md:px-0">
