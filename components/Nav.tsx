@@ -21,7 +21,7 @@ export default function Nav() {
           <img
             src="/nds-logo.svg"
             alt="Niche Design Studio"
-            className="h-9 w-auto"
+            className="h-8 w-auto"
           />
         </Link>
 
