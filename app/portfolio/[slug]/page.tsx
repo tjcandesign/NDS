@@ -58,21 +58,23 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
           />
           <div className="absolute inset-0 bg-gradient-to-t from-stone-900/75 via-stone-900/10 to-transparent" />
 
-          <Link
-            href="/portfolio"
-            className="absolute top-24 left-6 md:left-10 text-xs tracking-widest uppercase text-white/60 hover:text-white transition-colors"
-          >
-            ← Portfolio
-          </Link>
+          <div className="absolute inset-0 flex flex-col justify-between">
+            <Link
+              href="/portfolio"
+              className="pt-24 px-6 md:px-0 text-xs tracking-widest uppercase text-white/60 hover:text-white transition-colors md:max-w-7xl md:mx-auto w-full"
+            >
+              ← Portfolio
+            </Link>
 
-          <div className="absolute bottom-10 left-6 md:left-10 right-6 md:right-10">
-            <p className="text-xs tracking-[0.3em] uppercase text-white/50 mb-4">
-              {project.category}
-              {project.location && ` · ${project.location}`}
-            </p>
-            <h1 className="font-serif text-4xl md:text-6xl lg:text-7xl text-white leading-tight max-w-3xl">
-              {project.title}
-            </h1>
+            <div className="pb-10 px-6 md:px-0 md:max-w-7xl md:mx-auto w-full">
+              <p className="text-xs tracking-[0.3em] uppercase text-white/50 mb-4">
+                {project.category}
+                {project.location && ` · ${project.location}`}
+              </p>
+              <h1 className="font-serif text-4xl md:text-6xl lg:text-7xl text-white leading-tight max-w-3xl">
+                {project.title}
+              </h1>
+            </div>
           </div>
         </div>
       )}
