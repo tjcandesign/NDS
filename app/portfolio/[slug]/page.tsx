@@ -78,17 +78,17 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
       )}
 
       {/* ── Gallery & Sidebar layout ──────────────────────────────── */}
-      <section className="max-w-6xl mx-auto px-6 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-16">
+      <section className="py-16">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-3 md:gap-16 md:max-w-6xl md:mx-auto md:px-6">
           {/* Left: Gallery - 3 columns wide on desktop */}
           {images.length > 0 && (
-            <div className="md:col-span-3">
+            <div className="md:col-span-3 px-3 md:px-0">
               <GalleryLightbox images={images} title={project.title} />
             </div>
           )}
 
           {/* Right: Sidebar - sticky on desktop */}
-          <aside className="md:sticky md:top-32">
+          <aside className="md:sticky md:top-32 px-3 md:px-0">
             {/* Project Title */}
             <h2 className="font-serif text-3xl md:text-4xl text-stone-900 mb-8 leading-tight">
               {project.title}
