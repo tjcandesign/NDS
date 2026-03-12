@@ -20,7 +20,7 @@ export default function Nav() {
         <Link href="/" className="flex items-center h-full">
           <img
             src="/nds-logo.svg"
-            alt="Niche Design Studios"
+            alt="Niche Design Studio"
             className="h-9 w-auto"
           />
         </Link>
@@ -33,7 +33,7 @@ export default function Nav() {
               href={href}
               className={`text-sm tracking-widest uppercase transition-colors ${
                 pathname === href
-                  ? 'text-stone-900 font-medium'
+                  ? 'text-navy-blue font-medium'
                   : 'text-stone-500 hover:text-stone-900'
               }`}
             >
@@ -63,7 +63,7 @@ export default function Nav() {
               href={href}
               onClick={() => setOpen(false)}
               className={`block px-6 py-3 text-sm tracking-widest uppercase border-b border-stone-100 ${
-                pathname === href ? 'text-stone-900 font-medium' : 'text-stone-500'
+                pathname === href ? 'text-navy-blue font-medium' : 'text-stone-500'
               }`}
             >
               {label}

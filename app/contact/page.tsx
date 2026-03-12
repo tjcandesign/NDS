@@ -47,7 +47,7 @@ function Page() {
       <section className="max-w-4xl mx-auto px-6 pb-24">
         {/* Contact info strip */}
         <div className="flex flex-wrap gap-x-10 gap-y-3 mb-12 text-sm text-stone-600 border-t border-b border-stone-200 py-5">
-          <span>Capitol Hill, Washington DC</span>
+          <span>Washington, DC</span>
           <a href="mailto:hello@nichedesignstudios.com" className="hover:text-stone-900 transition-colors">
             hello@nichedesignstudios.com
           </a>
@@ -220,7 +220,7 @@ function Page() {
 
             <button
               type="submit"
-              className="w-full py-4 bg-stone-900 text-stone-50 text-sm tracking-widest uppercase hover:bg-stone-700 transition-colors font-medium"
+              className="w-full py-4 bg-navy-blue text-stone-50 text-sm tracking-widest uppercase hover:bg-navy-blue-dark transition-colors font-medium"
             >
               Submit Inquiry
             </button>
@@ -348,7 +348,7 @@ function Page() {
 
               <button
                 type="submit"
-                className="w-full py-4 bg-stone-900 text-stone-50 text-sm tracking-widest uppercase hover:bg-stone-700 transition-colors font-medium"
+                className="w-full py-4 bg-navy-blue text-stone-50 text-sm tracking-widest uppercase hover:bg-navy-blue-dark transition-colors font-medium"
               >
                 Submit Additional Information
               </button>

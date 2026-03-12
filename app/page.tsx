@@ -26,7 +26,7 @@ async function getHomePage() {
   } catch {
     return {
       title: 'Spaces That Tell Your Story',
-      heroSubtitle: 'Interior Architecture · Capitol Hill, DC',
+      heroSubtitle: 'Interior Architecture · Washington, DC',
       heroDescription: 'We craft interiors that balance beauty, function, and the spirit of the people who inhabit them.',
       philosophyQuote: '"Good design isn\'t decorating space — it\'s revealing it."'
     }
@@ -56,12 +56,12 @@ export default async function Home() {
         )}
 
         {/* Dark gradient overlay */}
-        <div className="absolute inset-0 bg-gradient-to-r from-stone-900/85 via-stone-900/70 to-stone-900/60" />
+        <div className="absolute inset-0 bg-gradient-to-r from-navy-blue/85 via-navy-blue/70 to-navy-blue/60" />
 
         {/* Hero content */}
         <div className="relative z-10 text-center px-6 max-w-3xl mx-auto">
           <p className="text-xs tracking-[0.3em] uppercase text-stone-300 mb-6">
-            {homePage?.heroSubtitle || 'Interior Architecture · Capitol Hill, DC'}
+            {homePage?.heroSubtitle || 'Interior Architecture · Washington, DC'}
           </p>
           <h1 className="font-serif text-5xl md:text-7xl lg:text-8xl leading-tight mb-6 text-white">
             {homePage?.title || 'Spaces That Tell Your Story'}
@@ -123,7 +123,7 @@ export default async function Home() {
                   )}
 
                   {/* Gradient overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-stone-900/90 via-stone-900/20 to-transparent opacity-70 group-hover:opacity-80 transition-opacity" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-navy-blue/90 via-navy-blue/20 to-transparent opacity-70 group-hover:opacity-80 transition-opacity" />
 
                   {/* Content overlay */}
                   <div className="absolute inset-0 flex flex-col justify-end p-4 sm:p-6">
@@ -203,7 +203,7 @@ export default async function Home() {
         </p>
         <Link
           href="/contact"
-          className="inline-block px-10 py-3 bg-stone-900 text-stone-50 text-sm tracking-widest uppercase hover:bg-stone-700 transition-colors"
+          className="inline-block px-10 py-3 bg-navy-blue text-stone-50 text-sm tracking-widest uppercase hover:bg-navy-blue-dark transition-colors"
         >
           Get In Touch
         </Link>

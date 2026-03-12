@@ -6,11 +6,15 @@
   --foreground: #1c1917;
   --primary-color: #2563eb;
   --primary-gradient: linear-gradient(to right, #2563eb, #4f46e5);
+  --navy-blue: #465566;
+  --navy-blue-dark: #364454;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-navy-blue: var(--navy-blue);
+  --color-navy-blue-dark: var(--navy-blue-dark);
   --font-sans: var(--font-inter);
   --font-serif: var(--font-playfair);
 }
