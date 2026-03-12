@@ -61,12 +61,12 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
           <div className="absolute inset-0 flex flex-col justify-between">
             <Link
               href="/portfolio"
-              className="pt-24 px-6 md:px-0 text-xs tracking-widest uppercase text-white/60 hover:text-white transition-colors md:max-w-7xl 2xl:max-w-8xl md:mx-auto w-full"
+              className="pt-24 px-6 md:px-6 text-xs tracking-widest uppercase text-white/60 hover:text-white transition-colors md:max-w-7xl 2xl:max-w-8xl md:mx-auto w-full"
             >
               ← Portfolio
             </Link>
 
-            <div className="pb-10 px-6 md:px-0 md:max-w-7xl 2xl:max-w-8xl md:mx-auto w-full">
+            <div className="pb-10 px-6 md:px-6 md:max-w-7xl 2xl:max-w-8xl md:mx-auto w-full">
               <p className="text-xs tracking-[0.3em] uppercase text-white/50 mb-4">
                 {project.category}
                 {project.location && ` · ${project.location}`}
