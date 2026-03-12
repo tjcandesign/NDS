@@ -118,12 +118,12 @@ export default async function Home() {
                       src={urlFor(project.coverImage).width(1400).height(800).url()}
                       alt={project.coverImage.alt || project.title}
                       fill
-                      className="object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
+                      className="object-cover"
                     />
                   )}
 
                   {/* Gradient overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-stone-900/90 via-stone-900/20 to-transparent opacity-70 group-hover:opacity-80 transition-opacity" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-stone-900/90 via-stone-900/20 to-transparent opacity-70" />
 
                   {/* Content overlay */}
                   <div className="absolute inset-0 flex flex-col justify-end p-4 sm:p-6">

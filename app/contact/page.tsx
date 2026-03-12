@@ -3,7 +3,7 @@
 import { useState } from 'react'
 
 const inputClass =
-  'w-full border-b border-stone-300 bg-transparent py-2 text-stone-900 placeholder:text-stone-600 focus:outline-none focus:border-stone-700 transition-colors'
+  'w-full border-b border-stone-300 bg-transparent py-3 text-base text-stone-900 placeholder:text-stone-400 focus:outline-none focus:border-stone-700 transition-colors'
 
 const labelClass = 'block text-xs tracking-widest uppercase text-stone-700 mb-3 font-medium'
 
