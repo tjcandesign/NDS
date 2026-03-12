@@ -162,37 +162,20 @@ export default async function Home() {
         </section>
       )}
 
-      {/* ── Philosophy strip with side image ─────────────────────── */}
-      {projects.length > 1 && projects[1]?.images?.[0] && (
-        <section className="grid grid-cols-1 md:grid-cols-2 gap-0 items-stretch bg-stone-900">
-          {/* Text side */}
-          <div className="flex flex-col items-center justify-center py-20 md:py-32 px-6 md:px-10 text-stone-50 order-2 md:order-1">
-            <div className="max-w-md">
-              <p className="font-serif text-2xl md:text-3xl leading-relaxed text-stone-200 mb-8">
-                {homePage?.philosophyQuote || '"Good design isn\'t decorating space — it\'s revealing it."'}
-              </p>
-              <Link
-                href="/about"
-                className="text-xs tracking-[0.3em] uppercase text-stone-400 hover:text-stone-100 transition-colors inline-block"
-              >
-                About the Studio →
-              </Link>
-            </div>
-          </div>
-
-          {/* Image side */}
-          <div className="relative h-80 md:h-auto min-h-96 md:min-h-[500px] bg-stone-800 order-1 md:order-2">
-            <Image
-              src={urlFor(projects[1].images[0]).width(800).height(800).url()}
-              alt="Interior design detail"
-              fill
-              className="object-cover"
-              sizes="50vw"
-            />
-            <div className="absolute inset-0 bg-gradient-to-l from-transparent to-stone-900/30" />
-          </div>
-        </section>
-      )}
+      {/* ── Philosophy quote centered ─────────────────────────────── */}
+      <section className="flex flex-col items-center justify-center py-24 md:py-32 px-6 bg-stone-900">
+        <div className="max-w-3xl text-center">
+          <p className="font-serif text-3xl md:text-5xl italic leading-relaxed text-stone-200 mb-12">
+            {homePage?.philosophyQuote || '"Good design isn\'t decorating space — it\'s revealing it."'}
+          </p>
+          <Link
+            href="/about"
+            className="text-xs tracking-[0.3em] uppercase text-stone-400 hover:text-stone-100 transition-colors inline-block"
+          >
+            Learn More About the Studio →
+          </Link>
+        </div>
+      </section>
 
       {/* ── CTA ──────────────────────────────────────────────────── */}
       <section className="max-w-6xl mx-auto px-6 py-24 text-center">
