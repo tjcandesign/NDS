@@ -39,6 +39,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
   const { slug } = await params
   const project = await getProject(slug)
   if (!project) notFound()
+  // Sidebar layout redesign - gallery left, project details right
 
   const images: any[] = project.images ?? []
 
