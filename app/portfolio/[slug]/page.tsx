@@ -76,62 +76,69 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
         </div>
       )}
 
-      {/* ── Project info strip ────────────────────────────────────── */}
-      <section className="border-b border-stone-200">
-        <div className="max-w-6xl mx-auto px-6 py-10 grid grid-cols-2 md:grid-cols-4 gap-8">
-          {project.completionYear && (
-            <div>
-              <p className="text-xs tracking-widest uppercase text-stone-400 mb-2">Year</p>
-              <p className="text-stone-800 font-light text-lg">{project.completionYear}</p>
+      {/* ── Gallery & Sidebar layout ──────────────────────────────── */}
+      <section className="max-w-6xl mx-auto px-6 py-16">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-16">
+          {/* Left: Gallery - 2 columns wide on desktop */}
+          {images.length > 0 && (
+            <div className="md:col-span-2">
+              <GalleryLightbox images={images} title={project.title} />
             </div>
           )}
-          {project.location && (
-            <div>
-              <p className="text-xs tracking-widest uppercase text-stone-400 mb-2">Location</p>
-              <p className="text-stone-800 font-light text-lg">{project.location}</p>
-            </div>
-          )}
-          {project.projectSize && (
-            <div>
-              <p className="text-xs tracking-widest uppercase text-stone-400 mb-2">Size</p>
-              <p className="text-stone-800 font-light text-lg">{project.projectSize}</p>
-            </div>
-          )}
-          {project.scope && project.scope.length > 0 && (
-            <div className="col-span-2 md:col-span-1">
-              <p className="text-xs tracking-widest uppercase text-stone-400 mb-2">Scope</p>
-              <p className="text-stone-800 font-light leading-relaxed">
-                {project.scope.join(' · ')}
-              </p>
-            </div>
-          )}
-        </div>
 
-        {/* Description below the stats */}
-        {(project.shortDescription || project.body) && (
-          <div className="max-w-6xl mx-auto px-6 pb-12">
-            <div className="max-w-2xl">
-              {project.shortDescription && (
-                <p className="font-serif text-xl md:text-2xl text-stone-600 leading-relaxed">
-                  {project.shortDescription}
-                </p>
+          {/* Right: Sidebar - sticky on desktop */}
+          <aside className="md:sticky md:top-32">
+            {/* Project Title */}
+            <h2 className="font-serif text-3xl md:text-4xl text-stone-900 mb-8 leading-tight">
+              {project.title}
+            </h2>
+
+            {/* Project Metadata - vertical stack */}
+            <div className="mb-12 space-y-6">
+              {project.completionYear && (
+                <div>
+                  <p className="text-xs tracking-widest uppercase text-stone-400 mb-2">Year</p>
+                  <p className="text-stone-800 font-light text-lg">{project.completionYear}</p>
+                </div>
               )}
-              {project.body && (
-                <div className="prose prose-stone prose-lg max-w-none mt-6">
-                  <PortableText value={project.body} />
+              {project.location && (
+                <div>
+                  <p className="text-xs tracking-widest uppercase text-stone-400 mb-2">Location</p>
+                  <p className="text-stone-800 font-light text-lg">{project.location}</p>
+                </div>
+              )}
+              {project.projectSize && (
+                <div>
+                  <p className="text-xs tracking-widest uppercase text-stone-400 mb-2">Size</p>
+                  <p className="text-stone-800 font-light text-lg">{project.projectSize}</p>
+                </div>
+              )}
+              {project.scope && project.scope.length > 0 && (
+                <div>
+                  <p className="text-xs tracking-widest uppercase text-stone-400 mb-2">Scope</p>
+                  <p className="text-stone-800 font-light leading-relaxed">
+                    {project.scope.join(' · ')}
+                  </p>
                 </div>
               )}
             </div>
-          </div>
-        )}
-      </section>
 
-      {/* ── Gallery with lightbox ─────────────────────────────────── */}
-      {images.length > 0 && (
-        <div className="mt-2 md:mt-3">
-          <GalleryLightbox images={images} title={project.title} />
+            {/* Short Description */}
+            {project.shortDescription && (
+              <p className="font-serif text-lg md:text-xl text-stone-600 mb-8 leading-relaxed">
+                {project.shortDescription}
+              </p>
+            )}
+
+            {/* Full Body Content */}
+            {project.body && (
+              <div className="prose prose-stone prose-sm max-w-none">
+                <PortableText value={project.body} />
+              </div>
+            )}
+          </aside>
         </div>
-      )}
+      </section>
 
       {/* ── Footer nav ───────────────────────────────────────────── */}
       <div className="max-w-6xl mx-auto px-6 pb-20 flex justify-between items-center border-t border-stone-200 pt-10">
