@@ -84,9 +84,8 @@ export default function GalleryLightbox({ images, title }: GalleryLightboxProps)
                   src={urlFor(image).width(1200).height(1200).url()}
                   alt={image.alt || `${title} - Image ${idx + 1}`}
                   fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-500"
+                  className="object-cover"
                 />
-                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors" />
               </div>
             ))}
           </div>
