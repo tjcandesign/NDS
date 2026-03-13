@@ -193,6 +193,66 @@ export default async function Home() {
         </div>
       </section>
 
+      {/* ── Our Process ──────────────────────────────────────────── */}
+      <section className="py-24 md:py-32 px-6 bg-white">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-20">
+            <p className="text-xs tracking-widest uppercase text-stone-400 mb-4">How We Work</p>
+            <h2 className="font-serif text-3xl md:text-4xl text-stone-900 mb-6">Our Design Process</h2>
+            <p className="text-stone-600 max-w-2xl mx-auto">
+              We believe great interior design comes from a thoughtful, collaborative process that honors your vision while solving real-world challenges.
+            </p>
+          </div>
+
+          {/* Process Steps */}
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-6 md:gap-8">
+            {/* Step 1 */}
+            <div className="text-center">
+              <div className="w-16 h-16 rounded-full bg-navy-blue/10 flex items-center justify-center mx-auto mb-6">
+                <span className="text-2xl font-serif text-navy-blue">01</span>
+              </div>
+              <h3 className="font-serif text-xl text-stone-900 mb-3">Discover</h3>
+              <p className="text-sm text-stone-600 leading-relaxed">
+                We listen deeply to understand your lifestyle, preferences, and the unique character of your space.
+              </p>
+            </div>
+
+            {/* Step 2 */}
+            <div className="text-center">
+              <div className="w-16 h-16 rounded-full bg-navy-blue/10 flex items-center justify-center mx-auto mb-6">
+                <span className="text-2xl font-serif text-navy-blue">02</span>
+              </div>
+              <h3 className="font-serif text-xl text-stone-900 mb-3">Design</h3>
+              <p className="text-sm text-stone-600 leading-relaxed">
+                We develop detailed concepts that balance aesthetics, function, and your budget with precision planning.
+              </p>
+            </div>
+
+            {/* Step 3 */}
+            <div className="text-center">
+              <div className="w-16 h-16 rounded-full bg-navy-blue/10 flex items-center justify-center mx-auto mb-6">
+                <span className="text-2xl font-serif text-navy-blue">03</span>
+              </div>
+              <h3 className="font-serif text-xl text-stone-900 mb-3">Refine</h3>
+              <p className="text-sm text-stone-600 leading-relaxed">
+                We iterate through feedback and options, perfecting every detail until we've captured your vision.
+              </p>
+            </div>
+
+            {/* Step 4 */}
+            <div className="text-center">
+              <div className="w-16 h-16 rounded-full bg-navy-blue/10 flex items-center justify-center mx-auto mb-6">
+                <span className="text-2xl font-serif text-navy-blue">04</span>
+              </div>
+              <h3 className="font-serif text-xl text-stone-900 mb-3">Deliver</h3>
+              <p className="text-sm text-stone-600 leading-relaxed">
+                We oversee implementation, coordinating all details to bring your dream interior to life seamlessly.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* ── CTA ──────────────────────────────────────────────────── */}
       <section className="max-w-6xl mx-auto px-6 py-24 text-center">
         <p className="text-xs tracking-widest uppercase text-stone-400 mb-4">Ready to Begin?</p>
