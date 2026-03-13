@@ -70,19 +70,18 @@ export default function GalleryLightbox({ images, title }: GalleryLightboxProps)
               <div
                 key={idx}
                 className="relative bg-stone-200 overflow-hidden cursor-pointer group"
-                style={{
-                  aspectRatio: '16 / 9',
-                }}
                 onClick={() => {
                   setCurrentIndex(idx)
                   setIsOpen(true)
                 }}
               >
                 <Image
-                  src={urlFor(image).width(1200).height(1200).url()}
+                  src={urlFor(image).width(1400).height(1000).url()}
                   alt={image.alt || `${title} - Image ${idx + 1}`}
-                  fill
-                  className="object-cover"
+                  width={1400}
+                  height={1000}
+                  className="w-full h-auto object-contain"
+                  style={{ aspectRatio: 'auto' }}
                 />
               </div>
             ))}
