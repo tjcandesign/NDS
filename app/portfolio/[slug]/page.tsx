@@ -139,12 +139,13 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
       </section>
 
       {/* ── Footer nav ───────────────────────────────────────────── */}
-      <div className="max-w-6xl mx-auto px-6 pb-20 flex items-center justify-between border-t border-stone-200 pt-10">
+      <div className="max-w-6xl mx-auto px-6 pb-20 flex items-center gap-16 border-t border-stone-200 pt-10">
         <Link href="/" className="flex items-center h-8">
           <img
             src="/nds-logo.svg"
             alt="Niche Design Studio"
             className="h-8 w-auto brightness-0 invert"
+            style={{ transform: 'translateY(3px)' }}
           />
         </Link>
         <div className="flex gap-12">
