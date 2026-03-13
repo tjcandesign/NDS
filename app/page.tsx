@@ -110,7 +110,7 @@ export default async function Home() {
               <Link
                 key={project._id}
                 href={`/portfolio/${project.slug.current}`}
-                className="group relative w-full aspect-video overflow-hidden bg-stone-200 rounded-sm"
+                className="relative w-full aspect-video overflow-hidden bg-stone-200 rounded-sm"
               >
                   {/* Image */}
                   {project.coverImage && (
@@ -131,7 +131,7 @@ export default async function Home() {
                       <p className="text-xs tracking-[0.2em] uppercase text-white/70 mb-2">
                         {project.category}
                       </p>
-                      <h3 className="font-serif text-lg sm:text-2xl text-white leading-tight mb-1 group-hover:text-stone-100 transition-colors line-clamp-2">
+                      <h3 className="font-serif text-lg sm:text-2xl text-white leading-tight mb-1 line-clamp-2">
                         {project.title}
                       </h3>
                       {project.shortDescription && (
@@ -142,8 +142,8 @@ export default async function Home() {
                     </div>
                   </div>
 
-                  {/* Hover indicator */}
-                  <div className="absolute top-4 right-4 sm:top-6 sm:right-6 w-10 h-10 sm:w-12 sm:h-12 border border-white/40 rounded-full flex items-center justify-center group-hover:border-white group-hover:scale-110 transition-all duration-300">
+                  {/* Indicator arrow */}
+                  <div className="absolute top-4 right-4 sm:top-6 sm:right-6 w-10 h-10 sm:w-12 sm:h-12 border border-white/40 rounded-full flex items-center justify-center">
                     <svg
                       width="18"
                       height="18"
@@ -151,13 +151,29 @@ export default async function Home() {
                       fill="none"
                       stroke="currentColor"
                       strokeWidth="1.5"
-                      className="text-white/60 group-hover:text-white transition-colors"
+                      className="text-white/60"
                     >
                       <polyline points="9 18 15 12 9 6" />
                     </svg>
                   </div>
               </Link>
             ))}
+
+            {/* Coming Soon Placeholder */}
+            <div className="relative w-full aspect-video overflow-hidden bg-stone-300 rounded-sm opacity-50">
+              {/* Placeholder background */}
+              <div className="absolute inset-0 bg-gradient-to-br from-stone-400 to-stone-500" />
+
+              {/* Content overlay */}
+              <div className="absolute inset-0 flex flex-col items-center justify-center p-4 sm:p-6">
+                <div className="text-center">
+                  <p className="text-xs tracking-[0.2em] uppercase text-stone-700 mb-4">Coming Soon</p>
+                  <h3 className="font-serif text-lg sm:text-2xl text-stone-800 leading-tight">
+                    Project Finishing Soon
+                  </h3>
+                </div>
+              </div>
+            </div>
           </div>
         </section>
       )}
