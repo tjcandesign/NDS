@@ -193,7 +193,7 @@ export default async function Home() {
             {/* Step 1 */}
             <div className="text-center">
               <div className="w-16 h-16 rounded-full bg-navy-blue/10 flex items-center justify-center mx-auto mb-6">
-                <span className="text-2xl font-serif text-navy-blue">01</span>
+                <span className="text-2xl font-serif text-navy-blue" style={{ transform: 'translateY(-3px)' }}>01</span>
               </div>
               <h3 className="font-serif text-xl text-stone-900 mb-3">Discover</h3>
               <p className="text-sm text-stone-600 leading-relaxed">
@@ -204,7 +204,7 @@ export default async function Home() {
             {/* Step 2 */}
             <div className="text-center">
               <div className="w-16 h-16 rounded-full bg-navy-blue/10 flex items-center justify-center mx-auto mb-6">
-                <span className="text-2xl font-serif text-navy-blue">02</span>
+                <span className="text-2xl font-serif text-navy-blue" style={{ transform: 'translateY(-3px)' }}>02</span>
               </div>
               <h3 className="font-serif text-xl text-stone-900 mb-3">Design</h3>
               <p className="text-sm text-stone-600 leading-relaxed">
@@ -215,7 +215,7 @@ export default async function Home() {
             {/* Step 3 */}
             <div className="text-center">
               <div className="w-16 h-16 rounded-full bg-navy-blue/10 flex items-center justify-center mx-auto mb-6">
-                <span className="text-2xl font-serif text-navy-blue">03</span>
+                <span className="text-2xl font-serif text-navy-blue" style={{ transform: 'translateY(-3px)' }}>03</span>
               </div>
               <h3 className="font-serif text-xl text-stone-900 mb-3">Refine</h3>
               <p className="text-sm text-stone-600 leading-relaxed">
@@ -226,7 +226,7 @@ export default async function Home() {
             {/* Step 4 */}
             <div className="text-center">
               <div className="w-16 h-16 rounded-full bg-navy-blue/10 flex items-center justify-center mx-auto mb-6">
-                <span className="text-2xl font-serif text-navy-blue">04</span>
+                <span className="text-2xl font-serif text-navy-blue" style={{ transform: 'translateY(-3px)' }}>04</span>
               </div>
               <h3 className="font-serif text-xl text-stone-900 mb-3">Deliver</h3>
               <p className="text-sm text-stone-600 leading-relaxed">
@@ -247,7 +247,7 @@ export default async function Home() {
           </p>
           <Link
             href="/contact"
-            className="inline-block px-10 py-3 bg-navy-blue text-stone-50 text-sm tracking-widest uppercase hover:bg-navy-blue-dark transition-colors"
+            className="inline-block px-12 py-4 mt-20 border-2 border-navy-blue text-navy-blue text-sm tracking-widest uppercase rounded-[10px] transition-all duration-300 hover:bg-navy-blue hover:text-stone-50 hover:shadow-2xl"
           >
             Get In Touch
           </Link>
