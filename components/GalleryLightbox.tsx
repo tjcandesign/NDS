@@ -65,15 +65,13 @@ export default function GalleryLightbox({ images, title }: GalleryLightboxProps)
       {/* Gallery Grid */}
       <div className="bg-stone-50">
         <div className="max-w-6xl mx-auto px-2 md:px-6 py-12">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-3">
+          <div className="grid grid-cols-1 gap-2 md:gap-3">
             {images.map((image, idx) => (
               <div
                 key={idx}
-                className={`relative bg-stone-200 overflow-hidden cursor-pointer group ${
-                  idx % 3 === 2 ? 'md:col-span-2' : ''
-                }`}
+                className="relative bg-stone-200 overflow-hidden cursor-pointer group"
                 style={{
-                  aspectRatio: idx % 3 === 2 ? '16 / 9' : '1 / 1',
+                  aspectRatio: '16 / 9',
                 }}
                 onClick={() => {
                   setCurrentIndex(idx)
