@@ -49,7 +49,7 @@ export default async function Portfolio() {
                       alt={project.coverImage.alt || project.title}
                       width={600}
                       height={450}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      className="w-full h-full object-cover"
                     />
                   )}
                 </div>

@@ -2,7 +2,7 @@ import Link from 'next/link'
 
 export default function Footer() {
   return (
-    <footer className="bg-navy-blue-dark text-stone-400 mt-24">
+    <footer className="bg-navy-blue-dark text-stone-400">
       <div className="max-w-6xl mx-auto px-6 py-16 grid grid-cols-1 md:grid-cols-3 gap-10">
         <div>
           <p className="font-serif text-stone-100 text-lg mb-3">Niche Design Studio</p>
