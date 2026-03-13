@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     default: 'Niche Design Studios',
     template: '%s | Niche Design Studios',
   },
-  description: 'Interior architecture and design based in Capitol Hill, Washington DC.',
+  description: 'Interior architecture and design based in Washington, DC.',
 }
 
 export default function RootLayout({

@@ -21,13 +21,13 @@ export default function About() {
       <section className="max-w-6xl mx-auto px-6 pb-24 grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
         <div className="space-y-6 text-stone-600 leading-relaxed">
           <p>
-            Niche Design Studios is an interior architecture practice based on Capitol Hill in Washington, DC.
+            Niche Design Studios is an interior architecture practice based in Washington, DC.
             We work with residential and commercial clients to create spaces that are deeply considered,
             beautifully resolved, and built to last.
           </p>
           <p>
             Our approach begins with listening — to clients, to the existing architecture, and to the
-            neighborhood itself. Capitol Hill carries a distinct character, and we believe great interiors
+            neighborhood itself. Washington carries a distinct character, and we believe great interiors
             should honor that context while serving the people who live and work within them.
           </p>
           <p>

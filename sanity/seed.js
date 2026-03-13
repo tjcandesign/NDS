@@ -16,7 +16,7 @@ const pages = [
     _type: 'page',
     title: 'Spaces That Tell Your Story',
     slug: { current: 'home' },
-    heroSubtitle: 'Interior Architecture · Capitol Hill, DC',
+    heroSubtitle: 'Interior Architecture · Washington, DC',
     heroDescription: 'We craft interiors that balance beauty, function, and the spirit of the people who inhabit them.',
     philosophyQuote: '"Good design isn\'t decorating space — it\'s revealing it."',
   },
