@@ -81,16 +81,16 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
 
       {/* ── Gallery & Sidebar layout ──────────────────────────────── */}
       <section className="pb-16">
-        <div className="grid grid-cols-1 md:grid-cols-5 gap-3 md:gap-16 md:px-6 md:items-start">
-          {/* Left: Gallery - 4 columns wide on desktop (80%) */}
+        <div className="grid grid-cols-1 md:grid-cols-6 gap-3 md:gap-16 md:px-6 md:items-start">
+          {/* Left: Gallery - wider on desktop */}
           {images.length > 0 && (
-            <div className="md:col-span-4 px-3 md:px-0">
+            <div className="md:col-span-5 px-3 md:px-0">
               <GalleryLightbox images={images} title={project.title} />
             </div>
           )}
 
           {/* Right: Sidebar */}
-          <aside className="px-3 md:px-0 md:sticky md:top-12 md:mt-12">
+          <aside className="px-3 md:px-0 md:sticky md:top-12 md:mt-12 md:col-span-1">
             {/* Project Metadata - vertical stack */}
             <div className="mb-12 space-y-6">
               {project.completionYear && (
