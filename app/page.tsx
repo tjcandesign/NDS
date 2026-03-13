@@ -179,9 +179,9 @@ export default async function Home() {
       )}
 
       {/* ── Philosophy quote centered ─────────────────────────────── */}
-      <section className="flex flex-col items-center justify-center py-24 md:py-32 px-6 bg-stone-900">
+      <section className="flex flex-col items-center justify-center py-24 md:py-32 px-6 bg-navy-blue">
         <div className="max-w-3xl text-center">
-          <p className="font-serif text-3xl md:text-5xl italic leading-relaxed text-stone-200 mb-12">
+          <p className="font-serif text-3xl md:text-5xl leading-relaxed text-stone-50 mb-12">
             {homePage?.philosophyQuote || '"Good design isn\'t decorating space — it\'s revealing it."'}
           </p>
           <Link
