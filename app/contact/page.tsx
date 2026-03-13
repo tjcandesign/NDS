@@ -44,23 +44,30 @@ function Page() {
         </p>
       </section>
 
-      <section className="max-w-4xl mx-auto px-6 pb-24">
-        {/* Contact info strip */}
-        <div className="flex flex-wrap gap-x-10 gap-y-3 mb-12 text-sm text-stone-600 border-t border-b border-stone-200 py-5">
-          <span>Washington, DC</span>
-          <a href="mailto:hello@nichedesignstudios.com" className="hover:text-stone-900 transition-colors">
-            hello@nichedesignstudios.com
-          </a>
-          <span>Mon – Fri, 9am – 6pm EST</span>
-        </div>
+      <section className="relative py-24 px-6" style={{ backgroundColor: 'var(--color-navy-blue, #3d4d63)' }}>
+        {/* Subtle grid background */}
+        <div className="absolute inset-0 opacity-5" style={{
+          backgroundImage: 'linear-gradient(0deg, transparent 24%, rgba(148, 163, 184, .05) 25%, rgba(148, 163, 184, .05) 26%, transparent 27%, transparent 74%, rgba(148, 163, 184, .05) 75%, rgba(148, 163, 184, .05) 76%, transparent 77%, transparent), linear-gradient(90deg, transparent 24%, rgba(148, 163, 184, .05) 25%, rgba(148, 163, 184, .05) 26%, transparent 27%, transparent 74%, rgba(148, 163, 184, .05) 75%, rgba(148, 163, 184, .05) 76%, transparent 77%, transparent)',
+          backgroundSize: '50px 50px'
+        }} />
 
-        {!submitted ? (
-          <form onSubmit={handleFirstSubmit} className="space-y-12">
-            {/* ── Section 1: About You ─────────────────────────────── */}
-            <fieldset className="space-y-6">
-              <legend className="text-xs tracking-[0.3em] uppercase text-stone-500 border-b border-stone-200 pb-3 w-full mb-8 font-semibold">
-                About You
-              </legend>
+        <div className="relative max-w-4xl mx-auto">
+          {/* Contact info strip */}
+          <div className="flex flex-wrap gap-x-10 gap-y-3 mb-16 text-sm text-stone-300 border-t border-b border-stone-600 py-5">
+            <span>Washington, DC</span>
+            <a href="mailto:hello@nichedesignstudios.com" className="hover:text-stone-50 transition-colors">
+              hello@nichedesignstudios.com
+            </a>
+            <span>Mon – Fri, 9am – 6pm EST</span>
+          </div>
+
+          {!submitted ? (
+            <form onSubmit={handleFirstSubmit} className="space-y-8">
+              {/* ── Section 1: About You ─────────────────────────────── */}
+              <fieldset className="bg-stone-50 rounded-lg p-8 shadow-lg space-y-6">
+                <legend className="text-xs tracking-[0.3em] uppercase text-stone-700 pb-3 w-full mb-8 font-semibold border-b-2 border-navy-blue">
+                  About You
+                </legend>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               <div>
@@ -98,11 +105,11 @@ function Page() {
             </div>
           </fieldset>
 
-          {/* ── Section 2: The Project ────────────────────────────── */}
-          <fieldset className="space-y-6">
-            <legend className="text-xs tracking-[0.3em] uppercase text-stone-400 border-b border-stone-200 pb-2 w-full mb-6">
-              The Project
-            </legend>
+              {/* ── Section 2: The Project ────────────────────────────── */}
+              <fieldset className="bg-stone-50 rounded-lg p-8 shadow-lg space-y-6">
+                <legend className="text-xs tracking-[0.3em] uppercase text-stone-700 pb-3 w-full mb-8 font-semibold border-b-2 border-navy-blue">
+                  The Project
+                </legend>
 
             <div>
               <label htmlFor="address" className={labelClass}>
@@ -213,45 +220,45 @@ function Page() {
                 ))}
               </select>
             </div>
-            </fieldset>
+              </fieldset>
 
-            {/* ── Section 3: Your Vision (Hidden, for initial submit) ─────────────────────────────── */}
-            {/* This section appears after submission */}
+              {/* ── Submit Button ─────────────────────────────── */}
+              <div className="pt-8">
+                <button
+                  type="submit"
+                  className="w-full py-4 bg-stone-50 text-navy-blue text-sm tracking-widest uppercase hover:bg-stone-100 transition-colors font-medium rounded-lg shadow-lg"
+                >
+                  Submit Inquiry
+                </button>
 
-            <button
-              type="submit"
-              className="w-full py-4 bg-navy-blue text-stone-50 text-sm tracking-widest uppercase hover:bg-navy-blue-dark transition-colors font-medium"
-            >
-              Submit Inquiry
-            </button>
+                <p className="text-xs text-stone-300 text-center mt-6">
+                  Fields marked <span className="text-stone-50 font-medium">*</span> are required.
+                  We'll respond within 2–3 business days.
+                </p>
+              </div>
+            </form>
+          ) : (
+            /* Thank you screen with optional additional questions */
+            <div className="max-w-2xl">
+              <div className="bg-stone-50 rounded-lg p-8 mb-12 shadow-lg">
+                <h2 className="font-serif text-2xl text-stone-900 mb-3">Thank You!</h2>
+                <p className="text-stone-700 leading-relaxed mb-4">
+                  We've received your project inquiry and will review it carefully. We'll be in touch within 2–3 business days.
+                </p>
+                <p className="text-stone-700 leading-relaxed">
+                  In the meantime, would you like to answer a few additional questions to help us better understand your vision?
+                </p>
+              </div>
 
-            <p className="text-xs text-stone-500 text-center">
-              Fields marked <span className="text-stone-700 font-medium">*</span> are required.
-              We'll respond within 2–3 business days.
-            </p>
-          </form>
-        ) : (
-          /* Thank you screen with optional additional questions */
-          <div className="max-w-2xl">
-            <div className="bg-stone-50 border border-stone-200 rounded-sm p-8 mb-12">
-              <h2 className="font-serif text-2xl text-stone-900 mb-3">Thank You!</h2>
-              <p className="text-stone-700 leading-relaxed mb-4">
-                We've received your project inquiry and will review it carefully. We'll be in touch within 2–3 business days.
-              </p>
-              <p className="text-stone-700 leading-relaxed">
-                In the meantime, would you like to answer a few additional questions to help us better understand your vision?
-              </p>
-            </div>
+              <form action="https://formspree.io/f/placeholder" method="POST" className="space-y-8">
+                {/* Hidden - submit first form data */}
+                <input type="hidden" name="_next" value={typeof window !== 'undefined' ? window.location.href : ''} />
 
-            <form action="https://formspree.io/f/placeholder" method="POST" className="space-y-12">
-              {/* Hidden - submit first form data */}
-              <input type="hidden" name="_next" value={typeof window !== 'undefined' ? window.location.href : ''} />
-
-              {/* ── Additional Vision Questions ─────────────────────────────── */}
-              <fieldset className="space-y-6">
-                <legend className="text-xs tracking-[0.3em] uppercase text-stone-500 border-b border-stone-200 pb-3 w-full mb-8 font-semibold">
-                  Your Vision (Optional)
-                </legend>
+                {/* ── Additional Vision Questions ─────────────────────────────── */}
+                <fieldset className="bg-stone-50 rounded-lg p-8 shadow-lg space-y-6">
+                  <legend className="text-xs tracking-[0.3em] uppercase text-stone-700 pb-3 w-full mb-8 font-semibold border-b-2 border-navy-blue">
+                    Your Vision (Optional)
+                  </legend>
 
             <div>
               <label htmlFor="vision" className={labelClass}>
@@ -343,22 +350,25 @@ function Page() {
                   rows={3}
                   className={`${inputClass} resize-none`}
                 />
-              </div>
-              </fieldset>
+                </div>
+                </fieldset>
 
-              <button
-                type="submit"
-                className="w-full py-4 bg-navy-blue text-stone-50 text-sm tracking-widest uppercase hover:bg-navy-blue-dark transition-colors font-medium"
-              >
-                Submit Additional Information
-              </button>
+                <div className="pt-8">
+                  <button
+                    type="submit"
+                    className="w-full py-4 bg-stone-50 text-navy-blue text-sm tracking-widest uppercase hover:bg-stone-100 transition-colors font-medium rounded-lg shadow-lg"
+                  >
+                    Submit Additional Information
+                  </button>
 
-              <p className="text-xs text-stone-500 text-center">
-                Thank you for providing more details. We'll use this to better serve your project!
-              </p>
-            </form>
-          </div>
-        )}
+                  <p className="text-xs text-stone-300 text-center mt-6">
+                    Thank you for providing more details. We'll use this to better serve your project!
+                  </p>
+                </div>
+              </form>
+            </div>
+          )}
+        </div>
       </section>
     </>
   )
