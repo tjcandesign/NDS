@@ -139,19 +139,28 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
       </section>
 
       {/* ── Footer nav ───────────────────────────────────────────── */}
-      <div className="max-w-6xl mx-auto px-6 pb-20 flex justify-between items-center border-t border-stone-200 pt-10">
-        <Link
-          href="/portfolio"
-          className="text-xs tracking-widest uppercase text-stone-400 hover:text-stone-900 transition-colors"
-        >
-          ← All Projects
+      <div className="max-w-6xl mx-auto px-6 pb-20 flex items-center justify-between border-t border-stone-200 pt-10">
+        <Link href="/" className="flex items-center h-8">
+          <img
+            src="/nds-logo.svg"
+            alt="Niche Design Studio"
+            className="h-8 w-auto brightness-0 invert"
+          />
         </Link>
-        <Link
-          href="/contact"
-          className="text-xs tracking-widest uppercase text-stone-400 hover:text-stone-900 transition-colors"
-        >
-          Start a Project →
-        </Link>
+        <div className="flex gap-12">
+          <Link
+            href="/portfolio"
+            className="text-xs tracking-widest uppercase text-stone-400 hover:text-stone-900 transition-colors"
+          >
+            ← All Projects
+          </Link>
+          <Link
+            href="/contact"
+            className="text-xs tracking-widest uppercase text-stone-400 hover:text-stone-900 transition-colors"
+          >
+            Start a Project →
+          </Link>
+        </div>
       </div>
     </>
   )
