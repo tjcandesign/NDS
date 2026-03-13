@@ -59,7 +59,7 @@ export default function Nav() {
 
   return (
     <header
-      className="fixed top-0 left-0 right-0 z-50 bg-stone-50/90 backdrop-blur-sm border-b border-stone-200 transition-transform duration-300 ease-out"
+      className="fixed top-0 left-0 right-0 z-50 bg-stone-50/90 backdrop-blur-sm border-b border-stone-200 transition-transform duration-500 ease-in-out"
       style={{
         transform: shouldShow ? 'translateY(0)' : 'translateY(-100%)',
       }}
