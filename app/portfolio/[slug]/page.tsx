@@ -81,7 +81,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
 
       {/* ── Gallery & Sidebar layout ──────────────────────────────── */}
       <section className="pb-16">
-        <div className="grid grid-cols-1 md:grid-cols-5 gap-3 md:gap-16 md:max-w-7xl 2xl:max-w-8xl md:mx-auto md:px-6 md:items-start">
+        <div className="grid grid-cols-1 md:grid-cols-5 gap-3 md:gap-16 md:px-6 md:items-start">
           {/* Left: Gallery - 4 columns wide on desktop (80%) */}
           {images.length > 0 && (
             <div className="md:col-span-4 px-3 md:px-0">
@@ -90,7 +90,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
           )}
 
           {/* Right: Sidebar */}
-          <aside className="px-3 md:px-0 md:sticky md:top-12">
+          <aside className="px-3 md:px-0 md:sticky md:top-12 md:mt-6">
             {/* Project Metadata - vertical stack */}
             <div className="mb-12 space-y-6">
               {project.completionYear && (

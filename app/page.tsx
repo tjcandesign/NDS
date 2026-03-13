@@ -238,18 +238,20 @@ export default async function Home() {
       </section>
 
       {/* ── CTA ──────────────────────────────────────────────────── */}
-      <section className="max-w-6xl mx-auto px-6 py-24 text-center" style={{ backgroundColor: '#FFF9EE' }}>
-        <p className="text-xs tracking-widest uppercase text-stone-400 mb-4">Ready to Begin?</p>
-        <h2 className="font-serif text-3xl md:text-4xl mb-6">Let's Design Something Together</h2>
-        <p className="text-stone-500 max-w-md mx-auto mb-8">
-          Whether it's a full renovation or a single room, we'd love to hear about your project.
-        </p>
-        <Link
-          href="/contact"
-          className="inline-block px-10 py-3 bg-navy-blue text-stone-50 text-sm tracking-widest uppercase hover:bg-navy-blue-dark transition-colors"
-        >
-          Get In Touch
-        </Link>
+      <section style={{ backgroundColor: '#FFF9EE' }}>
+        <div className="max-w-6xl mx-auto px-6 py-24 text-center">
+          <p className="text-xs tracking-widest uppercase text-stone-400 mb-4">Ready to Begin?</p>
+          <h2 className="font-serif text-3xl md:text-4xl mb-6">Let's Design Something Together</h2>
+          <p className="text-stone-500 max-w-md mx-auto mb-8">
+            Whether it's a full renovation or a single room, we'd love to hear about your project.
+          </p>
+          <Link
+            href="/contact"
+            className="inline-block px-10 py-3 bg-navy-blue text-stone-50 text-sm tracking-widest uppercase hover:bg-navy-blue-dark transition-colors"
+          >
+            Get In Touch
+          </Link>
+        </div>
       </section>
     </>
   )
