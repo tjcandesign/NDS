@@ -81,7 +81,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
 
       {/* ── Gallery & Sidebar layout ──────────────────────────────── */}
       <section className="pb-16">
-        <div className="grid grid-cols-1 md:grid-cols-6 gap-3 md:gap-16 md:px-6 md:items-start">
+        <div className="grid grid-cols-1 md:grid-cols-6 gap-3 md:gap-16 md:px-6 md:items-start max-w-9xl mx-auto">
           {/* Left: Gallery - wider on desktop */}
           {images.length > 0 && (
             <div className="md:col-span-5 px-3 md:px-0">
