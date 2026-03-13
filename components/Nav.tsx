@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 const links = [
   { href: '/about', label: 'About' },
@@ -13,9 +13,59 @@ const links = [
 export default function Nav() {
   const pathname = usePathname()
   const [open, setOpen] = useState(false)
+  const [isVisible, setIsVisible] = useState(true)
+  const [lastScrollY, setLastScrollY] = useState(0)
+  const [isHovering, setIsHovering] = useState(false)
+
+  useEffect(() => {
+    let ticking = false
+
+    const handleScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const currentScrollY = window.scrollY
+
+          // Show nav if scrolling up or near the top
+          if (currentScrollY < lastScrollY || currentScrollY < 50) {
+            setIsVisible(true)
+          }
+          // Hide nav if scrolling down and past the top
+          else if (currentScrollY > lastScrollY && currentScrollY > 50) {
+            setIsVisible(false)
+          }
+
+          setLastScrollY(currentScrollY)
+          ticking = false
+        })
+        ticking = true
+      }
+    }
+
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [lastScrollY])
+
+  // Show nav on hover
+  const handleMouseEnter = () => {
+    setIsHovering(true)
+    setIsVisible(true)
+  }
+
+  const handleMouseLeave = () => {
+    setIsHovering(false)
+  }
+
+  const shouldShow = isVisible || isHovering
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-stone-50/90 backdrop-blur-sm border-b border-stone-200">
+    <header
+      className="fixed top-0 left-0 right-0 z-50 bg-stone-50/90 backdrop-blur-sm border-b border-stone-200 transition-transform duration-300 ease-out"
+      style={{
+        transform: shouldShow ? 'translateY(0)' : 'translateY(-100%)',
+      }}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+    >
       <div className="max-w-6xl mx-auto px-6 h-14 flex items-center justify-between">
         <Link href="/" className="flex items-center h-full">
           <img
