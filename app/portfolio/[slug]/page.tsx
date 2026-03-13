@@ -90,7 +90,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
           )}
 
           {/* Right: Sidebar */}
-          <aside className="px-3 md:px-0">
+          <aside className="px-3 md:px-0 md:mt-12">
             {/* Project Metadata - vertical stack */}
             <div className="mb-12 space-y-6">
               {project.completionYear && (
