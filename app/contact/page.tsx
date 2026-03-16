@@ -52,23 +52,15 @@ function Page() {
         }} />
 
         <div className="relative max-w-4xl mx-auto">
-          {/* Contact info strip */}
-          <div className="flex flex-wrap gap-x-10 gap-y-3 mb-16 text-sm text-stone-300 border-t border-b border-stone-600 py-5">
-            <span>Washington, DC</span>
-            <a href="mailto:hello@nichedesignstudios.com" className="hover:text-stone-50 transition-colors">
-              hello@nichedesignstudios.com
-            </a>
-            <span>Mon – Fri, 9am – 6pm EST</span>
-          </div>
-
           {!submitted ? (
             <form onSubmit={handleFirstSubmit} className="space-y-8">
               {/* ── Section 1: About You ─────────────────────────────── */}
-              <fieldset className="bg-stone-50 rounded-lg p-8 shadow-lg space-y-6">
-                <legend className="text-xs tracking-[0.3em] uppercase text-stone-700 pb-3 w-full mb-8 font-semibold border-b-2 border-navy-blue">
+              <fieldset className="bg-stone-50 rounded-lg shadow-lg space-y-6">
+                <legend className="text-xs tracking-[0.3em] uppercase text-stone-700 px-8 pt-8 pb-3 w-full mb-8 font-semibold border-b-2 border-navy-blue mx-8">
                   About You
                 </legend>
 
+                <div className="px-8 pb-8 space-y-6">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               <div>
                 <label htmlFor="name" className={labelClass}>
@@ -103,14 +95,16 @@ function Page() {
                 className={`${inputClass} resize-none`}
               />
             </div>
+                </div>
           </fieldset>
 
               {/* ── Section 2: The Project ────────────────────────────── */}
-              <fieldset className="bg-stone-50 rounded-lg p-8 shadow-lg space-y-6">
-                <legend className="text-xs tracking-[0.3em] uppercase text-stone-700 pb-3 w-full mb-8 font-semibold border-b-2 border-navy-blue">
+              <fieldset className="bg-stone-50 rounded-lg shadow-lg space-y-6">
+                <legend className="text-xs tracking-[0.3em] uppercase text-stone-700 px-8 pt-8 pb-3 w-full mb-8 font-semibold border-b-2 border-navy-blue mx-8">
                   The Project
                 </legend>
 
+                <div className="px-8 pb-8 space-y-6">
             <div>
               <label htmlFor="address" className={labelClass}>
                 Project Address <span className="text-stone-900">*</span>
@@ -220,6 +214,7 @@ function Page() {
                 ))}
               </select>
             </div>
+                </div>
               </fieldset>
 
               {/* ── Submit Button ─────────────────────────────── */}
@@ -255,11 +250,12 @@ function Page() {
                 <input type="hidden" name="_next" value={typeof window !== 'undefined' ? window.location.href : ''} />
 
                 {/* ── Additional Vision Questions ─────────────────────────────── */}
-                <fieldset className="bg-stone-50 rounded-lg p-8 shadow-lg space-y-6">
-                  <legend className="text-xs tracking-[0.3em] uppercase text-stone-700 pb-3 w-full mb-8 font-semibold border-b-2 border-navy-blue">
+                <fieldset className="bg-stone-50 rounded-lg shadow-lg space-y-6">
+                  <legend className="text-xs tracking-[0.3em] uppercase text-stone-700 px-8 pt-8 pb-3 w-full mb-8 font-semibold border-b-2 border-navy-blue mx-8">
                     Your Vision (Optional)
                   </legend>
 
+                  <div className="px-8 pb-8 space-y-6">
             <div>
               <label htmlFor="vision" className={labelClass}>
                 Vision Statement <span className="text-stone-900">*</span>
@@ -339,18 +335,7 @@ function Page() {
                 className={`${inputClass} resize-none`}
               />
               </div>
-
-              <div>
-                <label htmlFor="comments" className={labelClass}>
-                  Additional Comments{optionalBadge}
-                </label>
-                <textarea
-                  id="comments"
-                  name="comments"
-                  rows={3}
-                  className={`${inputClass} resize-none`}
-                />
-                </div>
+                  </div>
                 </fieldset>
 
                 <div className="pt-8">
