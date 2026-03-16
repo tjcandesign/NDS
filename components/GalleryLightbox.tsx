@@ -76,11 +76,11 @@ export default function GalleryLightbox({ images, title }: GalleryLightboxProps)
                 }}
               >
                 <Image
-                  src={urlFor(image).width(1400).height(1000).url()}
+                  src={urlFor(image).width(1400).url()}
                   alt={image.alt || `${title} - Image ${idx + 1}`}
                   width={1400}
-                  height={1000}
-                  className="w-full h-auto object-contain"
+                  height={0}
+                  className="w-full h-auto"
                   style={{ aspectRatio: 'auto' }}
                 />
               </div>
@@ -115,10 +115,10 @@ export default function GalleryLightbox({ images, title }: GalleryLightboxProps)
             onClick={(e) => e.stopPropagation()}
           >
             <Image
-              src={urlFor(images[currentIndex]).width(1920).height(1440).url()}
+              src={urlFor(images[currentIndex]).width(1920).url()}
               alt={images[currentIndex].alt || `${title} - Image ${currentIndex + 1}`}
               fill
-              className="object-contain"
+              className="object-contain w-full h-full"
               priority
             />
           </div>
