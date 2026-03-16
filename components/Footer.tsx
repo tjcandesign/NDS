@@ -1,10 +1,14 @@
 import Link from 'next/link'
+import Image from 'next/image'
 
 export default function Footer() {
   return (
     <footer className="bg-navy-blue-dark text-stone-400">
       <div className="max-w-6xl mx-auto px-6 py-16 grid grid-cols-1 md:grid-cols-3 gap-10">
         <div>
+          <div className="mb-6 w-20">
+            <Image src="/nds-logo.svg" alt="NDS Logo" width={121} height={81} />
+          </div>
           <p className="font-serif text-stone-100 text-lg mb-3">Niche Design Studio</p>
           <p className="text-sm leading-relaxed">
             Interior architecture for spaces that reflect who you are.
