@@ -51,7 +51,7 @@ function Page() {
             <form onSubmit={handleFirstSubmit} className="space-y-8">
               {/* ── Section 1: About You ─────────────────────────────── */}
               <fieldset className="bg-stone-50 rounded-lg shadow-lg space-y-6">
-                <legend className="text-xs tracking-[0.3em] uppercase text-stone-700 px-8 pt-8 pb-3 w-full mb-8 font-semibold border-b-2 border-navy-blue mx-8">
+                <legend className="text-xs tracking-[0.3em] uppercase text-stone-700 px-8 pt-8 pb-3 mb-8 font-semibold border-b-2 border-navy-blue">
                   About You
                 </legend>
 
@@ -95,7 +95,7 @@ function Page() {
 
               {/* ── Section 2: The Project ────────────────────────────── */}
               <fieldset className="bg-stone-50 rounded-lg shadow-lg space-y-6">
-                <legend className="text-xs tracking-[0.3em] uppercase text-stone-700 px-8 pt-8 pb-3 w-full mb-8 font-semibold border-b-2 border-navy-blue mx-8">
+                <legend className="text-xs tracking-[0.3em] uppercase text-stone-700 px-8 pt-8 pb-3 mb-8 font-semibold border-b-2 border-navy-blue">
                   The Project
                 </legend>
 
@@ -246,7 +246,7 @@ function Page() {
 
                 {/* ── Additional Vision Questions ─────────────────────────────── */}
                 <fieldset className="bg-stone-50 rounded-lg shadow-lg space-y-6">
-                  <legend className="text-xs tracking-[0.3em] uppercase text-stone-700 px-8 pt-8 pb-3 w-full mb-8 font-semibold border-b-2 border-navy-blue mx-8">
+                  <legend className="text-xs tracking-[0.3em] uppercase text-stone-700 px-8 pt-8 pb-3 mb-8 font-semibold border-b-2 border-navy-blue">
                     Your Vision (Optional)
                   </legend>
 
