@@ -44,12 +44,7 @@ function Page() {
         </p>
       </section>
 
-      <section className="relative py-24 px-6" style={{ backgroundColor: 'var(--color-navy-blue, #3d4d63)' }}>
-        {/* Subtle grid background */}
-        <div className="absolute inset-0 opacity-5" style={{
-          backgroundImage: 'linear-gradient(0deg, transparent 24%, rgba(148, 163, 184, .05) 25%, rgba(148, 163, 184, .05) 26%, transparent 27%, transparent 74%, rgba(148, 163, 184, .05) 75%, rgba(148, 163, 184, .05) 76%, transparent 77%, transparent), linear-gradient(90deg, transparent 24%, rgba(148, 163, 184, .05) 25%, rgba(148, 163, 184, .05) 26%, transparent 27%, transparent 74%, rgba(148, 163, 184, .05) 75%, rgba(148, 163, 184, .05) 76%, transparent 77%, transparent)',
-          backgroundSize: '50px 50px'
-        }} />
+      <section className="relative py-24 px-6">
 
         <div className="relative max-w-4xl mx-auto">
           {!submitted ? (
