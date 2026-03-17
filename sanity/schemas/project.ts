@@ -116,6 +116,13 @@ export default defineType({
       type: 'number',
       description: 'Lower numbers appear first.',
     }),
+    defineField({
+      name: 'published',
+      title: 'Publish Project',
+      type: 'boolean',
+      initialValue: false,
+      description: 'When unchecked, project only appears in preview mode. Check to make it live.',
+    }),
   ],
   orderings: [
     {

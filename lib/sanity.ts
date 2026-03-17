@@ -1,5 +1,6 @@
 import { client } from '@/sanity/lib/client'
-import { SETTINGS_QUERY, PAGE_QUERY, ALL_PROJECTS_QUERY, PROJECT_QUERY, FEATURED_PROJECTS_QUERY } from '@/sanity/lib/queries'
+import { SETTINGS_QUERY, PAGE_QUERY, ALL_PROJECTS_QUERY, ALL_PROJECTS_PREVIEW_QUERY, PROJECT_QUERY, PROJECT_PREVIEW_QUERY, FEATURED_PROJECTS_QUERY } from '@/sanity/lib/queries'
+import { draftMode } from 'next/headers'
 
 // Type definitions
 export interface NavigationLink {
@@ -145,10 +146,13 @@ export async function getPage(slug: string): Promise<Page | null> {
 
 /**
  * Fetch all projects for portfolio grid
+ * Includes draft projects when in preview mode
  */
 export async function getAllProjects(): Promise<Project[]> {
   try {
-    const projects = await client.fetch(ALL_PROJECTS_QUERY)
+    const draft = await draftMode()
+    const query = draft.isEnabled ? ALL_PROJECTS_PREVIEW_QUERY : ALL_PROJECTS_QUERY
+    const projects = await client.fetch(query)
     return projects || []
   } catch (error) {
     console.error('Error fetching projects:', error)
@@ -158,10 +162,13 @@ export async function getAllProjects(): Promise<Project[]> {
 
 /**
  * Fetch a single project by slug
+ * Includes draft projects when in preview mode
  */
 export async function getProject(slug: string): Promise<Project | null> {
   try {
-    const project = await client.fetch(PROJECT_QUERY, { slug })
+    const draft = await draftMode()
+    const query = draft.isEnabled ? PROJECT_PREVIEW_QUERY : PROJECT_QUERY
+    const project = await client.fetch(query, { slug })
     return project || null
   } catch (error) {
     console.error(`Error fetching project "${slug}":`, error)

@@ -43,8 +43,24 @@ export const PAGE_QUERY = `
   }
 `
 
-// All projects for portfolio page
+// All projects for portfolio page (only published)
 export const ALL_PROJECTS_QUERY = `
+  *[_type == "project" && published == true] | order(order asc, completionYear desc) {
+    _id,
+    title,
+    slug,
+    category,
+    location,
+    completionYear,
+    shortDescription,
+    "coverImage": coverImage.asset->url,
+    featured,
+    published,
+  }
+`
+
+// All projects including drafts (for preview mode)
+export const ALL_PROJECTS_PREVIEW_QUERY = `
   *[_type == "project"] | order(order asc, completionYear desc) {
     _id,
     title,
@@ -55,11 +71,36 @@ export const ALL_PROJECTS_QUERY = `
     shortDescription,
     "coverImage": coverImage.asset->url,
     featured,
+    published,
   }
 `
 
-// Single project query
+// Single project query (only if published)
 export const PROJECT_QUERY = `
+  *[_type == "project" && slug.current == $slug && published == true][0] {
+    _id,
+    title,
+    slug,
+    category,
+    location,
+    completionYear,
+    projectSize,
+    scope,
+    shortDescription,
+    "coverImage": coverImage.asset->url,
+    images[] {
+      "asset": asset->url,
+      alt,
+      caption,
+    },
+    body,
+    featured,
+    published,
+  }
+`
+
+// Single project query (including drafts for preview)
+export const PROJECT_PREVIEW_QUERY = `
   *[_type == "project" && slug.current == $slug][0] {
     _id,
     title,
@@ -78,12 +119,13 @@ export const PROJECT_QUERY = `
     },
     body,
     featured,
+    published,
   }
 `
 
 // Featured projects for homepage
 export const FEATURED_PROJECTS_QUERY = `
-  *[_type == "project" && featured == true] | order(order asc) {
+  *[_type == "project" && featured == true && published == true] | order(order asc) {
     _id,
     title,
     slug,
@@ -94,5 +136,6 @@ export const FEATURED_PROJECTS_QUERY = `
       "asset": asset->url,
       alt,
     },
+    published,
   }
 `
