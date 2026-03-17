@@ -33,6 +33,13 @@ export const PAGE_QUERY = `
     philosophyQuote,
     body,
     seoDescription,
+    introParagraphs,
+    philosophyTitle,
+    philosophyParagraphs,
+    services[] {
+      title,
+      description,
+    },
   }
 `
 

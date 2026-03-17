@@ -73,6 +73,71 @@ export default defineType({
       type: 'text',
       rows: 2,
     }),
+    defineField({
+      name: 'introParagraphs',
+      title: 'Intro Paragraphs (About Page)',
+      type: 'array',
+      of: [
+        defineField({
+          name: 'paragraph',
+          title: 'Paragraph',
+          type: 'text',
+          rows: 4,
+        }),
+      ],
+      description: 'Left column content on About page',
+    }),
+    defineField({
+      name: 'philosophyTitle',
+      title: 'Philosophy Section Title',
+      type: 'string',
+      description: 'e.g., "Our Philosophy"',
+    }),
+    defineField({
+      name: 'philosophyParagraphs',
+      title: 'Philosophy Paragraphs',
+      type: 'array',
+      of: [
+        defineField({
+          name: 'paragraph',
+          title: 'Paragraph',
+          type: 'text',
+          rows: 4,
+        }),
+      ],
+      description: 'Right column content on About page',
+    }),
+    defineField({
+      name: 'services',
+      title: 'Services',
+      type: 'array',
+      of: [
+        defineField({
+          name: 'service',
+          title: 'Service',
+          type: 'object',
+          fields: [
+            defineField({
+              name: 'title',
+              title: 'Service Title',
+              type: 'string',
+              validation: (Rule) => Rule.required(),
+            }),
+            defineField({
+              name: 'description',
+              title: 'Service Description',
+              type: 'text',
+              rows: 3,
+              validation: (Rule) => Rule.required(),
+            }),
+          ],
+          preview: {
+            select: { title: 'title', subtitle: 'description' },
+          },
+        }),
+      ],
+      description: 'Services listed in "What We Do" section',
+    }),
   ],
   preview: {
     select: { title: 'title', subtitle: 'slug.current' },

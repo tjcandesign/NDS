@@ -27,6 +27,11 @@ export interface SiteSettings {
   processSteps: ProcessStep[]
 }
 
+export interface Service {
+  title: string
+  description: string
+}
+
 export interface Page {
   _id: string
   title: string
@@ -36,6 +41,10 @@ export interface Page {
   philosophyQuote: string
   body: any
   seoDescription: string
+  introParagraphs?: string[]
+  philosophyTitle?: string
+  philosophyParagraphs?: string[]
+  services?: Service[]
 }
 
 export interface Project {
