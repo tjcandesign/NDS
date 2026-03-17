@@ -1,12 +1,13 @@
-'use client'
-
 import Nav from '@/components/Nav'
 import Footer from '@/components/Footer'
+import { getSettings } from '@/lib/sanity'
 
-export function LayoutContent({ children }: { children: React.ReactNode }) {
+export async function LayoutContent({ children }: { children: React.ReactNode }) {
+  const settings = await getSettings()
+
   return (
     <>
-      <Nav />
+      <Nav links={settings.navigationLinks} />
       {children}
       <Footer />
     </>

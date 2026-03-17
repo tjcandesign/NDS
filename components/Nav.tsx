@@ -3,14 +3,13 @@
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useState, useEffect } from 'react'
+import type { NavigationLink } from '@/lib/sanity'
 
-const links = [
-  { href: '/about', label: 'About' },
-  { href: '/portfolio', label: 'Portfolio' },
-  { href: '/contact', label: 'Project Inquiry' },
-]
+interface NavProps {
+  links: NavigationLink[]
+}
 
-export default function Nav() {
+export default function Nav({ links }: NavProps) {
   const pathname = usePathname()
   const [open, setOpen] = useState(false)
   const [isVisible, setIsVisible] = useState(true)

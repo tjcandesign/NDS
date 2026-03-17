@@ -3,6 +3,7 @@ import { client } from '@/sanity/lib/client'
 import { urlFor } from '@/sanity/lib/image'
 import Image from 'next/image'
 import { PortableText } from 'next-sanity'
+import { getSettings } from '@/lib/sanity'
 
 async function getProjects() {
   try {
@@ -36,6 +37,7 @@ async function getHomePage() {
 export default async function Home() {
   const projects = await getProjects()
   const homePage = await getHomePage()
+  const settings = await getSettings()
   const heroProject = projects[0] // Use first project's cover for hero
   const featuredProjects = projects.slice(0, 6) // First 6 for featured section
 
@@ -188,51 +190,21 @@ export default async function Home() {
             </p>
           </div>
 
-          {/* Process Steps */}
+          {/* Process Steps from Sanity */}
           <div className="grid grid-cols-1 md:grid-cols-4 gap-6 md:gap-8">
-            {/* Step 1 */}
-            <div className="text-center">
-              <div className="w-16 h-16 rounded-full bg-navy-blue/10 flex items-center justify-center mx-auto mb-6">
-                <span className="text-2xl font-serif text-navy-blue" style={{ transform: 'translateY(-3px)' }}>01</span>
+            {settings.processSteps.map((step, index) => (
+              <div key={step.id} className="text-center">
+                <div className="w-16 h-16 rounded-full bg-navy-blue/10 flex items-center justify-center mx-auto mb-6">
+                  <span className="text-2xl font-serif text-navy-blue" style={{ transform: 'translateY(-3px)' }}>
+                    {String(index + 1).padStart(2, '0')}
+                  </span>
+                </div>
+                <h3 className="font-serif text-xl text-stone-900 mb-3">{step.title}</h3>
+                <p className="text-sm text-stone-600 leading-relaxed">
+                  {step.description}
+                </p>
               </div>
-              <h3 className="font-serif text-xl text-stone-900 mb-3">Discover</h3>
-              <p className="text-sm text-stone-600 leading-relaxed">
-                We listen deeply to understand your lifestyle, preferences, and the unique character of your space.
-              </p>
-            </div>
-
-            {/* Step 2 */}
-            <div className="text-center">
-              <div className="w-16 h-16 rounded-full bg-navy-blue/10 flex items-center justify-center mx-auto mb-6">
-                <span className="text-2xl font-serif text-navy-blue" style={{ transform: 'translateY(-3px)' }}>02</span>
-              </div>
-              <h3 className="font-serif text-xl text-stone-900 mb-3">Design</h3>
-              <p className="text-sm text-stone-600 leading-relaxed">
-                We develop detailed concepts that balance aesthetics, function, and your budget with precision planning.
-              </p>
-            </div>
-
-            {/* Step 3 */}
-            <div className="text-center">
-              <div className="w-16 h-16 rounded-full bg-navy-blue/10 flex items-center justify-center mx-auto mb-6">
-                <span className="text-2xl font-serif text-navy-blue" style={{ transform: 'translateY(-3px)' }}>03</span>
-              </div>
-              <h3 className="font-serif text-xl text-stone-900 mb-3">Refine</h3>
-              <p className="text-sm text-stone-600 leading-relaxed">
-                We iterate through feedback and options, perfecting every detail until we've captured your vision.
-              </p>
-            </div>
-
-            {/* Step 4 */}
-            <div className="text-center">
-              <div className="w-16 h-16 rounded-full bg-navy-blue/10 flex items-center justify-center mx-auto mb-6">
-                <span className="text-2xl font-serif text-navy-blue" style={{ transform: 'translateY(-3px)' }}>04</span>
-              </div>
-              <h3 className="font-serif text-xl text-stone-900 mb-3">Deliver</h3>
-              <p className="text-sm text-stone-600 leading-relaxed">
-                We oversee implementation, coordinating all details to bring your dream interior to life seamlessly.
-              </p>
-            </div>
+            ))}
           </div>
         </div>
       </section>
