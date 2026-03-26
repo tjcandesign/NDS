@@ -49,7 +49,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
       {project.coverImage && (
         <div className="relative w-full h-[88vh] min-h-[560px] bg-stone-200 overflow-hidden">
           <Image
-            src={urlFor(project.coverImage).width(2400).height(1600).url()}
+            src={urlFor(project.coverImage).width(2400).url()}
             alt={project.coverImage.alt || project.title}
             fill
             className="object-cover"

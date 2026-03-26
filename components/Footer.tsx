@@ -8,7 +8,7 @@ export default async function Footer() {
     <footer className="bg-navy-blue-dark text-stone-400">
       <div className="max-w-6xl mx-auto px-6 py-16 grid grid-cols-1 md:grid-cols-3 gap-10">
         <div>
-          <div className="mb-6 w-20">
+          <div className="mb-6 w-32">
             <Image src="/nds-logo.svg" alt="NDS Logo" width={121} height={81} />
           </div>
           <p className="font-serif text-stone-100 text-lg mb-3">Niche Design Studio</p>
@@ -24,7 +24,6 @@ export default async function Footer() {
             {[
               { href: '/about', label: 'About' },
               { href: '/portfolio', label: 'Portfolio' },
-              { href: '/blog', label: 'Journal' },
               { href: '/contact', label: 'Contact' },
             ].map(({ href, label }) => (
               <li key={href}>
