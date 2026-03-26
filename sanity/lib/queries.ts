@@ -139,3 +139,25 @@ export const FEATURED_PROJECTS_QUERY = `
     published,
   }
 `
+
+// Form configuration query
+export const FORM_CONFIG_QUERY = `
+  *[_type == "formConfig"][0] {
+    projectTypes[],
+    timelineOptions[],
+    budgetRanges[],
+    professionalsOptions[]
+  }
+`
+
+// Home page text query
+export const HOME_PAGE_TEXT_QUERY = `
+  *[_type == "homePageText"][0] {
+    processHeading,
+    processSubheading,
+    processDescription,
+    ctaHeading,
+    ctaSubheading,
+    ctaDescription
+  }
+`

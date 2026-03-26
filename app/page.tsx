@@ -3,7 +3,7 @@ import { client } from '@/sanity/lib/client'
 import { urlFor } from '@/sanity/lib/image'
 import Image from 'next/image'
 import { PortableText } from 'next-sanity'
-import { getSettings } from '@/lib/sanity'
+import { getSettings, getHomePageText } from '@/lib/sanity'
 
 async function getProjects() {
   try {
@@ -38,6 +38,7 @@ export default async function Home() {
   const projects = await getProjects()
   const homePage = await getHomePage()
   const settings = await getSettings()
+  const homePageText = await getHomePageText()
   const heroProject = projects[0] // Use first project's cover for hero
   const featuredProjects = projects.slice(0, 6) // First 6 for featured section
 
@@ -183,10 +184,10 @@ export default async function Home() {
       <section className="py-24 md:py-32 px-6 bg-white">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-20">
-            <p className="text-xs tracking-widest uppercase text-stone-400 mb-4">How We Work</p>
-            <h2 className="font-serif text-3xl md:text-4xl text-stone-900 mb-6">Our Design Process</h2>
+            <p className="text-xs tracking-widest uppercase text-stone-400 mb-4">{homePageText.processHeading}</p>
+            <h2 className="font-serif text-3xl md:text-4xl text-stone-900 mb-6">{homePageText.processSubheading}</h2>
             <p className="text-stone-600 max-w-2xl mx-auto">
-              We believe great interior design comes from a thoughtful, collaborative process that honors your vision while solving real-world challenges.
+              {homePageText.processDescription}
             </p>
           </div>
 
@@ -212,10 +213,10 @@ export default async function Home() {
       {/* ── CTA ──────────────────────────────────────────────────── */}
       <section style={{ backgroundColor: '#FFF9EE' }}>
         <div className="max-w-6xl mx-auto px-6 py-48 text-center">
-          <p className="text-xs tracking-widest uppercase text-stone-400 mb-4">Ready to Begin?</p>
-          <h2 className="font-serif text-3xl md:text-4xl mb-6">Let's Design Something Together</h2>
+          <p className="text-xs tracking-widest uppercase text-stone-400 mb-4">{homePageText.ctaHeading}</p>
+          <h2 className="font-serif text-3xl md:text-4xl mb-6">{homePageText.ctaSubheading}</h2>
           <p className="text-stone-500 max-w-md mx-auto mb-8">
-            Whether it's a full renovation or a single room, we'd love to hear about your project.
+            {homePageText.ctaDescription}
           </p>
           <Link
             href="/contact"

@@ -1,5 +1,5 @@
 import { client } from '@/sanity/lib/client'
-import { SETTINGS_QUERY, PAGE_QUERY, ALL_PROJECTS_QUERY, ALL_PROJECTS_PREVIEW_QUERY, PROJECT_QUERY, PROJECT_PREVIEW_QUERY, FEATURED_PROJECTS_QUERY } from '@/sanity/lib/queries'
+import { SETTINGS_QUERY, PAGE_QUERY, ALL_PROJECTS_QUERY, ALL_PROJECTS_PREVIEW_QUERY, PROJECT_QUERY, PROJECT_PREVIEW_QUERY, FEATURED_PROJECTS_QUERY, FORM_CONFIG_QUERY, HOME_PAGE_TEXT_QUERY } from '@/sanity/lib/queries'
 import { draftMode } from 'next/headers'
 
 // Type definitions
@@ -66,6 +66,52 @@ export interface Project {
   scope?: string[]
   body?: any
   featured: boolean
+}
+
+export interface FormConfig {
+  projectTypes: string[]
+  timelineOptions: Array<{ label: string; value: string }>
+  budgetRanges: Array<{ label: string; value: string }>
+  professionalsOptions: string[]
+}
+
+export interface HomePageText {
+  processHeading: string
+  processSubheading: string
+  processDescription: string
+  ctaHeading: string
+  ctaSubheading: string
+  ctaDescription: string
+}
+
+// Fallback form configuration
+const FALLBACK_FORM_CONFIG: FormConfig = {
+  projectTypes: ['New Home', 'Renovation', 'Addition', 'Interiors', 'Kitchen', 'Bathroom'],
+  timelineOptions: [
+    { label: 'Next 3 months', value: 'next-3-months' },
+    { label: '3-6 months', value: '3-6-months' },
+    { label: '6-12 months', value: '6-12-months' },
+    { label: '12+ months', value: '12-plus-months' },
+    { label: 'Flexible/Open', value: 'flexible' },
+  ],
+  budgetRanges: [
+    { label: 'Under $25,000', value: 'under-25k' },
+    { label: '$25,000 – $75,000', value: '25k-75k' },
+    { label: '$100,000 – $300,000', value: '100k-300k' },
+    { label: '$300,000+', value: '300k+' },
+    { label: 'Other', value: 'other' },
+  ],
+  professionalsOptions: ['Realtor', 'Contractor', 'Interior Designer', 'Other'],
+}
+
+// Fallback home page text
+const FALLBACK_HOME_PAGE_TEXT: HomePageText = {
+  processHeading: 'How We Work',
+  processSubheading: 'Our Design Process',
+  processDescription: 'We believe great interior design comes from a thoughtful, collaborative process that honors your vision while solving real-world challenges.',
+  ctaHeading: 'Ready to Begin?',
+  ctaSubheading: "Let's Design Something Together",
+  ctaDescription: "Whether it's a full renovation or a single room, we'd love to hear about your project.",
 }
 
 // Fallback settings for when Sanity is unavailable
@@ -186,5 +232,33 @@ export async function getFeaturedProjects(): Promise<Project[]> {
   } catch (error) {
     console.error('Error fetching featured projects:', error)
     return []
+  }
+}
+
+/**
+ * Fetch form configuration from Sanity
+ * Falls back to defaults if not found or if there's an error
+ */
+export async function getFormConfig(): Promise<FormConfig> {
+  try {
+    const config = await client.fetch(FORM_CONFIG_QUERY)
+    return config || FALLBACK_FORM_CONFIG
+  } catch (error) {
+    console.error('Error fetching form config:', error)
+    return FALLBACK_FORM_CONFIG
+  }
+}
+
+/**
+ * Fetch home page text from Sanity
+ * Falls back to defaults if not found or if there's an error
+ */
+export async function getHomePageText(): Promise<HomePageText> {
+  try {
+    const text = await client.fetch(HOME_PAGE_TEXT_QUERY)
+    return text || FALLBACK_HOME_PAGE_TEXT
+  } catch (error) {
+    console.error('Error fetching home page text:', error)
+    return FALLBACK_HOME_PAGE_TEXT
   }
 }
