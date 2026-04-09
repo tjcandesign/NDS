@@ -363,7 +363,7 @@ export default function BrandGuidelines() {
         <Section id="typography" label="03 \u2014 Typography">
           <div style={{ display: "flex", flexDirection: "column", gap: 32 }}>
             {BRAND.fonts.map((font, i) => (
-              <div key={i} style={{ border: "1px solid #e7e5e4" }}>
+              <div key={i} style={{ border: "1px solid #e7e5e4", background: "#ffffff", borderRadius: 12, overflow: "hidden" }}>
 
                 {/* ── Specimen Header ── */}
                 <div style={{ padding: "64px 48px 48px", borderBottom: "1px solid #e7e5e4" }}>
