@@ -485,6 +485,7 @@ export default function BrandGuidelines() {
                       fontStyle: style.css.match(/font-style: ([^;]+)/)?.[1] || "normal",
                       color: style.css.match(/color: ([^;]+)/)?.[1] || "#1c1917",
                       whiteSpace: "pre-line",
+                      ...(style.tag === "blockquote" ? { textIndent: "-0.4em" } : {}),
                     }}>
                       {style.sample}
                     </div>
