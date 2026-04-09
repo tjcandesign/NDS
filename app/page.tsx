@@ -63,7 +63,7 @@ export default async function Home() {
 
         {/* Hero content */}
         <div className="relative z-10 text-center px-6 max-w-3xl mx-auto">
-          <p className="text-xs tracking-[0.3em] uppercase text-stone-300 mb-6">
+          <p className="text-sm md:text-base tracking-[0.3em] uppercase text-stone-300 mb-6">
             {homePage?.heroSubtitle || 'Interiors · Washington, DC'}
           </p>
           <h1 className="font-serif text-5xl md:text-7xl lg:text-8xl leading-tight mb-6 text-white">
