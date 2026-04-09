@@ -16,7 +16,7 @@ export default async function About() {
   // Fallback content if not found in Sanity
   const title = page?.title || 'Design Rooted in Place and Purpose'
   const introParagraphs = page?.introParagraphs || [
-    'Niche Design Studios is an interior architecture practice based in Washington, DC. We work with residential and commercial clients to create spaces that are deeply considered, beautifully resolved, and built to last.',
+    'Niche Design Studios is an interior design practice based in Washington, DC. We work with residential and commercial clients to create spaces that are deeply considered, beautifully resolved, and built to last.',
     'Our approach begins with listening — to clients, to the existing architecture, and to the neighborhood itself. Washington carries a distinct character, and we believe great interiors should honor that context while serving the people who live and work within them.',
     'From gut renovations to curated room transformations, we bring the same rigor and care to every project regardless of scale.',
   ]
