@@ -188,6 +188,37 @@ function Section({ id, label, children }) {
   );
 }
 
+function ColorCard({ color }) {
+  const [copied, setCopied] = useState(false);
+  const handleClick = () => {
+    navigator.clipboard.writeText(color.hex);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 1500);
+  };
+  return (
+    <div style={{ borderRadius: 8, overflow: "hidden", border: color.dark ? "none" : "1px solid #e7e5e4" }}>
+      <div
+        onClick={handleClick}
+        style={{ background: color.hex, height: 120, width: "100%", cursor: "pointer", position: "relative", display: "flex", alignItems: "center", justifyContent: "center", transition: "opacity 0.2s" }}
+      >
+        {copied && (
+          <span style={{ fontSize: 11, letterSpacing: "0.14em", textTransform: "uppercase", color: color.dark ? "rgba(255,255,255,0.85)" : "rgba(0,0,0,0.6)", fontFamily: "'Inter', sans-serif", fontWeight: 500 }}>
+            Copied
+          </span>
+        )}
+      </div>
+      <div style={{ padding: "16px 16px 20px", background: "#fff", borderTop: color.dark ? "none" : "1px solid #e7e5e4" }}>
+        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 6 }}>
+          <span style={{ fontSize: 14, fontWeight: 500 }}>{color.name}</span>
+          <span style={{ fontSize: 12, color: "#a8a29e", fontFamily: "monospace" }}>{color.hex}</span>
+        </div>
+        <div style={{ fontSize: 12, color: "#78716c", marginBottom: 4 }}>rgb({hexToRgb(color.hex)})</div>
+        <div style={{ fontSize: 11, color: "#a8a29e", marginTop: 8, letterSpacing: "0.06em", textTransform: "uppercase" }}>{color.role}</div>
+      </div>
+    </div>
+  );
+}
+
 // ─── MAIN COMPONENT ──────────────────────────────────────────────────────────
 export default function BrandGuidelines() {
   const [activeNav, setActiveNav] = useState("logos");
