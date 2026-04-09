@@ -54,16 +54,9 @@ export default async function About() {
       </section>
 
       {/* Main content */}
-      <section className="max-w-6xl mx-auto px-6 pb-24 grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
-        <div className="space-y-6 text-stone-600 leading-relaxed">
+      <section className="max-w-6xl mx-auto px-6 pb-24">
+        <div className="max-w-3xl space-y-6 text-stone-600 leading-relaxed">
           {introParagraphs.map((para, idx) => (
-            <p key={idx}>{para}</p>
-          ))}
-        </div>
-
-        <div className="space-y-6 text-stone-600 leading-relaxed">
-          <h2 className="font-serif text-2xl text-stone-900">{philosophyTitle}</h2>
-          {philosophyParagraphs.map((para, idx) => (
             <p key={idx}>{para}</p>
           ))}
           <Link
