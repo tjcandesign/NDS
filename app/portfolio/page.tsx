@@ -13,7 +13,7 @@ async function getProjects() {
   try {
     return await client.fetch(`
       *[_type == "project"] | order(order asc, completionYear desc) {
-        _id, title, slug, category, location, completionYear, shortDescription, coverImage
+        _id, title, slug, category, location, completionYear, shortDescription, coverImage, scope
       }
     `)
   } catch {
