@@ -358,10 +358,12 @@ export default function BrandGuidelines() {
 
         {/* ── COLORS ── */}
         <Section id="colors" label="02 \u2014 Color System">
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(220px, 1fr))", gap: 16 }}>
-            {BRAND.colors.map((color, i) => (
-              <ColorCard key={i} color={color} />
-            ))}
+          <div style={{ background: "#ffffff", borderRadius: 12, padding: 32, border: "1px solid #e7e5e4" }}>
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(220px, 1fr))", gap: 16 }}>
+              {BRAND.colors.map((color, i) => (
+                <ColorCard key={i} color={color} />
+              ))}
+            </div>
           </div>
         </Section>
 
