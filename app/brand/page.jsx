@@ -223,12 +223,14 @@ export default function BrandGuidelines() {
           style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }}
         />
         <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to bottom, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.75) 60%, #1c1917 100%)" }} />
-        <div style={{ position: "relative", height: "100%", display: "flex", flexDirection: "column", justifyContent: "flex-end", padding: "0 64px 56px" }}>
-          <span style={{ fontFamily: "'Inter', sans-serif", fontSize: 12, letterSpacing: "0.3em", textTransform: "uppercase", color: "#a8a29e", marginBottom: 16 }}>Brand Guidelines</span>
-          <h1 style={{ fontFamily: "'Playfair Display', serif", fontSize: "clamp(48px, 7vw, 88px)", fontWeight: 400, lineHeight: 1.0, letterSpacing: 0, marginBottom: 16, color: "#fafaf9" }}>
-            {BRAND.name}
-          </h1>
-          <p style={{ fontFamily: "'Inter', sans-serif", fontSize: 16, fontWeight: 400, color: "#a8a29e", maxWidth: 480 }}>{BRAND.tagline}</p>
+        <div style={{ position: "relative", height: "100%", display: "flex", flexDirection: "column", justifyContent: "flex-end" }}>
+          <div style={{ maxWidth: 1100, margin: "0 auto", width: "100%", padding: "0 64px 56px" }}>
+            <span style={{ fontFamily: "'Inter', sans-serif", fontSize: 12, letterSpacing: "0.3em", textTransform: "uppercase", color: "#a8a29e", marginBottom: 16, display: "block" }}>Brand Guidelines</span>
+            <h1 style={{ fontFamily: "'Playfair Display', serif", fontSize: "clamp(48px, 7vw, 88px)", fontWeight: 400, lineHeight: 1.0, letterSpacing: 0, marginBottom: 16, color: "#fafaf9" }}>
+              {BRAND.name}
+            </h1>
+            <p style={{ fontFamily: "'Inter', sans-serif", fontSize: 16, fontWeight: 400, color: "#a8a29e", maxWidth: 480 }}>{BRAND.tagline}</p>
+          </div>
         </div>
       </div>
 
