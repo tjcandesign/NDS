@@ -37,7 +37,7 @@ export function ContactForm({ formConfig }: { formConfig: FormConfig }) {
           We Would Love to Hear About Your Project
         </h1>
         <p className="mt-6 text-stone-600 max-w-xl leading-relaxed">
-          Kindly fill out the form below and we'll be in touch shortly. We look forward to learning about your vision.
+          Kindly fill out the form below and we'll be in touch shortly.
         </p>
       </section>
 
