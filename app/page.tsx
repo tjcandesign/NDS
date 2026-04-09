@@ -70,7 +70,7 @@ export default async function Home() {
             {homePage?.title || 'Spaces That Tell Your Story'}
           </h1>
           <p className="text-stone-200 text-lg md:text-xl leading-relaxed mb-10 max-w-xl mx-auto">
-            {homePage?.heroDescription || 'We craft interiors that balance beauty, function, and the spirit of the people who inhabit them.'}
+            {homePage?.heroDescription || 'We create homes that balance beauty, function, and the spirit of the people who inhabit them.'}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
