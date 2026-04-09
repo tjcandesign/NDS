@@ -39,7 +39,8 @@ export default async function Home() {
   const homePage = await getHomePage()
   const settings = await getSettings()
   const homePageText = await getHomePageText()
-  const heroProject = projects[0] // Use first project's cover for hero
+  // Use Barnaby Woods project for hero, fallback to first project
+  const heroProject = projects.find((p: any) => p.slug?.current === 'barnaby-woods-project') || projects[0]
   const featuredProjects = projects.slice(0, 6) // First 6 for featured section
 
   return (
