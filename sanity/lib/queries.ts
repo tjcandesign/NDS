@@ -35,6 +35,8 @@ export const PAGE_QUERY = `
     introParagraphs,
     philosophyTitle,
     philosophyParagraphs,
+    aboutImage,
+    showAboutImagePlaceholder,
     services[] {
       title,
       description,
