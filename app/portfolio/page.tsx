@@ -56,7 +56,6 @@ export default async function Portfolio() {
                 <h2 className="font-serif text-xl text-stone-900 group-hover:text-stone-600 transition-colors">
                   {project.title}
                 </h2>
-                )}
               </Link>
             ))}
           </div>
