@@ -53,18 +53,9 @@ export default async function Portfolio() {
                     />
                   )}
                 </div>
-                <p className="text-xs tracking-widest uppercase text-stone-400 mb-1">
-                  {project.category}
-                  {project.location && ` · ${project.location}`}
-                </p>
-                <h2 className="font-serif text-xl text-stone-900 group-hover:text-stone-600 transition-colors mb-1">
+                <h2 className="font-serif text-xl text-stone-900 group-hover:text-stone-600 transition-colors">
                   {project.title}
                 </h2>
-                {project.scope && project.scope.length > 0 && (
-                  <p className="text-xs text-stone-400 mb-1">{project.scope.join(' · ')}</p>
-                )}
-                {project.shortDescription && (
-                  <p className="text-sm text-stone-500 line-clamp-2">{project.shortDescription}</p>
                 )}
               </Link>
             ))}
