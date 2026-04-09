@@ -487,12 +487,6 @@ export default function BrandGuidelines() {
 
       </div>
 
-      {/* ── FOOTER ── */}
-      <div style={{ borderTop: "1px solid #e7e5e4", padding: "32px 64px", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-        <span style={{ fontFamily: "'Playfair Display', serif", fontSize: 18, fontWeight: 400, letterSpacing: "0.05em", color: "#465566" }}>{BRAND.name}</span>
-        <span style={{ fontSize: 11, color: "#a8a29e", letterSpacing: "0.1em", textTransform: "uppercase" }}>Brand Guidelines \u2014 Internal Use</span>
-      </div>
-
     </div>
   );
 }
