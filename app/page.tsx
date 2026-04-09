@@ -131,7 +131,7 @@ export default async function Home() {
                   {/* Content overlay */}
                   <div className="absolute inset-0 flex flex-col justify-end p-4 sm:p-6">
                     <div>
-                      <h3 className="font-serif text-lg sm:text-2xl text-white leading-tight line-clamp-2">
+                      <h3 className="font-serif text-2xl sm:text-4xl text-white leading-tight line-clamp-2">
                         {project.title}
                       </h3>
                     </div>
