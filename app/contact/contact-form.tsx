@@ -147,51 +147,6 @@ export function ContactForm({ formConfig }: { formConfig: FormConfig }) {
               </div>
             </div>
 
-            <div>
-              <label className={labelClass}>
-                Are you currently working with other professionals?{optionalBadge}
-              </label>
-              <div className="flex flex-wrap gap-x-6 gap-y-2 mt-1">
-                {formConfig.professionalsOptions.map((prof) => (
-                  <label key={prof} className="flex items-center gap-2 text-sm text-stone-700 cursor-pointer">
-                    <input type="checkbox" name="professionals" value={prof.toLowerCase()} className="accent-stone-700" />
-                    {prof}
-                  </label>
-                ))}
-              </div>
-            </div>
-
-            <div>
-              <label htmlFor="plans" className={labelClass}>
-                Do you have existing plans of your home? <span className="text-stone-900">*</span>
-              </label>
-              <div className="flex flex-wrap gap-4 mt-1">
-                {[
-                  { label: 'Yes, physical copies', value: 'physical' },
-                  { label: 'Yes, digital (.dwg or .pdf)', value: 'digital' },
-                  { label: 'No plans', value: 'none' },
-                ].map(({ label, value }) => (
-                  <label key={value} className="flex items-center gap-2 text-sm text-stone-700 cursor-pointer">
-                    <input type="radio" name="plans" value={value} required className="accent-stone-700" />
-                    {label}
-                  </label>
-                ))}
-              </div>
-            </div>
-
-            <div>
-              <label htmlFor="timeline" className={labelClass}>
-                What's your timeline? <span className="text-stone-900">*</span>
-              </label>
-              <select id="timeline" name="timeline" required className={`${inputClass} cursor-pointer`}>
-                <option value="">Select timeframe</option>
-                {formConfig.timelineOptions.map((opt) => (
-                  <option key={opt.value} value={opt.value}>
-                    {opt.label}
-                  </option>
-                ))}
-              </select>
-            </div>
                 </div>
               </fieldset>
 
