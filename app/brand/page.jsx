@@ -216,7 +216,7 @@ export default function BrandGuidelines() {
       `}</style>
 
       {/* ── HERO ── */}
-      <div style={{ position: "relative", height: "60vh", minHeight: 400, overflow: "hidden" }}>
+      <div style={{ position: "relative", height: "60vh", minHeight: 400, overflow: "hidden", marginTop: 56 }}>
         <img
           src={BRAND.heroImage}
           alt=""
