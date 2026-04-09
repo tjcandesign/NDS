@@ -29,7 +29,6 @@ async function getHomePage() {
       title: 'Spaces That Tell Your Story',
       heroSubtitle: 'Interior Architecture · Washington, DC',
       heroDescription: 'We craft interiors that balance beauty, function, and the spirit of the people who inhabit them.',
-      philosophyQuote: '"Good design isn\'t decorating space — it\'s revealing it."'
     }
   }
 }
