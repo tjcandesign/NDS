@@ -22,11 +22,12 @@ export default async function About() {
     'Our approach begins with listening — to clients, to the existing architecture, and to the neighborhood itself. Washington carries a distinct character, and we believe great interiors should honor that context while serving the people who live and work within them.',
     'From gut renovations to curated room transformations, we bring the same rigor and care to every project regardless of scale.',
   ]
-  const philosophyTitle = page?.philosophyTitle || 'Our Philosophy'
   const philosophyParagraphs = page?.philosophyParagraphs || [
     'We believe that interior architecture is fundamentally about relationships — between spaces and people, between old and new, between the practical and the beautiful.',
     'Every decision we make — from structural choices down to hardware and finishes — is guided by asking: does this serve the people who will live here? Does it belong in this place?',
   ]
+  const aboutImage = (page as any)?.aboutImage
+  const showAboutImagePlaceholder = (page as any)?.showAboutImagePlaceholder ?? true
   const allServices = page?.services || [
     {
       title: 'Residential Architecture',
