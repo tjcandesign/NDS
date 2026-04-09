@@ -117,7 +117,7 @@ const FALLBACK_HOME_PAGE_TEXT: HomePageText = {
 const FALLBACK_SETTINGS: SiteSettings = {
   _id: 'siteSettings',
   title: 'Niche Design Studios',
-  tagline: 'Interior Architecture & Design',
+  tagline: 'Interior Design',
   email: 'hello@nichedesignstudios.com',
   phone: '(202) 555-0100',
   address: 'Washington, DC',
