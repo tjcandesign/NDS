@@ -34,10 +34,10 @@ export function ContactForm({ formConfig }: { formConfig: FormConfig }) {
       <section className="pt-32 pb-16 px-6 max-w-4xl mx-auto">
         <p className="text-xs tracking-widest uppercase text-stone-400 mb-4">Get In Touch</p>
         <h1 className="font-serif text-4xl md:text-6xl max-w-2xl leading-tight">
-          We would love to hear about your project.
+          Project Inquiry
         </h1>
         <p className="mt-6 text-stone-600 max-w-xl leading-relaxed">
-          Kindly fill out the form below and we'll be in touch shortly.
+          We would love to hear about your project. Kindly fill out the form below and we'll be in touch shortly.
         </p>
       </section>
 
