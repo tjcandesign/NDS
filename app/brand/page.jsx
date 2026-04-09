@@ -316,33 +316,102 @@ export default function BrandGuidelines() {
 
         {/* ── TYPOGRAPHY ── */}
         <Section id="typography" label="03 \u2014 Typography">
-          <div style={{ display: "flex", flexDirection: "column", gap: 2 }}>
+          <div style={{ display: "flex", flexDirection: "column", gap: 32 }}>
             {BRAND.fonts.map((font, i) => (
-              <div key={i} style={{ padding: "48px 40px", border: "1px solid #e7e5e4", display: "grid", gridTemplateColumns: "200px 1fr", gap: 48, alignItems: "start" }}>
-                <div>
-                  <div style={{ fontSize: 11, letterSpacing: "0.14em", textTransform: "uppercase", color: "#465566", marginBottom: 12 }}>{font.name}</div>
-                  <div style={{ fontSize: 13, color: "#78716c", marginBottom: 8, lineHeight: 1.6 }}>{font.role}</div>
-                  <div style={{ display: "flex", flexWrap: "wrap", gap: 6, marginTop: 16 }}>
-                    {font.weights.map(w => (
-                      <span key={w} style={{ fontSize: 10, letterSpacing: "0.1em", padding: "3px 8px", border: "1px solid #e7e5e4", color: "#78716c" }}>{w}</span>
-                    ))}
-                  </div>
-                </div>
-                <div>
+              <div key={i} style={{ border: "1px solid #e7e5e4" }}>
+
+                {/* ── Specimen Header ── */}
+                <div style={{ padding: "64px 48px 48px", borderBottom: "1px solid #e7e5e4" }}>
+                  {/* Font name rendered large in its own typeface */}
                   <div style={{
                     fontFamily: font.family,
-                    fontSize: font.isLogo ? 32 : "clamp(24px, 4vw, 48px)",
+                    fontSize: font.isLogo ? 48 : "clamp(56px, 8vw, 96px)",
                     fontWeight: font.isLogo ? 400 : 400,
-                    letterSpacing: font.isLogo ? "0.15em" : "-0.01em",
-                    lineHeight: 1.1,
+                    letterSpacing: font.isLogo ? "0.15em" : "-0.02em",
+                    lineHeight: 1.0,
                     color: "#1c1917",
-                    marginBottom: 16,
+                    marginBottom: 24,
                   }}>
-                    {font.specimen}
+                    {font.family.match(/'([^']+)'/)?.[1] || font.family}
                   </div>
-                  <div style={{ fontSize: 11, color: "#a8a29e", letterSpacing: "0.08em", fontFamily: "'Inter', sans-serif" }}>
-                    {font.family}
+                  {/* Use case tagline */}
+                  <div style={{
+                    fontFamily: "'Inter', sans-serif",
+                    fontSize: 15,
+                    fontWeight: 400,
+                    color: "#78716c",
+                    lineHeight: 1.6,
+                    maxWidth: 600,
+                  }}>
+                    {font.role}
                   </div>
+                </div>
+
+                {/* ── Specimen Details ── */}
+                <div style={{ padding: "40px 48px", display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 40, alignItems: "start" }}>
+
+                  {/* Classification & Features */}
+                  <div>
+                    <div style={{ fontSize: 10, letterSpacing: "0.18em", textTransform: "uppercase", color: "#a8a29e", marginBottom: 12 }}>Classification</div>
+                    <div style={{ fontSize: 13, fontWeight: 500, color: "#1c1917", marginBottom: 20 }}>{font.name}</div>
+                    <div style={{ fontSize: 10, letterSpacing: "0.18em", textTransform: "uppercase", color: "#a8a29e", marginBottom: 12 }}>Features</div>
+                    <div style={{ display: "flex", flexWrap: "wrap", gap: 6 }}>
+                      {(font.family.includes("Playfair")
+                        ? ["Serif", "High Contrast", "Transitional", "Display", "Italic Swashes"]
+                        : font.family.includes("Inter")
+                        ? ["Sans-Serif", "Geometric", "Variable", "Tabular Figures", "Contextual Alternates"]
+                        : ["Serif", "Display"]
+                      ).map(tag => (
+                        <span key={tag} style={{ fontSize: 10, letterSpacing: "0.06em", padding: "4px 10px", background: "#f5f5f4", color: "#78716c", borderRadius: 2 }}>{tag}</span>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Weights */}
+                  <div>
+                    <div style={{ fontSize: 10, letterSpacing: "0.18em", textTransform: "uppercase", color: "#a8a29e", marginBottom: 12 }}>Weights in Use</div>
+                    <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
+                      {font.weights.map(w => {
+                        const weightName = { "300": "Light", "400": "Regular", "500": "Medium", "600": "SemiBold", "700": "Bold" }[w] || w;
+                        return (
+                          <div key={w} style={{ display: "flex", alignItems: "baseline", gap: 12 }}>
+                            <span style={{ fontFamily: font.family, fontSize: 20, fontWeight: w, color: "#1c1917", minWidth: 40 }}>Aa</span>
+                            <span style={{ fontSize: 12, color: "#78716c" }}>{weightName}</span>
+                            <span style={{ fontSize: 11, color: "#a8a29e" }}>{w}</span>
+                          </div>
+                        );
+                      })}
+                    </div>
+                  </div>
+
+                  {/* Specimen sample */}
+                  <div>
+                    <div style={{ fontSize: 10, letterSpacing: "0.18em", textTransform: "uppercase", color: "#a8a29e", marginBottom: 12 }}>Specimen</div>
+                    <div style={{
+                      fontFamily: font.family,
+                      fontSize: font.isLogo ? 24 : 28,
+                      fontWeight: 400,
+                      letterSpacing: font.isLogo ? "0.15em" : "-0.01em",
+                      lineHeight: 1.3,
+                      color: "#1c1917",
+                      marginBottom: 16,
+                    }}>
+                      {font.specimen}
+                    </div>
+                    <div style={{ fontFamily: font.family, fontSize: 14, fontWeight: 400, lineHeight: 1.8, color: "#78716c" }}>
+                      ABCDEFGHIJKLMNOPQRSTUVWXYZ<br/>
+                      abcdefghijklmnopqrstuvwxyz<br/>
+                      0123456789 &amp; !? . , ; : &mdash;
+                    </div>
+                  </div>
+                </div>
+
+                {/* ── CSS Reference ── */}
+                <div style={{ padding: "12px 48px", background: "#f5f5f4", borderTop: "1px solid #e7e5e4", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+                  <code style={{ fontSize: 11, color: "#78716c", fontFamily: "monospace", letterSpacing: "0.04em" }}>
+                    font-family: {font.family};
+                  </code>
+                  <CopyButton text={`font-family: ${font.family};`} />
                 </div>
               </div>
             ))}
