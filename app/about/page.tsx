@@ -99,7 +99,7 @@ export default async function About() {
             {services.map(({ title: serviceTitle, description }) => (
               <div key={serviceTitle} className="border-t border-stone-300 pt-6">
                 <h3 className="font-serif text-lg text-stone-900 mb-2">{serviceTitle}</h3>
-                <p className="text-sm text-stone-500 leading-relaxed">{description}</p>
+                <p className="text-base text-stone-500 leading-relaxed">{description}</p>
               </div>
             ))}
           </div>
