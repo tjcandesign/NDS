@@ -25,7 +25,7 @@ const BRAND = {
       name: "Display",
       family: "'Playfair Display', serif",
       googleUrl: "https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap",
-      role: "Headlines, hero type, section titles, editorial moments",
+      role: "Headlines, hero type, section titles, editorial moments. Also the basis for the wordmark logotype.",
       weights: ["400", "500", "600", "700"],
       specimen: "Spaces That Tell Your Story",
     },
