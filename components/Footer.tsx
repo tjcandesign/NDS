@@ -13,8 +13,7 @@ export default async function Footer() {
           </div>
           <p className="font-serif text-stone-100 text-lg mb-3">Niche Design Studio</p>
           <p className="text-sm leading-relaxed">
-            Interior architecture for spaces that reflect who you are.
-            Based in Washington, DC.
+            Thoughtfully designed spaces that reflect who you are and how you live.
           </p>
         </div>
 
