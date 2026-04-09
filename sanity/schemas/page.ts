@@ -108,6 +108,23 @@ export default defineType({
       description: 'Right column content on About page',
     }),
     defineField({
+      name: 'aboutImage',
+      title: 'About Page Portrait',
+      type: 'image',
+      options: { hotspot: true },
+      fields: [
+        defineField({ name: 'alt', title: 'Alt Text', type: 'string' }),
+      ],
+      description: 'Portrait image displayed on the right side of the About page content',
+    }),
+    defineField({
+      name: 'showAboutImagePlaceholder',
+      title: 'Show About Image Placeholder',
+      type: 'boolean',
+      description: 'Show a placeholder block when no portrait image is uploaded. Turn off to hide.',
+      initialValue: true,
+    }),
+    defineField({
       name: 'services',
       title: 'Services',
       type: 'array',
