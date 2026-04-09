@@ -450,14 +450,6 @@ export default function BrandGuidelines() {
                     </div>
                   </div>
                 </div>
-
-                {/* ── CSS Reference ── */}
-                <div style={{ padding: "12px 48px", background: "#f5f5f4", borderTop: "1px solid #e7e5e4", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-                  <code style={{ fontSize: 11, color: "#78716c", fontFamily: "monospace", letterSpacing: "0.04em" }}>
-                    font-family: {font.family};
-                  </code>
-                  <CopyButton text={`font-family: ${font.family};`} />
-                </div>
               </div>
             ))}
           </div>
