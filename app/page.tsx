@@ -131,17 +131,9 @@ export default async function Home() {
                   {/* Content overlay */}
                   <div className="absolute inset-0 flex flex-col justify-end p-4 sm:p-6">
                     <div>
-                      <p className="text-xs tracking-[0.2em] uppercase text-white/70 mb-2">
-                        {project.category}
-                      </p>
-                      <h3 className="font-serif text-lg sm:text-2xl text-white leading-tight mb-1 line-clamp-2">
+                      <h3 className="font-serif text-lg sm:text-2xl text-white leading-tight line-clamp-2">
                         {project.title}
                       </h3>
-                      {project.shortDescription && (
-                        <p className="text-xs sm:text-sm text-white/80 leading-relaxed line-clamp-1">
-                          {project.shortDescription}
-                        </p>
-                      )}
                     </div>
                   </div>
 
