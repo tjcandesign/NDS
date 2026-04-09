@@ -104,20 +104,6 @@ export function ContactForm({ formConfig }: { formConfig: FormConfig }) {
               <input id="address" name="address" type="text" required placeholder="Street, City, State, Zip" className={inputClass} />
             </div>
 
-            <div>
-              <label htmlFor="living-at-property" className={labelClass}>
-                Are you currently living at this property?{optionalBadge}
-              </label>
-              <div className="flex flex-wrap gap-4 mt-1">
-                {['Yes', 'No', 'Maybe'].map((opt) => (
-                  <label key={opt} className="flex items-center gap-2 text-sm text-stone-700 cursor-pointer">
-                    <input type="radio" name="living-at-property" value={opt.toLowerCase()} className="accent-stone-700" />
-                    {opt}
-                  </label>
-                ))}
-              </div>
-            </div>
-
             <div className="pt-4">
               <label className={labelClass}>
                 What type of project are you interested in? <span className="text-stone-900">*</span>
