@@ -214,7 +214,7 @@ export function ContactForm({ formConfig }: { formConfig: FormConfig }) {
               <div className="pt-8">
                 <button
                   type="submit"
-                  className="w-full py-4 bg-stone-50 text-navy-blue text-sm tracking-widest uppercase hover:bg-stone-100 transition-colors font-medium rounded-lg shadow-lg"
+                  className="w-full py-4 bg-navy-blue text-white text-sm tracking-widest uppercase hover:bg-navy-blue-dark transition-colors font-medium rounded-lg"
                 >
                   Submit Inquiry
                 </button>
@@ -334,7 +334,7 @@ export function ContactForm({ formConfig }: { formConfig: FormConfig }) {
                 <div className="pt-8">
                   <button
                     type="submit"
-                    className="w-full py-4 bg-stone-50 text-navy-blue text-sm tracking-widest uppercase hover:bg-stone-100 transition-colors font-medium rounded-lg shadow-lg"
+                    className="w-full py-4 bg-navy-blue text-white text-sm tracking-widest uppercase hover:bg-navy-blue-dark transition-colors font-medium rounded-lg"
                   >
                     Submit Additional Information
                   </button>
