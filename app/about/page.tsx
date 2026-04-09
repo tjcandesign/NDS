@@ -70,9 +70,9 @@ export default async function About() {
 
       {/* Services */}
       <section className="bg-stone-100 py-24 px-6">
-        <div className="max-w-6xl mx-auto">
+        <div className="max-w-4xl mx-auto">
           <p className="text-xs tracking-widest uppercase text-stone-400 mb-10">What We Do</p>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
             {services.map(({ title: serviceTitle, description }) => (
               <div key={serviceTitle} className="border-t border-stone-300 pt-6">
                 <h3 className="font-serif text-lg text-stone-900 mb-2">{serviceTitle}</h3>
