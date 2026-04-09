@@ -163,7 +163,6 @@ export default async function Home() {
       <section className="py-24 md:py-32 px-6 bg-white">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-20">
-            <p className="text-xs tracking-widest uppercase text-stone-400 mb-4">{homePageText.processHeading}</p>
             <h2 className="font-serif text-3xl md:text-4xl text-stone-900 mb-6">{homePageText.processSubheading}</h2>
             <p className="text-stone-600 max-w-2xl mx-auto">
               {homePageText.processDescription}
