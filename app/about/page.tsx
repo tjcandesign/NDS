@@ -69,8 +69,8 @@ export default async function About() {
       </section>
 
       {/* Services */}
-      <section className="bg-stone-100 py-24 px-6">
-        <div className="max-w-6xl mx-auto">
+      <section className="bg-stone-100 py-24">
+        <div className="max-w-6xl mx-auto px-6">
           <p className="text-xs tracking-widest uppercase text-stone-400 mb-10">What We Do</p>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 max-w-3xl">
             {services.map(({ title: serviceTitle, description }) => (
