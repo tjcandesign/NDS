@@ -25,13 +25,13 @@ export default async function About() {
     'We believe that interior architecture is fundamentally about relationships — between spaces and people, between old and new, between the practical and the beautiful.',
     'Every decision we make — from structural choices down to hardware and finishes — is guided by asking: does this serve the people who will live here? Does it belong in this place?',
   ]
-  const services = page?.services || [
+  const allServices = page?.services || [
     {
-      title: 'Residential Design',
+      title: 'Residential Architecture',
       description: 'Full-service interior architecture for single-family homes, rowhouses, and condominiums.',
     },
     {
-      title: 'Commercial Interiors',
+      title: 'Curated Interiors',
       description: 'Offices, retail, and hospitality spaces designed with intention and functionality.',
     },
     {
@@ -42,15 +42,8 @@ export default async function About() {
       title: 'Space Planning',
       description: 'Thoughtful layout analysis to maximize flow, light, and livability.',
     },
-    {
-      title: 'Finish Selection',
-      description: 'Curated material and finish palettes that create cohesive, lasting interiors.',
-    },
-    {
-      title: 'Project Management',
-      description: 'Coordinating contractors and vendors to deliver on time and on budget.',
-    },
   ]
+  const services = allServices.slice(0, 4)
 
   return (
     <>
