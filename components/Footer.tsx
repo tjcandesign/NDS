@@ -78,19 +78,6 @@ export default async function Footer() {
                 Pinterest
               </a>
             </li>
-            <li>
-              <a
-                href="https://www.houzz.com/pro/nichedesignstudios/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 hover:text-stone-100 transition-colors"
-              >
-                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M12.5 0L5.4 3.5v7.1L12.5 7v6.6l-7.1 3.5V24l7.1-3.5v-7.1l7.1 3.5v-6.6l-7.1-3.5V0z"/>
-                </svg>
-                Houzz
-              </a>
-            </li>
           </ul>
         </div>
       </div>
