@@ -165,20 +165,7 @@ export default async function Home() {
         </section>
       )}
 
-      {/* ── Philosophy quote centered ─────────────────────────────── */}
-      <section className="flex flex-col items-center justify-center py-24 md:py-32 px-6 bg-navy-blue">
-        <div className="max-w-3xl text-center">
-          <p className="font-serif text-3xl md:text-5xl leading-relaxed text-stone-50 mb-12">
-            {homePage?.philosophyQuote || '"Good design isn\'t decorating space — it\'s revealing it."'}
-          </p>
-          <Link
-            href="/about"
-            className="text-xs tracking-[0.3em] uppercase text-stone-400 hover:text-stone-100 transition-colors inline-block"
-          >
-            Learn More About the Studio →
-          </Link>
-        </div>
-      </section>
+
 
       {/* ── Our Process ──────────────────────────────────────────── */}
       <section className="py-24 md:py-32 px-6 bg-white">
