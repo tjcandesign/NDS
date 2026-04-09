@@ -30,7 +30,6 @@ export const PAGE_QUERY = `
     slug,
     heroSubtitle,
     heroDescription,
-    philosophyQuote,
     body,
     seoDescription,
     introParagraphs,
