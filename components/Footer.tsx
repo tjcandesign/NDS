@@ -6,8 +6,8 @@ export default async function Footer() {
   const settings = await getSettings()
   return (
     <footer className="bg-navy-blue-dark text-stone-400">
-      <div className="max-w-6xl mx-auto px-6 py-16 grid grid-cols-1 md:grid-cols-3 gap-10">
-        <div>
+      <div className="max-w-6xl mx-auto px-6 py-16 grid grid-cols-1 md:grid-cols-[1fr_auto_auto] gap-10 md:gap-16">
+        <div className="max-w-[200px]">
           <div className="mb-6 w-32">
             <Image src="/nds-logo.svg" alt="NDS Logo" width={121} height={81} />
           </div>
