@@ -21,7 +21,7 @@ async function getHomePage() {
   try {
     return await client.fetch(`
       *[_type == "page" && slug.current == "home"][0] {
-        title, heroSubtitle, heroDescription, philosophyQuote, body
+        title, heroSubtitle, heroDescription, body
       }
     `)
   } catch {
