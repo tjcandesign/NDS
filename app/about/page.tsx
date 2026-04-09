@@ -58,16 +58,36 @@ export default async function About() {
 
       {/* Main content */}
       <section className="max-w-6xl mx-auto px-6 pb-24">
-        <div className="max-w-3xl space-y-6 text-stone-600 leading-relaxed">
-          {introParagraphs.map((para, idx) => (
-            <p key={idx}>{para}</p>
-          ))}
-          <Link
-            href="/contact"
-            className="inline-block mt-4 text-sm tracking-widest uppercase border-b border-stone-900 pb-px hover:text-stone-500 hover:border-stone-500 transition-colors"
-          >
-            Start a Conversation →
-          </Link>
+        <div className="grid grid-cols-1 md:grid-cols-[1fr_auto] gap-16 items-start">
+          <div className="space-y-6 text-stone-600 leading-relaxed">
+            {introParagraphs.map((para, idx) => (
+              <p key={idx}>{para}</p>
+            ))}
+            {philosophyParagraphs.map((para, idx) => (
+              <p key={`phil-${idx}`}>{para}</p>
+            ))}
+            <Link
+              href="/contact"
+              className="inline-block mt-4 text-sm tracking-widest uppercase border-b border-stone-900 pb-px hover:text-stone-500 hover:border-stone-500 transition-colors"
+            >
+              Start a Conversation →
+            </Link>
+          </div>
+
+          {/* About image / placeholder */}
+          <div className="hidden md:block w-72 lg:w-80 flex-shrink-0">
+            {aboutImage ? (
+              <Image
+                src={urlFor(aboutImage).width(640).height(800).url()}
+                alt={aboutImage.alt || 'About Niche Design Studio'}
+                width={640}
+                height={800}
+                className="w-full h-auto object-cover"
+              />
+            ) : showAboutImagePlaceholder ? (
+              <div className="w-full aspect-[3/4] bg-stone-200" />
+            ) : null}
+          </div>
         </div>
       </section>
 
