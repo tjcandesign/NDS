@@ -27,8 +27,8 @@ async function getHomePage() {
   } catch {
     return {
       title: 'Spaces That Tell Your Story',
-      heroSubtitle: 'Interior Architecture · Washington, DC',
-      heroDescription: 'We craft interiors that balance beauty, function, and the spirit of the people who inhabit them.',
+      heroSubtitle: 'Interiors · Washington, DC',
+      heroDescription: 'We create homes that balance beauty, function, and the spirit of the people who inhabit them.',
     }
   }
 }
