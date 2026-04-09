@@ -330,7 +330,7 @@ export default function BrandGuidelines() {
 
           </div>
 
-          <div style={{ marginTop: 48, padding: "32px 40px", border: "1px solid #e7e5e4", borderRadius: 2 }}>
+          <div style={{ marginTop: 48, padding: "32px 40px", border: "1px solid #e7e5e4", borderRadius: 12, background: "#ffffff" }}>
             <div style={{ fontSize: 11, letterSpacing: "0.14em", textTransform: "uppercase", color: "#465566", marginBottom: 16 }}>Usage Rules</div>
             <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 24 }}>
               {[
