@@ -5,7 +5,7 @@ import { useState } from "react";
 const BRAND = {
   name: "Niche Design Studio",
   tagline: "Interior architecture and design based in Washington, DC.",
-  heroImage: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1600&q=80",
+  heroImage: "https://cdn.sanity.io/images/qb84mjun/production/3ca0d2fdab0d8e46a390dedf0632d5264c7c1408-2400x1601.jpg?w=1600&q=80",
 
   colors: [
     { name: "Foreground",     hex: "#1c1917", role: "Primary text / Headings",       dark: true  },
