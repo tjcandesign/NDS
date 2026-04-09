@@ -46,13 +46,8 @@ export function ContactForm({ formConfig }: { formConfig: FormConfig }) {
         <div className="relative max-w-4xl mx-auto">
           {!submitted ? (
             <form onSubmit={handleFirstSubmit} className="space-y-8">
-              {/* ── Section 1: About You ─────────────────────────────── */}
-              <fieldset className="bg-stone-50 rounded-lg shadow-lg space-y-6">
-                <legend className="text-xs tracking-[0.3em] uppercase text-stone-700 px-8 pt-8 pb-3 mb-8 font-semibold border-b-2 border-navy-blue">
-                  About You
-                </legend>
-
-                <div className="px-8 pb-8 space-y-6">
+              <fieldset className="bg-stone-50 rounded-lg shadow-lg">
+                <div className="px-8 pt-8 pb-8 space-y-6">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               <div>
                 <label htmlFor="name" className={labelClass}>
@@ -87,16 +82,7 @@ export function ContactForm({ formConfig }: { formConfig: FormConfig }) {
                 className={`${inputClass} resize-none`}
               />
             </div>
-                </div>
-          </fieldset>
 
-              {/* ── Section 2: The Project ────────────────────────────── */}
-              <fieldset className="bg-stone-50 rounded-lg shadow-lg space-y-6">
-                <legend className="text-xs tracking-[0.3em] uppercase text-stone-700 px-8 pt-8 pb-3 mb-8 font-semibold border-b-2 border-navy-blue">
-                  The Project
-                </legend>
-
-                <div className="px-8 pb-8 space-y-6">
             <div>
               <label htmlFor="address" className={labelClass}>
                 Project Address <span className="text-stone-900">*</span>
@@ -110,7 +96,7 @@ export function ContactForm({ formConfig }: { formConfig: FormConfig }) {
               </label>
               <div className="space-y-3 mt-2">
                 {formConfig.projectTypes.map((type) => (
-                  <label key={type} className="flex items-center gap-3 text-sm text-stone-700 cursor-pointer">
+                  <label key={type} className="flex items-center gap-3 text-stone-700 cursor-pointer">
                     <input
                       type="radio"
                       name="project-type"
