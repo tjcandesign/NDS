@@ -327,20 +327,9 @@ export default function BrandGuidelines() {
 
         {/* ── COLORS ── */}
         <Section id="colors" label="02 \u2014 Color System">
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(220px, 1fr))", gap: 2 }}>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(220px, 1fr))", gap: 16 }}>
             {BRAND.colors.map((color, i) => (
-              <div key={i}>
-                <div style={{ background: color.hex, height: 120, width: "100%", border: color.dark ? "none" : "1px solid #e7e5e4" }} />
-                <div style={{ padding: "16px 0", borderBottom: "1px solid #e7e5e4" }}>
-                  <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 6 }}>
-                    <span style={{ fontSize: 14, fontWeight: 500 }}>{color.name}</span>
-                    <CopyButton text={color.hex} />
-                  </div>
-                  <div style={{ fontSize: 12, color: "#78716c", marginBottom: 4 }}>{color.hex}</div>
-                  <div style={{ fontSize: 12, color: "#78716c" }}>rgb({hexToRgb(color.hex)})</div>
-                  <div style={{ fontSize: 11, color: "#a8a29e", marginTop: 8, letterSpacing: "0.06em", textTransform: "uppercase" }}>{color.role}</div>
-                </div>
-              </div>
+              <ColorCard key={i} color={color} />
             ))}
           </div>
         </Section>
