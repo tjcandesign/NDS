@@ -123,7 +123,7 @@ const FALLBACK_SETTINGS: SiteSettings = {
   address: 'Washington, DC',
   instagram: 'https://www.instagram.com/melkimball/',
   linkedin: 'https://www.linkedin.com',
-  seoDescription: 'Interior architecture and design based in Washington, DC.',
+  seoDescription: 'Interior design based in Washington, DC.',
   navigationLinks: [
     { label: 'About', href: '/about' },
     { label: 'Portfolio', href: '/portfolio' },
