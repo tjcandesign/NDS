@@ -1,6 +1,8 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import Image from 'next/image'
 import { getPage } from '@/lib/sanity'
+import { urlFor } from '@/sanity/lib/image'
 
 export async function generateMetadata(): Promise<Metadata> {
   const page = await getPage('about')
