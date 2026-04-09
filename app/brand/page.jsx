@@ -30,14 +30,6 @@ const BRAND = {
       specimen: "Spaces That Tell Your Story",
     },
     {
-      name: "Logo / Wordmark",
-      family: "'Playfair Display', serif",
-      role: "Full wordmark logotype — always rendered in the wordmark SVG, not as live text",
-      weights: ["400"],
-      specimen: "NICHE DESIGN STUDIO",
-      isLogo: true,
-    },
-    {
       name: "Body / UI",
       family: "'Inter', sans-serif",
       googleUrl: "https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap",
