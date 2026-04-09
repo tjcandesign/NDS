@@ -39,7 +39,6 @@ export interface Page {
   slug: { current: string }
   heroSubtitle: string
   heroDescription: string
-  philosophyQuote: string
   body: any
   seoDescription: string
   introParagraphs?: string[]
