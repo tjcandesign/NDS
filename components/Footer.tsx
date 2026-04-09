@@ -45,7 +45,7 @@ export default async function Footer() {
           </a>
         </div>
 
-        <div>
+        <div className="mt-4 md:mt-0">
           <p className="text-stone-100 text-xs tracking-widest uppercase mb-4">Follow Us</p>
           <ul className="space-y-3 text-sm">
             {settings.instagram && (
