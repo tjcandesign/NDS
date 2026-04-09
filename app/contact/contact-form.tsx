@@ -230,11 +230,12 @@ export function ContactForm({ formConfig }: { formConfig: FormConfig }) {
               <div className="bg-stone-50 rounded-lg p-8 mb-12 shadow-lg">
                 <h2 className="font-serif text-2xl text-stone-900 mb-3">Thank You!</h2>
                 <p className="text-stone-700 leading-relaxed mb-4">
-                  We've received your project inquiry and will review it carefully. We'll be in touch within 2–3 business days.
+                  We've received your inquiry and will review it carefully. We'll be in touch within 2–3 business days.
                 </p>
-                <p className="text-stone-700 leading-relaxed">
+                <p className="text-stone-700 leading-relaxed mb-4">
                   In the meantime, would you like to answer a few additional questions to help us better understand your vision?
                 </p>
+                <p className="text-stone-600 italic">Fondly,<br />Niche Design Studio</p>
               </div>
 
               <form action="https://formspree.io/f/placeholder" method="POST" className="space-y-8">
