@@ -252,28 +252,57 @@ export default function BrandGuidelines() {
 
         {/* ── LOGOS ── */}
         <Section id="logos" label="01 \u2014 Logo System">
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(300px, 1fr))", gap: 2 }}>
-            {BRAND.logos.map((logo, i) => {
-              const isDark = logo.bg === "#364454";
-              return (
-                <div key={i} style={{ background: logo.bg, padding: "48px 40px", display: "flex", flexDirection: "column", gap: 24, aspectRatio: "4/3", justifyContent: "space-between", border: isDark ? "none" : "1px solid #e7e5e4" }}>
-                  <div style={{ flex: 1, display: "flex", alignItems: "center", justifyContent: "center", padding: "0 24px" }}>
-                    <img
-                      src={logo.file}
-                      alt={logo.name}
-                      style={{ maxWidth: "100%", maxHeight: 80, objectFit: "contain" }}
-                    />
-                  </div>
-                  <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end" }}>
-                    <div>
-                      <div style={{ fontSize: 11, letterSpacing: "0.1em", textTransform: "uppercase", color: isDark ? "#a8a29e" : "#78716c", marginBottom: 4 }}>{logo.name}</div>
-                      <div style={{ fontSize: 10, color: isDark ? "#78716c" : "#a8a29e" }}>{logo.format}</div>
+          {/* Wordmarks and Marks side by side, each stacked dark/light */}
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 32 }}>
+
+            {/* ── Wordmarks ── */}
+            <div>
+              <div style={{ fontSize: 10, letterSpacing: "0.18em", textTransform: "uppercase", color: "#a8a29e", marginBottom: 16 }}>Wordmark</div>
+              <div style={{ display: "flex", flexDirection: "column", gap: 2 }}>
+                {BRAND.logos.filter(l => l.name.includes("Wordmark")).map((logo, i) => {
+                  const isDark = logo.bg === "#364454";
+                  return (
+                    <div key={i} style={{ background: logo.bg, padding: "48px 40px", display: "flex", flexDirection: "column", gap: 24, aspectRatio: "5/3", justifyContent: "space-between", border: isDark ? "none" : "1px solid #e7e5e4" }}>
+                      <div style={{ flex: 1, display: "flex", alignItems: "center", justifyContent: "center", padding: "0 24px" }}>
+                        <img src={logo.file} alt={logo.name} style={{ maxWidth: "100%", maxHeight: 80, objectFit: "contain" }} />
+                      </div>
+                      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end" }}>
+                        <div>
+                          <div style={{ fontSize: 11, letterSpacing: "0.1em", textTransform: "uppercase", color: isDark ? "#a8a29e" : "#78716c", marginBottom: 4 }}>{logo.name}</div>
+                          <div style={{ fontSize: 10, color: isDark ? "#78716c" : "#a8a29e" }}>{logo.format}</div>
+                        </div>
+                        {isDark ? <DownloadButtonDark file={logo.file} label={logo.format} /> : <DownloadButton file={logo.file} label={logo.format} />}
+                      </div>
                     </div>
-                    {isDark ? <DownloadButtonDark file={logo.file} label={logo.format} /> : <DownloadButton file={logo.file} label={logo.format} />}
-                  </div>
-                </div>
-              );
-            })}
+                  );
+                })}
+              </div>
+            </div>
+
+            {/* ── NDS Marks ── */}
+            <div>
+              <div style={{ fontSize: 10, letterSpacing: "0.18em", textTransform: "uppercase", color: "#a8a29e", marginBottom: 16 }}>NDS Mark</div>
+              <div style={{ display: "flex", flexDirection: "column", gap: 2 }}>
+                {BRAND.logos.filter(l => l.name.includes("Mark")).map((logo, i) => {
+                  const isDark = logo.bg === "#364454";
+                  return (
+                    <div key={i} style={{ background: logo.bg, padding: "48px 40px", display: "flex", flexDirection: "column", gap: 24, aspectRatio: "5/3", justifyContent: "space-between", border: isDark ? "none" : "1px solid #e7e5e4" }}>
+                      <div style={{ flex: 1, display: "flex", alignItems: "center", justifyContent: "center", padding: "0 24px" }}>
+                        <img src={logo.file} alt={logo.name} style={{ maxWidth: "100%", maxHeight: 80, objectFit: "contain" }} />
+                      </div>
+                      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end" }}>
+                        <div>
+                          <div style={{ fontSize: 11, letterSpacing: "0.1em", textTransform: "uppercase", color: isDark ? "#a8a29e" : "#78716c", marginBottom: 4 }}>{logo.name}</div>
+                          <div style={{ fontSize: 10, color: isDark ? "#78716c" : "#a8a29e" }}>{logo.format}</div>
+                        </div>
+                        {isDark ? <DownloadButtonDark file={logo.file} label={logo.format} /> : <DownloadButton file={logo.file} label={logo.format} />}
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+
           </div>
 
           <div style={{ marginTop: 48, padding: "32px 40px", border: "1px solid #e7e5e4", borderRadius: 2 }}>
