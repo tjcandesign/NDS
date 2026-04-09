@@ -200,7 +200,6 @@ export default async function Home() {
       {/* ── CTA ──────────────────────────────────────────────────── */}
       <section style={{ backgroundColor: '#FFF9EE' }}>
         <div className="max-w-6xl mx-auto px-6 py-48 text-center">
-          <p className="text-xs tracking-widest uppercase text-stone-400 mb-4">{homePageText.ctaHeading}</p>
           <h2 className="font-serif text-3xl md:text-4xl mb-6">{homePageText.ctaSubheading}</h2>
           <p className="text-stone-500 max-w-md mx-auto mb-8">
             {homePageText.ctaDescription}
