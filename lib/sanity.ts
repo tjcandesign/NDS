@@ -107,7 +107,7 @@ const FALLBACK_FORM_CONFIG: FormConfig = {
 const FALLBACK_HOME_PAGE_TEXT: HomePageText = {
   processHeading: 'How We Work',
   processSubheading: 'Our Design Process',
-  processDescription: 'We believe great interior design comes from a thoughtful, collaborative process that honors your vision while solving real-world challenges.',
+  processDescription: 'We believe great design comes from a thoughtful, collaborative process that honors your vision while solving modern daily challenges.',
   ctaHeading: 'Ready to Begin?',
   ctaSubheading: "Let's Design Something Together",
   ctaDescription: "Whether it's a full renovation or a single room, we'd love to hear about your project.",
