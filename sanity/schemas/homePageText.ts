@@ -28,7 +28,7 @@ export default defineType({
       rows: 4,
       validation: (Rule) => Rule.required(),
       description: 'Description of your design process and approach',
-      initialValue: 'We believe great interior design comes from understanding your vision and translating it into beautiful, functional spaces.',
+      initialValue: 'We believe great design comes from a thoughtful, collaborative process that honors your vision while solving modern daily challenges.',
     }),
     defineField({
       name: 'ctaHeading',
