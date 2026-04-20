@@ -31,7 +31,7 @@ export default async function About() {
   const allServices = page?.services || [
     {
       title: 'Residential Architecture',
-      description: 'Full-service interior architecture for single-family homes, rowhouses, and condominiums.',
+      description: 'Full-service architecture for single-family homes, rowhouses, and condominiums.',
     },
     {
       title: 'Curated Interiors',
