@@ -95,7 +95,7 @@ export default async function Home() {
       {/* ── Featured Work: Large Stacked Projects ────────────────────── */}
       {featuredProjects.slice(0, 2).length > 0 && (
         <section className="py-24 bg-white">
-          <div className="max-w-7xl mx-auto px-6 mb-12">
+          <div className="max-w-6xl mx-auto px-6 mb-12">
             <div className="flex items-end justify-between">
               <div>
                 <p className="text-xs tracking-widest uppercase text-stone-400 mb-2">Selected Work</p>
