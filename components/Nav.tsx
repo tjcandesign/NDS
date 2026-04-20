@@ -68,9 +68,9 @@ export default function Nav({ links }: NavProps) {
       <div className="max-w-6xl mx-auto px-6 h-14 flex items-center justify-between">
         <Link href="/" className="flex items-center h-full">
           <img
-            src="/nds-circle-logo-white.svg"
+            src="/nds-circle-logo-black.svg"
             alt="Niche Design Studio"
-            className="h-6 w-auto"
+            className="h-8 w-auto"
           />
         </Link>
 
