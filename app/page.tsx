@@ -175,10 +175,7 @@ export default async function Home() {
           {/* Process Steps from Sanity */}
           <div className="grid grid-cols-1 md:grid-cols-4 gap-6 md:gap-8">
             {settings.processSteps.map((step, index) => (
-              <div
-                key={step.id}
-                className="text-center rounded-xl p-6 -m-2 transition-colors duration-300 hover:bg-stone-100"
-              >
+              <div key={step.id} className="text-center">
                 <div className="w-16 h-16 rounded-full bg-navy-blue/10 flex items-center justify-center mx-auto mb-6">
                   <span className="text-2xl font-serif text-navy-blue" style={{ transform: 'translateY(-3px)' }}>
                     {String(index + 1).padStart(2, '0')}
