@@ -68,10 +68,9 @@ export default function Nav({ links }: NavProps) {
       <div className="max-w-6xl mx-auto px-6 h-14 flex items-center justify-between">
         <Link href="/" className="flex items-center h-full">
           <img
-            src="/niche-design-studio-logo.svg"
+            src="/nds-circle-logo-white.svg"
             alt="Niche Design Studio"
-            className="h-6 w-auto text-navy-blue"
-            style={{ filter: 'invert(0%)' }}
+            className="h-6 w-auto"
           />
         </Link>
 
