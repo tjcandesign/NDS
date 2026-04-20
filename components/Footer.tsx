@@ -67,7 +67,7 @@ export default async function Footer() {
             )}
             <li>
               <a
-                href="https://www.pinterest.com/nichedesignstudios/"
+                href="https://pin.it/3cwPxTOjk"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-2 hover:text-stone-100 transition-colors"
