@@ -111,7 +111,7 @@ export default async function Home() {
           </div>
 
           {/* Stacked projects container */}
-          <div className="flex flex-col gap-6 px-6 max-w-7xl mx-auto">
+          <div className="flex flex-col gap-6 px-6 max-w-6xl mx-auto">
             {featuredProjects.slice(0, 2).map((project: any) => (
               <Link
                 key={project._id}
