@@ -58,9 +58,12 @@ export default function Nav({ links }: NavProps) {
 
   return (
     <header
-      className="fixed top-0 left-0 right-0 z-50 bg-stone-50/90 backdrop-blur-sm border-b border-stone-200 transition-transform duration-500 ease-in-out"
+      className="fixed top-0 left-0 right-0 z-50 bg-stone-50/90 backdrop-blur-sm border-b border-stone-200 will-change-transform"
       style={{
         transform: shouldShow ? 'translateY(0)' : 'translateY(-100%)',
+        opacity: shouldShow ? 1 : 0,
+        transition:
+          'transform 700ms cubic-bezier(0.16, 1, 0.3, 1), opacity 500ms ease-out',
       }}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
