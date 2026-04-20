@@ -66,7 +66,10 @@ export default async function Home() {
           <p className="text-sm md:text-base tracking-[0.3em] uppercase text-stone-300 mb-6">
             {homePage?.heroSubtitle || 'Interiors · Washington, DC'}
           </p>
-          <h1 className="font-serif text-5xl md:text-7xl lg:text-8xl leading-tight mb-6 text-white">
+          <h1
+            className="font-serif text-5xl md:text-7xl lg:text-8xl leading-tight mb-6"
+            style={{ color: '#DBDB94' }}
+          >
             {homePage?.title || 'Spaces That Tell Your Story'}
           </h1>
           <p className="text-stone-200 text-lg md:text-xl leading-relaxed mb-10 max-w-xl mx-auto">
