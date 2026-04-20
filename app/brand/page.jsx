@@ -17,6 +17,7 @@ const BRAND = {
     { name: "Stone 500",      hex: "#78716c", role: "Secondary text / Nav links",     dark: false },
     { name: "Stone 600",      hex: "#57534e", role: "Body copy",                      dark: true  },
     { name: "Warm Cream",     hex: "#FFF9EE", role: "CTA section background",         dark: false },
+    { name: "Brand Yellow",   hex: "#DBDB94", role: "Hero headline / Accent type",    dark: false },
     { name: "White",          hex: "#ffffff", role: "Section backgrounds / Cards",     dark: false },
   ],
 
