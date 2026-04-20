@@ -68,7 +68,7 @@ export default async function Home() {
           </p>
           <h1
             className="font-serif text-5xl md:text-7xl lg:text-8xl leading-tight mb-6"
-            style={{ color: '#DBDB94' }}
+            style={{ color: '#DBDB94', letterSpacing: '-0.02em' }}
           >
             {homePage?.title || 'Spaces That Tell Your Story'}
           </h1>
