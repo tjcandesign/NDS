@@ -4,6 +4,7 @@ import { urlFor } from '@/sanity/lib/image'
 import Image from 'next/image'
 import { PortableText } from 'next-sanity'
 import { getSettings, getHomePageText } from '@/lib/sanity'
+import HeroParallaxImage from '@/components/HeroParallaxImage'
 
 async function getProjects() {
   try {
