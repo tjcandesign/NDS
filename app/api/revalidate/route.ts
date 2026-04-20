@@ -34,6 +34,11 @@ export async function POST(request: NextRequest) {
       revalidatePath('/', 'layout')
     }
 
+    // Revalidate homepage for home page text changes
+    if (changedTypes === 'homePageText') {
+      revalidatePath('/', 'layout')
+    }
+
     return new Response('Revalidation triggered', { status: 200 })
   } catch (error) {
     console.error('Revalidation error:', error)
