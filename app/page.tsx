@@ -47,15 +47,11 @@ export default async function Home() {
     <>
       {/* ── Full-bleed hero with portfolio image ──────────────────── */}
       <section className="relative w-full min-h-screen flex items-center justify-center overflow-hidden pt-16">
-        {/* Hero background image */}
+        {/* Hero background image with parallax */}
         {heroProject?.coverImage && (
-          <Image
+          <HeroParallaxImage
             src={urlFor(heroProject.coverImage).width(2400).height(1600).url()}
             alt={heroProject.title}
-            fill
-            className="object-cover"
-            priority
-            sizes="100vw"
           />
         )}
 
