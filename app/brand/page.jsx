@@ -202,36 +202,49 @@ const BRAND = {
   ],
 
   // ─── SOCIAL & MARKETING ASSETS ────────────────────────────────────────────
-  // Placeholders at exact aspect ratios. Replace `preview.asset` with final
-  // artwork once designs are approved — the card frames and layout stay.
+  // Each asset has a pre-rendered JPG living at `file`. The preview and the
+  // downloadable file are the same image — what you see IS what gets downloaded.
+  // To update artwork: replace the file at `public/brand/social/...` and the
+  // card automatically reflects it.
   socialAssets: [
-    // Profile Avatars — 1:1 square
-    { group: "avatars", platform: "Instagram",  name: "Profile Photo",       dims: "320 × 320 px",   ratio: "1 / 1",
-      preview: { bg: "#465566", asset: "/nds-circle-white.svg", size: "55%" } },
-    { group: "avatars", platform: "Pinterest",  name: "Profile Photo",       dims: "165 × 165 px",   ratio: "1 / 1",
-      preview: { bg: "#ffffff", asset: "/nds-circle-navy.svg",  size: "55%" } },
-    { group: "avatars", platform: "LinkedIn",   name: "Company Logo",        dims: "300 × 300 px",   ratio: "1 / 1",
-      preview: { bg: "#FFF9EE", asset: "/nds-circle-navy.svg",  size: "55%" } },
-    { group: "avatars", platform: "Facebook",   name: "Profile Photo",       dims: "320 × 320 px",   ratio: "1 / 1",
-      preview: { bg: "#364454", asset: "/nds-circle-white.svg", size: "55%" } },
+    // Profile Avatars — solid-color backdrop, circle mark centered
+    { group: "avatars", platform: "Instagram",  name: "Profile Photo",  dims: "320 × 320 px",   ratio: "1 / 1",
+      width: 320,  height: 320,  file: "/brand/social/instagram-profile.jpg",
+      _src: { bg: "#465566", asset: "/nds-circle-white.svg", size: 0.55, photo: false } },
+    { group: "avatars", platform: "Pinterest",  name: "Profile Photo",  dims: "165 × 165 px",   ratio: "1 / 1",
+      width: 165,  height: 165,  file: "/brand/social/pinterest-profile.jpg",
+      _src: { bg: "#ffffff", asset: "/nds-circle-navy.svg",  size: 0.55, photo: false } },
+    { group: "avatars", platform: "LinkedIn",   name: "Company Logo",   dims: "300 × 300 px",   ratio: "1 / 1",
+      width: 300,  height: 300,  file: "/brand/social/linkedin-profile.jpg",
+      _src: { bg: "#FFF9EE", asset: "/nds-circle-navy.svg",  size: 0.55, photo: false } },
+    { group: "avatars", platform: "Facebook",   name: "Profile Photo",  dims: "320 × 320 px",   ratio: "1 / 1",
+      width: 320,  height: 320,  file: "/brand/social/facebook-profile.jpg",
+      _src: { bg: "#364454", asset: "/nds-circle-white.svg", size: 0.55, photo: false } },
 
-    // Covers & Banners — wide, stack vertically since aspect ratios differ
-    { group: "covers",  platform: "Facebook",   name: "Cover Photo",         dims: "820 × 312 px",   ratio: "820 / 312",
-      preview: { bg: "#364454", asset: "/brand/logo-primary-dark.svg",  size: "30%" } },
-    { group: "covers",  platform: "LinkedIn",   name: "Company Banner",      dims: "1584 × 396 px",  ratio: "1584 / 396",
-      preview: { bg: "#FFF9EE", asset: "/brand/logo-primary-light.svg", size: "22%" } },
-    { group: "covers",  platform: "X / Twitter", name: "Header Image",       dims: "1500 × 500 px",  ratio: "3 / 1",
-      preview: { bg: "#465566", asset: "/brand/logo-primary-dark.svg",  size: "28%" } },
-    { group: "covers",  platform: "Pinterest",  name: "Profile Cover",       dims: "800 × 450 px",   ratio: "16 / 9",
-      preview: { bg: "#ffffff", asset: "/nds-circle-logo-navy.svg",     size: "45%" } },
+    // Covers & Banners — hero photo with dark overlay + light wordmark
+    { group: "covers",  platform: "Facebook",   name: "Cover Photo",    dims: "820 × 312 px",   ratio: "820 / 312",
+      width: 820,  height: 312,  file: "/brand/social/facebook-cover.jpg",
+      _src: { asset: "/brand/logo-primary-dark.svg",  size: 0.32, photo: true, overlay: 0.55 } },
+    { group: "covers",  platform: "LinkedIn",   name: "Company Banner", dims: "1584 × 396 px",  ratio: "1584 / 396",
+      width: 1584, height: 396,  file: "/brand/social/linkedin-banner.jpg",
+      _src: { asset: "/brand/logo-primary-dark.svg",  size: 0.22, photo: true, overlay: 0.55 } },
+    { group: "covers",  platform: "X / Twitter", name: "Header Image",  dims: "1500 × 500 px",  ratio: "3 / 1",
+      width: 1500, height: 500,  file: "/brand/social/twitter-header.jpg",
+      _src: { asset: "/brand/logo-primary-dark.svg",  size: 0.28, photo: true, overlay: 0.55 } },
+    { group: "covers",  platform: "Pinterest",  name: "Profile Cover",  dims: "800 × 450 px",   ratio: "16 / 9",
+      width: 800,  height: 450,  file: "/brand/social/pinterest-cover.jpg",
+      _src: { asset: "/brand/logo-primary-dark.svg",  size: 0.32, photo: true, overlay: 0.55 } },
 
-    // Feed & Pin Formats — square to portrait
-    { group: "feed",    platform: "Instagram",  name: "Feed Post",           dims: "1080 × 1080 px", ratio: "1 / 1",
-      preview: { bg: "#FFF9EE", asset: "/brand/logo-primary-light.svg", size: "60%" } },
-    { group: "feed",    platform: "Instagram",  name: "Story / Reel",        dims: "1080 × 1920 px", ratio: "9 / 16",
-      preview: { bg: "#364454", asset: "/brand/logo-primary-dark.svg",  size: "60%" } },
-    { group: "feed",    platform: "Pinterest",  name: "Standard Pin",        dims: "1000 × 1500 px", ratio: "2 / 3",
-      preview: { bg: "#ffffff", asset: "/nds-circle-logo-navy.svg",     size: "62%" } },
+    // Feed & Pin Formats — hero photo with dark overlay + light wordmark
+    { group: "feed",    platform: "Instagram",  name: "Feed Post",      dims: "1080 × 1080 px", ratio: "1 / 1",
+      width: 1080, height: 1080, file: "/brand/social/instagram-post.jpg",
+      _src: { asset: "/brand/logo-primary-dark.svg",  size: 0.48, photo: true, overlay: 0.5 } },
+    { group: "feed",    platform: "Instagram",  name: "Story / Reel",   dims: "1080 × 1920 px", ratio: "9 / 16",
+      width: 1080, height: 1920, file: "/brand/social/instagram-story.jpg",
+      _src: { asset: "/brand/logo-primary-dark.svg",  size: 0.55, photo: true, overlay: 0.55 } },
+    { group: "feed",    platform: "Pinterest",  name: "Standard Pin",   dims: "1000 × 1500 px", ratio: "2 / 3",
+      width: 1000, height: 1500, file: "/brand/social/pinterest-pin.jpg",
+      _src: { asset: "/brand/logo-primary-dark.svg",  size: 0.55, photo: true, overlay: 0.55 } },
   ],
 };
 
