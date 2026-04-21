@@ -127,7 +127,7 @@ const BRAND = {
     },
     {
       category: "wordmark", variant: "Navy on Light",
-      bg: "#fafaf9", file: "/brand/logo-primary-light.svg",
+      bg: "#ffffff", file: "/brand/logo-primary-light.svg",
       downloads: [
         { ext: "SVG", file: "/brand/logo-primary-light.svg" },
         { ext: "PNG", file: "/brand/raster/wordmark-light.png" },
@@ -136,7 +136,7 @@ const BRAND = {
     },
     {
       category: "wordmark", variant: "Black on Light",
-      bg: "#fafaf9", file: "/brand/logo-primary-black.svg",
+      bg: "#ffffff", file: "/brand/logo-primary-black.svg",
       downloads: [
         { ext: "SVG", file: "/brand/logo-primary-black.svg" },
         { ext: "PNG", file: "/brand/raster/wordmark-light-black.png" },
@@ -155,7 +155,7 @@ const BRAND = {
     },
     {
       category: "lockup", variant: "Navy on Light",
-      bg: "#fafaf9", file: "/nds-circle-logo-navy.svg",
+      bg: "#ffffff", file: "/nds-circle-logo-navy.svg",
       downloads: [
         { ext: "SVG", file: "/nds-circle-logo-navy.svg" },
         { ext: "PNG", file: "/brand/raster/mark-light.png" },
@@ -164,7 +164,7 @@ const BRAND = {
     },
     {
       category: "lockup", variant: "Black on Light",
-      bg: "#fafaf9", file: "/nds-circle-logo-black-1c.svg",
+      bg: "#ffffff", file: "/nds-circle-logo-black-1c.svg",
       downloads: [
         { ext: "SVG", file: "/nds-circle-logo-black-1c.svg" },
         { ext: "PNG", file: "/brand/raster/lockup-light-black.png" },
@@ -183,7 +183,7 @@ const BRAND = {
     },
     {
       category: "circle", variant: "Navy on Light",
-      bg: "#fafaf9", file: "/nds-circle-navy.svg",
+      bg: "#ffffff", file: "/nds-circle-navy.svg",
       downloads: [
         { ext: "SVG", file: "/nds-circle-navy.svg" },
         { ext: "PNG", file: "/brand/raster/circle-navy.png" },
@@ -192,7 +192,7 @@ const BRAND = {
     },
     {
       category: "circle", variant: "Black on Light",
-      bg: "#fafaf9", file: "/nds-circle-black.svg",
+      bg: "#ffffff", file: "/nds-circle-black.svg",
       downloads: [
         { ext: "SVG", file: "/nds-circle-black.svg" },
         { ext: "PNG", file: "/brand/raster/circle-black.png" },
@@ -322,6 +322,18 @@ export default function BrandGuidelines() {
           padding: 0;
         }
         .brand-root ::selection { background: rgba(70,85,102,0.15); }
+
+        /* Desktop-only hover lift on logo cards */
+        .logo-card {
+          transition: transform 220ms ease-out, box-shadow 220ms ease-out, border-color 220ms ease-out;
+        }
+        @media (hover: hover) and (min-width: 768px) {
+          .logo-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 14px 32px -12px rgba(28, 25, 23, 0.18);
+            border-color: rgba(70, 85, 102, 0.35) !important;
+          }
+        }
       `}</style>
 
       {/* ── HERO ── */}
