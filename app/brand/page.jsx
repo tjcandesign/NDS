@@ -163,9 +163,9 @@ const BRAND = {
     },
     {
       category: "lockup", variant: "Black on Light",
-      bg: "#fafaf9", file: "/nds-circle-logo-black-2.svg",
+      bg: "#fafaf9", file: "/nds-circle-logo-black-1c.svg",
       downloads: [
-        { ext: "SVG", file: "/nds-circle-logo-black-2.svg" },
+        { ext: "SVG", file: "/nds-circle-logo-black-1c.svg" },
         { ext: "PNG", file: "/brand/raster/lockup-light-black.png" },
         { ext: "JPG", file: "/brand/raster/lockup-light-black.jpg" },
       ],
