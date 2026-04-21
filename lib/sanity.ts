@@ -133,7 +133,7 @@ const FALLBACK_SETTINGS: SiteSettings = {
     {
       id: 'discover',
       title: 'Discover',
-      description: 'We listen deeply to understand your lifestyle, work patterns, and design preferences. Through in-depth conversations and space assessments, we uncover the stories your home or business should tell.',
+      description: 'We listen deeply to understand your lifestyle, work patterns, and design preferences. Through in-depth conversations and space assessments, we uncover the stories your home should tell.',
     },
     {
       id: 'design',
