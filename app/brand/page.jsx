@@ -676,6 +676,60 @@ export default function BrandGuidelines() {
           </div>
         </Section>
 
+        {/* ── SOCIAL & MARKETING ── */}
+        <Section id="social" label="05 — Social & Marketing">
+          <div style={{ fontSize: 14, color: "#57534e", lineHeight: 1.7, marginBottom: 40, maxWidth: 680 }}>
+            Placeholder frames sized to each platform&rsquo;s exact aspect ratio. Final artwork will drop into these same frames — the layout and specs stay locked.
+          </div>
+
+          {[
+            { key: "avatars", label: "Profile Avatars",    descrip: "Square profile images used across every platform's account header. 1:1 crop.", cols: "1fr 1fr 1fr 1fr" },
+            { key: "covers",  label: "Covers & Banners",   descrip: "Wide horizontal images that sit behind the profile header. Aspect ratios differ per platform — full-width stacked so each reads at its true proportions.", cols: "1fr" },
+            { key: "feed",    label: "Feed & Pin Formats", descrip: "In-feed content units. Square for posts, 9:16 for Stories/Reels, 2:3 for Pinterest pins.", cols: "1fr 1fr 1fr" },
+          ].map(group => {
+            const items = BRAND.socialAssets.filter(a => a.group === group.key);
+            return (
+              <div key={group.key} style={{ marginBottom: 48 }}>
+                <div style={{ marginBottom: 16 }}>
+                  <div style={{ fontSize: 11, letterSpacing: "0.18em", textTransform: "uppercase", color: "#465566", marginBottom: 6 }}>{group.label}</div>
+                  <div style={{ fontSize: 13, color: "#78716c", lineHeight: 1.6, maxWidth: 560 }}>{group.descrip}</div>
+                </div>
+                <div style={{ display: "grid", gridTemplateColumns: group.cols, gap: 16 }}>
+                  {items.map((asset, i) => (
+                    <div key={i} className="logo-card" style={{ border: "1px solid #e7e5e4", borderRadius: 8, overflow: "hidden", background: "#ffffff" }}>
+                      {/* Aspect-correct preview frame */}
+                      <div style={{
+                        background: asset.preview.bg,
+                        aspectRatio: asset.ratio,
+                        width: "100%",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        padding: 24,
+                      }}>
+                        <img src={asset.preview.asset} alt="" style={{
+                          width: asset.preview.size,
+                          maxWidth: "100%",
+                          maxHeight: "100%",
+                          objectFit: "contain",
+                        }} />
+                      </div>
+                      {/* Meta strip */}
+                      <div style={{ padding: "14px 16px", borderTop: "1px solid #e7e5e4", display: "flex", justifyContent: "space-between", alignItems: "baseline", gap: 12 }}>
+                        <div style={{ minWidth: 0 }}>
+                          <div style={{ fontSize: 10, letterSpacing: "0.14em", textTransform: "uppercase", color: "#a8a29e", marginBottom: 3 }}>{asset.platform}</div>
+                          <div style={{ fontSize: 14, fontWeight: 500, color: "#1c1917" }}>{asset.name}</div>
+                        </div>
+                        <div style={{ fontSize: 11, fontFamily: "monospace", color: "#78716c", whiteSpace: "nowrap" }}>{asset.dims}</div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            );
+          })}
+        </Section>
+
       </div>
 
     </div>
