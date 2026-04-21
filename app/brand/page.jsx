@@ -114,11 +114,10 @@ const BRAND = {
   ],
 
   logos: [
+    // ── Wordmark ──
     {
-      category: "wordmark",
-      name: "Wordmark \u2014 Dark BG",
-      bg: "#364454",
-      file: "/brand/logo-primary-dark.svg",
+      category: "wordmark", variant: "Light on Dark",
+      bg: "#364454", file: "/brand/logo-primary-dark.svg",
       downloads: [
         { ext: "SVG", file: "/brand/logo-primary-dark.svg" },
         { ext: "PNG", file: "/brand/raster/wordmark-dark.png" },
@@ -126,10 +125,8 @@ const BRAND = {
       ],
     },
     {
-      category: "wordmark",
-      name: "Wordmark \u2014 Light BG",
-      bg: "#fafaf9",
-      file: "/brand/logo-primary-light.svg",
+      category: "wordmark", variant: "Navy on Light",
+      bg: "#fafaf9", file: "/brand/logo-primary-light.svg",
       downloads: [
         { ext: "SVG", file: "/brand/logo-primary-light.svg" },
         { ext: "PNG", file: "/brand/raster/wordmark-light.png" },
@@ -137,10 +134,18 @@ const BRAND = {
       ],
     },
     {
-      category: "lockup",
-      name: "NDS Lockup \u2014 Dark BG",
-      bg: "#364454",
-      file: "/nds-circle-logo-white.svg",
+      category: "wordmark", variant: "Black on Light",
+      bg: "#fafaf9", file: "/brand/logo-primary-black.svg",
+      downloads: [
+        { ext: "SVG", file: "/brand/logo-primary-black.svg" },
+        { ext: "PNG", file: "/brand/raster/wordmark-light-black.png" },
+        { ext: "JPG", file: "/brand/raster/wordmark-light-black.jpg" },
+      ],
+    },
+    // ── NDS Lockup ──
+    {
+      category: "lockup", variant: "Light on Dark",
+      bg: "#364454", file: "/nds-circle-logo-white.svg",
       downloads: [
         { ext: "SVG", file: "/nds-circle-logo-white.svg" },
         { ext: "PNG", file: "/brand/raster/mark-dark.png" },
@@ -148,10 +153,8 @@ const BRAND = {
       ],
     },
     {
-      category: "lockup",
-      name: "NDS Lockup \u2014 Light BG",
-      bg: "#fafaf9",
-      file: "/nds-circle-logo-navy.svg",
+      category: "lockup", variant: "Navy on Light",
+      bg: "#fafaf9", file: "/nds-circle-logo-navy.svg",
       downloads: [
         { ext: "SVG", file: "/nds-circle-logo-navy.svg" },
         { ext: "PNG", file: "/brand/raster/mark-light.png" },
@@ -159,10 +162,18 @@ const BRAND = {
       ],
     },
     {
-      category: "circle",
-      name: "Circle Mark \u2014 Dark BG",
-      bg: "#364454",
-      file: "/nds-circle-white.svg",
+      category: "lockup", variant: "Black on Light",
+      bg: "#fafaf9", file: "/nds-circle-logo-black-2.svg",
+      downloads: [
+        { ext: "SVG", file: "/nds-circle-logo-black-2.svg" },
+        { ext: "PNG", file: "/brand/raster/lockup-light-black.png" },
+        { ext: "JPG", file: "/brand/raster/lockup-light-black.jpg" },
+      ],
+    },
+    // ── Circle Mark (secondary) ──
+    {
+      category: "circle", variant: "Light on Dark",
+      bg: "#364454", file: "/nds-circle-white.svg",
       downloads: [
         { ext: "SVG", file: "/nds-circle-white.svg" },
         { ext: "PNG", file: "/brand/raster/circle-white.png" },
@@ -170,14 +181,21 @@ const BRAND = {
       ],
     },
     {
-      category: "circle",
-      name: "Circle Mark \u2014 Light BG",
-      bg: "#fafaf9",
-      file: "/nds-circle-navy.svg",
+      category: "circle", variant: "Navy on Light",
+      bg: "#fafaf9", file: "/nds-circle-navy.svg",
       downloads: [
         { ext: "SVG", file: "/nds-circle-navy.svg" },
         { ext: "PNG", file: "/brand/raster/circle-navy.png" },
         { ext: "JPG", file: "/brand/raster/circle-navy.jpg" },
+      ],
+    },
+    {
+      category: "circle", variant: "Black on Light",
+      bg: "#fafaf9", file: "/nds-circle-black.svg",
+      downloads: [
+        { ext: "SVG", file: "/nds-circle-black.svg" },
+        { ext: "PNG", file: "/brand/raster/circle-black.png" },
+        { ext: "JPG", file: "/brand/raster/circle-black.jpg" },
       ],
     },
   ],
