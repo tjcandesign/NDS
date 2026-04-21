@@ -268,25 +268,40 @@ function ColorCard({ color }) {
     setCopied(true);
     setTimeout(() => setCopied(false), 1500);
   };
+
+  // Pick readable text colors per background. `dark: true` means the swatch is
+  // dark enough to need light text on top; `dark: false` gets near-black text.
+  const strongText = color.dark ? "rgba(255,255,255,0.95)" : "rgba(28,25,23,0.92)";
+  const softText   = color.dark ? "rgba(255,255,255,0.70)" : "rgba(28,25,23,0.60)";
+
   return (
     <div style={{ borderRadius: 8, overflow: "hidden", border: color.dark ? "none" : "1px solid #e7e5e4" }}>
       <div
         onClick={handleClick}
-        style={{ background: color.hex, height: 120, width: "100%", cursor: "pointer", position: "relative", display: "flex", alignItems: "center", justifyContent: "center", transition: "opacity 0.2s" }}
+        style={{ background: color.hex, height: 140, width: "100%", cursor: "pointer", position: "relative", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: 4, transition: "opacity 0.2s", padding: "0 12px" }}
       >
+        <span style={{ fontSize: 16, fontFamily: "monospace", fontWeight: 500, letterSpacing: "0.02em", color: strongText }}>
+          {color.hex.toUpperCase()}
+        </span>
+        <span style={{ fontSize: 12, fontFamily: "monospace", color: softText, letterSpacing: "0.01em" }}>
+          rgb({hexToRgb(color.hex)})
+        </span>
         {copied && (
-          <span style={{ fontSize: 11, letterSpacing: "0.14em", textTransform: "uppercase", color: color.dark ? "rgba(255,255,255,0.85)" : "rgba(0,0,0,0.6)", fontFamily: "'Inter', sans-serif", fontWeight: 500 }}>
+          <span style={{
+            position: "absolute", top: 10, right: 10,
+            fontSize: 10, letterSpacing: "0.14em", textTransform: "uppercase",
+            padding: "3px 8px", borderRadius: 3,
+            background: color.dark ? "rgba(255,255,255,0.18)" : "rgba(28,25,23,0.12)",
+            color: strongText,
+            fontFamily: "'Inter', sans-serif", fontWeight: 500,
+          }}>
             Copied
           </span>
         )}
       </div>
-      <div style={{ padding: "16px 16px 20px", background: "#fff", borderTop: color.dark ? "none" : "1px solid #e7e5e4" }}>
-        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 6 }}>
-          <span style={{ fontSize: 14, fontWeight: 500 }}>{color.name}</span>
-          <span style={{ fontSize: 12, color: "#a8a29e", fontFamily: "monospace" }}>{color.hex}</span>
-        </div>
-        <div style={{ fontSize: 12, color: "#78716c", marginBottom: 4 }}>rgb({hexToRgb(color.hex)})</div>
-        <div style={{ fontSize: 11, color: "#a8a29e", marginTop: 8, letterSpacing: "0.06em", textTransform: "uppercase" }}>{color.role}</div>
+      <div style={{ padding: "14px 16px 16px", background: "#fff", borderTop: color.dark ? "none" : "1px solid #e7e5e4" }}>
+        <div style={{ fontSize: 14, fontWeight: 500, marginBottom: 4, color: "#1c1917" }}>{color.name}</div>
+        <div style={{ fontSize: 11, color: "#a8a29e", letterSpacing: "0.06em", textTransform: "uppercase" }}>{color.role}</div>
       </div>
     </div>
   );
