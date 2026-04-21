@@ -351,57 +351,38 @@ export default function BrandGuidelines() {
 
         {/* ── LOGOS ── */}
         <Section id="logos" label="01 \u2014 Logo System">
-          {/* Wordmarks and Marks side by side, each stacked dark/light */}
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 32 }}>
-
-            {/* ── Wordmarks ── */}
-            <div>
-              <div style={{ fontSize: 10, letterSpacing: "0.18em", textTransform: "uppercase", color: "#a8a29e", marginBottom: 16 }}>Wordmark</div>
-              <div style={{ display: "flex", flexDirection: "column", gap: 2 }}>
-                {BRAND.logos.filter(l => l.name.includes("Wordmark")).map((logo, i) => {
-                  const isDark = logo.bg === "#364454";
-                  return (
-                    <div key={i} style={{ background: logo.bg, padding: "48px 40px", display: "flex", flexDirection: "column", gap: 24, aspectRatio: "5/3", justifyContent: "space-between", border: isDark ? "none" : "1px solid #e7e5e4" }}>
-                      <div style={{ flex: 1, display: "flex", alignItems: "center", justifyContent: "center", padding: "0 24px" }}>
-                        <img src={logo.file} alt={logo.name} style={{ maxWidth: "100%", maxHeight: 80, objectFit: "contain" }} />
-                      </div>
-                      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end" }}>
-                        <div>
-                          <div style={{ fontSize: 11, letterSpacing: "0.1em", textTransform: "uppercase", color: isDark ? "#a8a29e" : "#78716c", marginBottom: 4 }}>{logo.name}</div>
-                          <div style={{ fontSize: 10, color: isDark ? "#78716c" : "#a8a29e" }}>{logo.downloads.map(d => d.ext).join(" · ")}</div>
+          {/* Wordmark, Lockup, and Circle Mark columns, each stacked dark/light */}
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 24 }}>
+            {[
+              { label: "Wordmark",    category: "wordmark" },
+              { label: "NDS Lockup",  category: "lockup"   },
+              { label: "Circle Mark", category: "circle"   },
+            ].map(col => (
+              <div key={col.category}>
+                <div style={{ fontSize: 10, letterSpacing: "0.18em", textTransform: "uppercase", color: "#a8a29e", marginBottom: 16 }}>{col.label}</div>
+                <div style={{ display: "flex", flexDirection: "column", gap: 2 }}>
+                  {BRAND.logos.filter(l => l.category === col.category).map((logo, i) => {
+                    const isDark = logo.bg === "#364454";
+                    // Square aspect for the circle mark, wide for the others
+                    const aspectRatio = col.category === "circle" ? "1/1" : "5/3";
+                    return (
+                      <div key={i} style={{ background: logo.bg, padding: "40px 32px", display: "flex", flexDirection: "column", gap: 20, aspectRatio, justifyContent: "space-between", border: isDark ? "none" : "1px solid #e7e5e4" }}>
+                        <div style={{ flex: 1, display: "flex", alignItems: "center", justifyContent: "center", padding: "0 16px" }}>
+                          <img src={logo.file} alt={logo.name} style={{ maxWidth: "100%", maxHeight: col.category === "circle" ? 120 : 70, objectFit: "contain" }} />
                         </div>
-                        <DownloadGroup downloads={logo.downloads} isDark={isDark} />
-                      </div>
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
-
-            {/* ── NDS Marks ── */}
-            <div>
-              <div style={{ fontSize: 10, letterSpacing: "0.18em", textTransform: "uppercase", color: "#a8a29e", marginBottom: 16 }}>NDS Mark</div>
-              <div style={{ display: "flex", flexDirection: "column", gap: 2 }}>
-                {BRAND.logos.filter(l => l.name.includes("Mark")).map((logo, i) => {
-                  const isDark = logo.bg === "#364454";
-                  return (
-                    <div key={i} style={{ background: logo.bg, padding: "48px 40px", display: "flex", flexDirection: "column", gap: 24, aspectRatio: "5/3", justifyContent: "space-between", border: isDark ? "none" : "1px solid #e7e5e4" }}>
-                      <div style={{ flex: 1, display: "flex", alignItems: "center", justifyContent: "center", padding: "0 24px" }}>
-                        <img src={logo.file} alt={logo.name} style={{ maxWidth: "100%", maxHeight: 80, objectFit: "contain" }} />
-                      </div>
-                      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end" }}>
-                        <div>
-                          <div style={{ fontSize: 11, letterSpacing: "0.1em", textTransform: "uppercase", color: isDark ? "#a8a29e" : "#78716c", marginBottom: 4 }}>{logo.name}</div>
-                          <div style={{ fontSize: 10, color: isDark ? "#78716c" : "#a8a29e" }}>{logo.downloads.map(d => d.ext).join(" · ")}</div>
+                        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", gap: 12 }}>
+                          <div style={{ minWidth: 0 }}>
+                            <div style={{ fontSize: 10, letterSpacing: "0.08em", textTransform: "uppercase", color: isDark ? "#a8a29e" : "#78716c", marginBottom: 4, whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>{logo.name}</div>
+                            <div style={{ fontSize: 9, color: isDark ? "#78716c" : "#a8a29e" }}>{logo.downloads.map(d => d.ext).join(" · ")}</div>
+                          </div>
+                          <DownloadGroup downloads={logo.downloads} isDark={isDark} />
                         </div>
-                        <DownloadGroup downloads={logo.downloads} isDark={isDark} />
                       </div>
-                    </div>
-                  );
-                })}
+                    );
+                  })}
+                </div>
               </div>
-            </div>
-
+            ))}
           </div>
 
           <div style={{ marginTop: 48, padding: "32px 40px", border: "1px solid #e7e5e4", borderRadius: 12, background: "#ffffff" }}>
