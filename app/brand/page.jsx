@@ -9,6 +9,7 @@ const BRAND = {
 
   colors: [
     { name: "Foreground",     hex: "#1c1917", role: "Primary text / Headings",       dark: true  },
+    { name: "Charcoal",       hex: "#414042", role: "Alternate dark / Print accent", dark: true  },
     { name: "Navy Blue",      hex: "#465566", role: "Brand accent / Nav active / Logo", dark: true  },
     { name: "Navy Blue Dark", hex: "#364454", role: "Footer background",              dark: true  },
     { name: "Background",     hex: "#fafaf9", role: "Page base / Nav surface",        dark: false },
