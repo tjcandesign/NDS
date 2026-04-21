@@ -320,14 +320,19 @@ export default function BrandGuidelines() {
   };
 
   return (
-    <div style={{ background: "#fafaf9", color: "#1c1917", minHeight: "100vh", fontFamily: "'Inter', sans-serif" }}>
+    <div className="brand-root" style={{ background: "#fafaf9", color: "#1c1917", minHeight: "100vh", fontFamily: "'Inter', sans-serif" }}>
 
-      {/* ── GOOGLE FONTS ── */}
+      {/* ── GOOGLE FONTS (page-scoped reset so it doesn't leak into the shared Footer) ── */}
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap');
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        ::selection { background: rgba(70,85,102,0.15); }
-        html { scroll-behavior: smooth; }
+        .brand-root, .brand-root * { box-sizing: border-box; }
+        .brand-root h1, .brand-root h2, .brand-root h3, .brand-root h4,
+        .brand-root h5, .brand-root h6, .brand-root p, .brand-root ul,
+        .brand-root ol, .brand-root li, .brand-root figure, .brand-root blockquote {
+          margin: 0;
+          padding: 0;
+        }
+        .brand-root ::selection { background: rgba(70,85,102,0.15); }
       `}</style>
 
       {/* ── HERO ── */}
