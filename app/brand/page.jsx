@@ -295,7 +295,7 @@ function ColorCard({ color }) {
             color: strongText,
             fontFamily: "'Inter', sans-serif", fontWeight: 500,
           }}>
-            Copied
+            Hex Copied
           </span>
         )}
       </div>
