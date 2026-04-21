@@ -409,7 +409,6 @@ export default function BrandGuidelines() {
                         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", gap: 12 }}>
                           <div style={{ minWidth: 0 }}>
                             <div style={{ fontSize: 11, letterSpacing: "0.08em", textTransform: "uppercase", color: isDark ? "#a8a29e" : "#78716c", marginBottom: 4 }}>{logo.variant}</div>
-                            <div style={{ fontSize: 10, color: isDark ? "#78716c" : "#a8a29e" }}>{logo.downloads.map(d => d.ext).join(" · ")}</div>
                           </div>
                           <DownloadGroup downloads={logo.downloads} isDark={isDark} />
                         </div>
