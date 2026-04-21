@@ -543,6 +543,26 @@ export default function BrandGuidelines() {
             </div>
           </div>
 
+          {/* Row 3 — Alternate Marks & Lockups (6 variants, 3-col grid) */}
+          <div style={{ marginTop: 40 }}>
+            <div style={{ fontSize: 10, letterSpacing: "0.18em", textTransform: "uppercase", color: "#a8a29e", marginBottom: 16 }}>Alternate Marks &amp; Lockups</div>
+            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 16 }}>
+              {BRAND.logos.filter(l => l.category === "alt").map((logo, i) => (
+                <div key={i} className="logo-card" style={{ background: logo.bg, padding: "36px 28px", display: "flex", flexDirection: "column", gap: 20, aspectRatio: "1/1", justifyContent: "space-between", border: "1px solid #e7e5e4", borderRadius: 8, overflow: "hidden" }}>
+                  <div style={{ flex: 1, display: "flex", alignItems: "center", justifyContent: "center" }}>
+                    <img src={logo.file} alt={logo.variant} style={{ maxWidth: "100%", maxHeight: 140, objectFit: "contain" }} />
+                  </div>
+                  <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", gap: 10 }}>
+                    <div style={{ minWidth: 0 }}>
+                      <div style={{ fontSize: 11, letterSpacing: "0.08em", textTransform: "uppercase", color: "#78716c", marginBottom: 4 }}>{logo.variant}</div>
+                    </div>
+                    <DownloadGroup downloads={logo.downloads} isDark={false} />
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
           {/* Usage Rules */}
           <div style={{ marginTop: 48, padding: "36px 40px", border: "1px solid #e7e5e4", borderRadius: 12, background: "#ffffff" }}>
             <div style={{ fontSize: 12, letterSpacing: "0.14em", textTransform: "uppercase", color: "#465566", marginBottom: 24 }}>Usage Rules</div>
