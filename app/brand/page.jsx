@@ -422,7 +422,7 @@ export default function BrandGuidelines() {
         </Section>
 
         {/* ── COLORS ── */}
-        <Section id="colors" label="02 \u2014 Color System">
+        <Section id="colors" label="02 — Color System">
           <div style={{ background: "#ffffff", borderRadius: 12, padding: 32, border: "1px solid #e7e5e4" }}>
             <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(220px, 1fr))", gap: 16 }}>
               {BRAND.colors.map((color, i) => (
