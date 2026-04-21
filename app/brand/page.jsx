@@ -199,6 +199,62 @@ const BRAND = {
         { ext: "JPG", file: "/brand/raster/circle-black.jpg" },
       ],
     },
+    // ── Alternate Marks & Lockups ── (shown in navy; black + white variants
+    // also generated at /public/{slug}-{color}.svg and /brand/raster/{slug}-{color}.{png,jpg})
+    {
+      category: "alt", variant: "NDS Letter Mark",
+      bg: "#ffffff", file: "/nds-letter-navy.svg",
+      downloads: [
+        { ext: "SVG", file: "/nds-letter-navy.svg" },
+        { ext: "PNG", file: "/brand/raster/nds-letter-navy.png" },
+        { ext: "JPG", file: "/brand/raster/nds-letter-navy.jpg" },
+      ],
+    },
+    {
+      category: "alt", variant: "NDS Stacked",
+      bg: "#ffffff", file: "/nds-stacked-navy.svg",
+      downloads: [
+        { ext: "SVG", file: "/nds-stacked-navy.svg" },
+        { ext: "PNG", file: "/brand/raster/nds-stacked-navy.png" },
+        { ext: "JPG", file: "/brand/raster/nds-stacked-navy.jpg" },
+      ],
+    },
+    {
+      category: "alt", variant: "Stacked Left-Align",
+      bg: "#ffffff", file: "/stacked-left-navy.svg",
+      downloads: [
+        { ext: "SVG", file: "/stacked-left-navy.svg" },
+        { ext: "PNG", file: "/brand/raster/stacked-left-navy.png" },
+        { ext: "JPG", file: "/brand/raster/stacked-left-navy.jpg" },
+      ],
+    },
+    {
+      category: "alt", variant: "Circle Outline",
+      bg: "#ffffff", file: "/circle-outline-navy.svg",
+      downloads: [
+        { ext: "SVG", file: "/circle-outline-navy.svg" },
+        { ext: "PNG", file: "/brand/raster/circle-outline-navy.png" },
+        { ext: "JPG", file: "/brand/raster/circle-outline-navy.jpg" },
+      ],
+    },
+    {
+      category: "alt", variant: "Circle Stacked",
+      bg: "#ffffff", file: "/circle-stacked-navy.svg",
+      downloads: [
+        { ext: "SVG", file: "/circle-stacked-navy.svg" },
+        { ext: "PNG", file: "/brand/raster/circle-stacked-navy.png" },
+        { ext: "JPG", file: "/brand/raster/circle-stacked-navy.jpg" },
+      ],
+    },
+    {
+      category: "alt", variant: "Circle Stacked Outline",
+      bg: "#ffffff", file: "/circle-stacked-outline-navy.svg",
+      downloads: [
+        { ext: "SVG", file: "/circle-stacked-outline-navy.svg" },
+        { ext: "PNG", file: "/brand/raster/circle-stacked-outline-navy.png" },
+        { ext: "JPG", file: "/brand/raster/circle-stacked-outline-navy.jpg" },
+      ],
+    },
   ],
 
   // ─── SOCIAL & MARKETING ASSETS ────────────────────────────────────────────
