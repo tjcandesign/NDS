@@ -184,7 +184,7 @@ function DownloadButton({ file, label }) {
     <a
       href={file}
       download
-      style={{ display: "inline-flex", alignItems: "center", gap: 6, padding: "8px 16px", border: "1px solid rgba(70,85,102,0.3)", color: "#1c1917", fontSize: 11, letterSpacing: "0.12em", textDecoration: "none", textTransform: "uppercase", transition: "border-color 0.2s, color 0.2s", cursor: "pointer" }}
+      style={{ display: "inline-flex", alignItems: "center", gap: 4, padding: "6px 12px", border: "1px solid rgba(70,85,102,0.3)", color: "#1c1917", fontSize: 10, letterSpacing: "0.12em", textDecoration: "none", textTransform: "uppercase", transition: "border-color 0.2s, color 0.2s", cursor: "pointer" }}
       onMouseEnter={e => { e.currentTarget.style.borderColor = "#465566"; e.currentTarget.style.color = "#465566"; }}
       onMouseLeave={e => { e.currentTarget.style.borderColor = "rgba(70,85,102,0.3)"; e.currentTarget.style.color = "#1c1917"; }}
     >
@@ -198,12 +198,23 @@ function DownloadButtonDark({ file, label }) {
     <a
       href={file}
       download
-      style={{ display: "inline-flex", alignItems: "center", gap: 6, padding: "8px 16px", border: "1px solid rgba(255,255,255,0.25)", color: "#fafaf9", fontSize: 11, letterSpacing: "0.12em", textDecoration: "none", textTransform: "uppercase", transition: "border-color 0.2s, color 0.2s", cursor: "pointer" }}
+      style={{ display: "inline-flex", alignItems: "center", gap: 4, padding: "6px 12px", border: "1px solid rgba(255,255,255,0.25)", color: "#fafaf9", fontSize: 10, letterSpacing: "0.12em", textDecoration: "none", textTransform: "uppercase", transition: "border-color 0.2s, color 0.2s", cursor: "pointer" }}
       onMouseEnter={e => { e.currentTarget.style.borderColor = "#fafaf9"; }}
       onMouseLeave={e => { e.currentTarget.style.borderColor = "rgba(255,255,255,0.25)"; }}
     >
       &darr; {label}
     </a>
+  );
+}
+
+function DownloadGroup({ downloads, isDark }) {
+  const Btn = isDark ? DownloadButtonDark : DownloadButton;
+  return (
+    <div style={{ display: "flex", gap: 6, flexWrap: "wrap", justifyContent: "flex-end" }}>
+      {downloads.map(d => (
+        <Btn key={d.ext} file={d.file} label={d.ext} />
+      ))}
+    </div>
   );
 }
 
