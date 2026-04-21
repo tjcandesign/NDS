@@ -200,6 +200,39 @@ const BRAND = {
       ],
     },
   ],
+
+  // ─── SOCIAL & MARKETING ASSETS ────────────────────────────────────────────
+  // Placeholders at exact aspect ratios. Replace `preview.asset` with final
+  // artwork once designs are approved — the card frames and layout stay.
+  socialAssets: [
+    // Profile Avatars — 1:1 square
+    { group: "avatars", platform: "Instagram",  name: "Profile Photo",       dims: "320 × 320 px",   ratio: "1 / 1",
+      preview: { bg: "#465566", asset: "/nds-circle-white.svg", size: "55%" } },
+    { group: "avatars", platform: "Pinterest",  name: "Profile Photo",       dims: "165 × 165 px",   ratio: "1 / 1",
+      preview: { bg: "#ffffff", asset: "/nds-circle-navy.svg",  size: "55%" } },
+    { group: "avatars", platform: "LinkedIn",   name: "Company Logo",        dims: "300 × 300 px",   ratio: "1 / 1",
+      preview: { bg: "#FFF9EE", asset: "/nds-circle-navy.svg",  size: "55%" } },
+    { group: "avatars", platform: "Facebook",   name: "Profile Photo",       dims: "320 × 320 px",   ratio: "1 / 1",
+      preview: { bg: "#364454", asset: "/nds-circle-white.svg", size: "55%" } },
+
+    // Covers & Banners — wide, stack vertically since aspect ratios differ
+    { group: "covers",  platform: "Facebook",   name: "Cover Photo",         dims: "820 × 312 px",   ratio: "820 / 312",
+      preview: { bg: "#364454", asset: "/brand/logo-primary-dark.svg",  size: "30%" } },
+    { group: "covers",  platform: "LinkedIn",   name: "Company Banner",      dims: "1584 × 396 px",  ratio: "1584 / 396",
+      preview: { bg: "#FFF9EE", asset: "/brand/logo-primary-light.svg", size: "22%" } },
+    { group: "covers",  platform: "X / Twitter", name: "Header Image",       dims: "1500 × 500 px",  ratio: "3 / 1",
+      preview: { bg: "#465566", asset: "/brand/logo-primary-dark.svg",  size: "28%" } },
+    { group: "covers",  platform: "Pinterest",  name: "Profile Cover",       dims: "800 × 450 px",   ratio: "16 / 9",
+      preview: { bg: "#ffffff", asset: "/nds-circle-logo-navy.svg",     size: "45%" } },
+
+    // Feed & Pin Formats — square to portrait
+    { group: "feed",    platform: "Instagram",  name: "Feed Post",           dims: "1080 × 1080 px", ratio: "1 / 1",
+      preview: { bg: "#FFF9EE", asset: "/brand/logo-primary-light.svg", size: "60%" } },
+    { group: "feed",    platform: "Instagram",  name: "Story / Reel",        dims: "1080 × 1920 px", ratio: "9 / 16",
+      preview: { bg: "#364454", asset: "/brand/logo-primary-dark.svg",  size: "60%" } },
+    { group: "feed",    platform: "Pinterest",  name: "Standard Pin",        dims: "1000 × 1500 px", ratio: "2 / 3",
+      preview: { bg: "#ffffff", asset: "/nds-circle-logo-navy.svg",     size: "62%" } },
+  ],
 };
 
 // ─── HELPERS ─────────────────────────────────────────────────────────────────
