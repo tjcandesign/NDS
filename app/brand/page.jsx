@@ -349,6 +349,7 @@ export default function BrandGuidelines() {
     { id: "colors",     label: "Colors"     },
     { id: "typography", label: "Typography" },
     { id: "typestyles", label: "Type Styles"},
+    { id: "social",     label: "Social"     },
   ];
 
   const scrollTo = (id) => {
