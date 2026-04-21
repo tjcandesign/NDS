@@ -375,48 +375,47 @@ export default function BrandGuidelines() {
 
         {/* ── LOGOS ── */}
         <Section id="logos" label="01 — Logo System">
-          {/* Helper renders one logo card */}
-          {(() => null)()}
-
-          {/* Row 1 — Primary marks: Wordmark + NDS Lockup */}
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 32 }}>
-            {[
-              { label: "Wordmark",   category: "wordmark" },
-              { label: "NDS Lockup", category: "lockup"   },
-            ].map(col => (
-              <div key={col.category}>
-                <div style={{ fontSize: 10, letterSpacing: "0.18em", textTransform: "uppercase", color: "#a8a29e", marginBottom: 16 }}>{col.label}</div>
-                <div style={{ display: "flex", flexDirection: "column", gap: 2 }}>
-                  {BRAND.logos.filter(l => l.category === col.category).map((logo, i) => {
-                    const isDark = logo.bg === "#364454";
-                    return (
-                      <div key={i} style={{ background: logo.bg, padding: "40px 32px", display: "flex", flexDirection: "column", gap: 20, aspectRatio: "5/3", justifyContent: "space-between", border: isDark ? "none" : "1px solid #e7e5e4" }}>
-                        <div style={{ flex: 1, display: "flex", alignItems: "center", justifyContent: "center", padding: "0 16px" }}>
-                          <img src={logo.file} alt={logo.variant} style={{ maxWidth: "100%", maxHeight: 80, objectFit: "contain" }} />
-                        </div>
-                        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", gap: 12 }}>
-                          <div style={{ minWidth: 0 }}>
-                            <div style={{ fontSize: 11, letterSpacing: "0.08em", textTransform: "uppercase", color: isDark ? "#a8a29e" : "#78716c", marginBottom: 4 }}>{logo.variant}</div>
-                            <div style={{ fontSize: 10, color: isDark ? "#78716c" : "#a8a29e" }}>{logo.downloads.map(d => d.ext).join(" · ")}</div>
+          {/* Row 1 — Primary marks: Wordmark + NDS Lockup (white container, matching Color System) */}
+          <div style={{ background: "#ffffff", borderRadius: 12, padding: 32, border: "1px solid #e7e5e4" }}>
+            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 32 }}>
+              {[
+                { label: "Wordmark",   category: "wordmark" },
+                { label: "NDS Lockup", category: "lockup"   },
+              ].map(col => (
+                <div key={col.category}>
+                  <div style={{ fontSize: 10, letterSpacing: "0.18em", textTransform: "uppercase", color: "#a8a29e", marginBottom: 16 }}>{col.label}</div>
+                  <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
+                    {BRAND.logos.filter(l => l.category === col.category).map((logo, i) => {
+                      const isDark = logo.bg === "#364454";
+                      return (
+                        <div key={i} style={{ background: logo.bg, padding: "40px 32px", display: "flex", flexDirection: "column", gap: 20, aspectRatio: "5/3", justifyContent: "space-between", border: isDark ? "none" : "1px solid #e7e5e4", borderRadius: 8, overflow: "hidden" }}>
+                          <div style={{ flex: 1, display: "flex", alignItems: "center", justifyContent: "center", padding: "0 16px" }}>
+                            <img src={logo.file} alt={logo.variant} style={{ maxWidth: "100%", maxHeight: 80, objectFit: "contain" }} />
                           </div>
-                          <DownloadGroup downloads={logo.downloads} isDark={isDark} />
+                          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", gap: 12 }}>
+                            <div style={{ minWidth: 0 }}>
+                              <div style={{ fontSize: 11, letterSpacing: "0.08em", textTransform: "uppercase", color: isDark ? "#a8a29e" : "#78716c", marginBottom: 4 }}>{logo.variant}</div>
+                              <div style={{ fontSize: 10, color: isDark ? "#78716c" : "#a8a29e" }}>{logo.downloads.map(d => d.ext).join(" · ")}</div>
+                            </div>
+                            <DownloadGroup downloads={logo.downloads} isDark={isDark} />
+                          </div>
                         </div>
-                      </div>
-                    );
-                  })}
+                      );
+                    })}
+                  </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
 
-          {/* Row 2 — Secondary: Circle Mark, three variants side by side */}
-          <div style={{ marginTop: 40 }}>
+          {/* Row 2 — Secondary: Circle Mark, three variants side by side (white container) */}
+          <div style={{ marginTop: 24, background: "#ffffff", borderRadius: 12, padding: 32, border: "1px solid #e7e5e4" }}>
             <div style={{ fontSize: 10, letterSpacing: "0.18em", textTransform: "uppercase", color: "#a8a29e", marginBottom: 16 }}>Circle Mark — Secondary</div>
             <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 16 }}>
               {BRAND.logos.filter(l => l.category === "circle").map((logo, i) => {
                 const isDark = logo.bg === "#364454";
                 return (
-                  <div key={i} style={{ background: logo.bg, padding: "36px 28px", display: "flex", flexDirection: "column", gap: 20, aspectRatio: "1/1", justifyContent: "space-between", border: isDark ? "none" : "1px solid #e7e5e4" }}>
+                  <div key={i} style={{ background: logo.bg, padding: "36px 28px", display: "flex", flexDirection: "column", gap: 20, aspectRatio: "1/1", justifyContent: "space-between", border: isDark ? "none" : "1px solid #e7e5e4", borderRadius: 8, overflow: "hidden" }}>
                     <div style={{ flex: 1, display: "flex", alignItems: "center", justifyContent: "center" }}>
                       <img src={logo.file} alt={logo.variant} style={{ maxWidth: "100%", maxHeight: 120, objectFit: "contain" }} />
                     </div>
