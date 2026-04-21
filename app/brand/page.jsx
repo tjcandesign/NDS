@@ -433,7 +433,7 @@ export default function BrandGuidelines() {
         </Section>
 
         {/* ── TYPOGRAPHY ── */}
-        <Section id="typography" label="03 \u2014 Typography">
+        <Section id="typography" label="03 — Typography">
           <div style={{ display: "flex", flexDirection: "column", gap: 32 }}>
             {BRAND.fonts.map((font, i) => (
               <div key={i} style={{ border: "1px solid #e7e5e4", background: "#ffffff", borderRadius: 12, overflow: "hidden" }}>
