@@ -529,7 +529,7 @@ export default function BrandGuidelines() {
         </Section>
 
         {/* ── TYPE STYLES ── */}
-        <Section id="typestyles" label="04 \u2014 Type Styles">
+        <Section id="typestyles" label="04 — Type Styles">
           <div style={{ display: "flex", flexDirection: "column", gap: 2 }}>
             {BRAND.typeStyles.map((style, i) => (
               <div key={i} style={{ padding: "48px 40px", border: "1px solid #e7e5e4", borderRadius: 12, background: "#ffffff" }}>
