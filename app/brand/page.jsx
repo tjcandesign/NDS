@@ -629,10 +629,6 @@ export default function BrandGuidelines() {
                     </div>
                   </div>
                 </div>
-                <div style={{ marginTop: 24, padding: "12px 16px", background: "#f5f5f4", borderRadius: 2, display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-                  <code style={{ fontSize: 11, color: "#78716c", fontFamily: "monospace", letterSpacing: "0.04em" }}>{style.css}</code>
-                  <CopyButton text={style.css} />
-                </div>
               </div>
             ))}
           </div>
