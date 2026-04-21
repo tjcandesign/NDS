@@ -346,7 +346,7 @@ export default function BrandGuidelines() {
                           <div style={{ fontSize: 11, letterSpacing: "0.1em", textTransform: "uppercase", color: isDark ? "#a8a29e" : "#78716c", marginBottom: 4 }}>{logo.name}</div>
                           <div style={{ fontSize: 10, color: isDark ? "#78716c" : "#a8a29e" }}>{logo.format}</div>
                         </div>
-                        {isDark ? <DownloadButtonDark file={logo.file} label={logo.format} /> : <DownloadButton file={logo.file} label={logo.format} />}
+                        <DownloadGroup downloads={logo.downloads} isDark={isDark} />
                       </div>
                     </div>
                   );
@@ -370,7 +370,7 @@ export default function BrandGuidelines() {
                           <div style={{ fontSize: 11, letterSpacing: "0.1em", textTransform: "uppercase", color: isDark ? "#a8a29e" : "#78716c", marginBottom: 4 }}>{logo.name}</div>
                           <div style={{ fontSize: 10, color: isDark ? "#78716c" : "#a8a29e" }}>{logo.format}</div>
                         </div>
-                        {isDark ? <DownloadButtonDark file={logo.file} label={logo.format} /> : <DownloadButton file={logo.file} label={logo.format} />}
+                        <DownloadGroup downloads={logo.downloads} isDark={isDark} />
                       </div>
                     </div>
                   );
