@@ -413,7 +413,7 @@ export default function BrandGuidelines() {
               {BRAND.logos.filter(l => l.category === "circle").map((logo, i) => {
                 const isDark = logo.bg === "#364454";
                 return (
-                  <div key={i} style={{ background: logo.bg, padding: "36px 28px", display: "flex", flexDirection: "column", gap: 20, aspectRatio: "1/1", justifyContent: "space-between", border: isDark ? "none" : "1px solid #e7e5e4", borderRadius: 8, overflow: "hidden" }}>
+                  <div key={i} className="logo-card" style={{ background: logo.bg, padding: "36px 28px", display: "flex", flexDirection: "column", gap: 20, aspectRatio: "1/1", justifyContent: "space-between", border: isDark ? "1px solid transparent" : "1px solid #e7e5e4", borderRadius: 8, overflow: "hidden" }}>
                     <div style={{ flex: 1, display: "flex", alignItems: "center", justifyContent: "center" }}>
                       <img src={logo.file} alt={logo.variant} style={{ maxWidth: "100%", maxHeight: 120, objectFit: "contain" }} />
                     </div>
