@@ -115,11 +115,10 @@ const BRAND = {
 
   logos: [
     {
+      category: "wordmark",
       name: "Wordmark \u2014 Dark BG",
       bg: "#364454",
-      // Displayed file (used for the preview image)
       file: "/brand/logo-primary-dark.svg",
-      // All downloadable formats
       downloads: [
         { ext: "SVG", file: "/brand/logo-primary-dark.svg" },
         { ext: "PNG", file: "/brand/raster/wordmark-dark.png" },
@@ -127,6 +126,7 @@ const BRAND = {
       ],
     },
     {
+      category: "wordmark",
       name: "Wordmark \u2014 Light BG",
       bg: "#fafaf9",
       file: "/brand/logo-primary-light.svg",
@@ -137,7 +137,8 @@ const BRAND = {
       ],
     },
     {
-      name: "NDS Mark \u2014 Dark BG",
+      category: "lockup",
+      name: "NDS Lockup \u2014 Dark BG",
       bg: "#364454",
       file: "/nds-circle-logo-white.svg",
       downloads: [
@@ -147,13 +148,36 @@ const BRAND = {
       ],
     },
     {
-      name: "NDS Mark \u2014 Light BG",
+      category: "lockup",
+      name: "NDS Lockup \u2014 Light BG",
       bg: "#fafaf9",
       file: "/nds-circle-logo-navy.svg",
       downloads: [
         { ext: "SVG", file: "/nds-circle-logo-navy.svg" },
         { ext: "PNG", file: "/brand/raster/mark-light.png" },
         { ext: "JPG", file: "/brand/raster/mark-light.jpg" },
+      ],
+    },
+    {
+      category: "circle",
+      name: "Circle Mark \u2014 Dark BG",
+      bg: "#364454",
+      file: "/nds-circle-white.svg",
+      downloads: [
+        { ext: "SVG", file: "/nds-circle-white.svg" },
+        { ext: "PNG", file: "/brand/raster/circle-white.png" },
+        { ext: "JPG", file: "/brand/raster/circle-white.jpg" },
+      ],
+    },
+    {
+      category: "circle",
+      name: "Circle Mark \u2014 Light BG",
+      bg: "#fafaf9",
+      file: "/nds-circle-navy.svg",
+      downloads: [
+        { ext: "SVG", file: "/nds-circle-navy.svg" },
+        { ext: "PNG", file: "/brand/raster/circle-navy.png" },
+        { ext: "JPG", file: "/brand/raster/circle-navy.jpg" },
       ],
     },
   ],
