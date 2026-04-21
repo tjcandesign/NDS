@@ -114,10 +114,48 @@ const BRAND = {
   ],
 
   logos: [
-    { name: "Wordmark \u2014 Dark BG",  bg: "#364454", format: "SVG", file: "/brand/logo-primary-dark.svg"  },
-    { name: "Wordmark \u2014 Light BG", bg: "#fafaf9", format: "SVG", file: "/brand/logo-primary-light.svg" },
-    { name: "NDS Mark \u2014 Dark BG",  bg: "#364454", format: "SVG", file: "/brand/mark-dark.svg"          },
-    { name: "NDS Mark \u2014 Light BG", bg: "#fafaf9", format: "SVG", file: "/brand/mark-light.svg"         },
+    {
+      name: "Wordmark \u2014 Dark BG",
+      bg: "#364454",
+      // Displayed file (used for the preview image)
+      file: "/brand/logo-primary-dark.svg",
+      // All downloadable formats
+      downloads: [
+        { ext: "SVG", file: "/brand/logo-primary-dark.svg" },
+        { ext: "PNG", file: "/brand/raster/wordmark-dark.png" },
+        { ext: "JPG", file: "/brand/raster/wordmark-dark.jpg" },
+      ],
+    },
+    {
+      name: "Wordmark \u2014 Light BG",
+      bg: "#fafaf9",
+      file: "/brand/logo-primary-light.svg",
+      downloads: [
+        { ext: "SVG", file: "/brand/logo-primary-light.svg" },
+        { ext: "PNG", file: "/brand/raster/wordmark-light.png" },
+        { ext: "JPG", file: "/brand/raster/wordmark-light.jpg" },
+      ],
+    },
+    {
+      name: "NDS Mark \u2014 Dark BG",
+      bg: "#364454",
+      file: "/nds-circle-logo-white.svg",
+      downloads: [
+        { ext: "SVG", file: "/nds-circle-logo-white.svg" },
+        { ext: "PNG", file: "/brand/raster/mark-dark.png" },
+        { ext: "JPG", file: "/brand/raster/mark-dark.jpg" },
+      ],
+    },
+    {
+      name: "NDS Mark \u2014 Light BG",
+      bg: "#fafaf9",
+      file: "/nds-circle-logo-navy.svg",
+      downloads: [
+        { ext: "SVG", file: "/nds-circle-logo-navy.svg" },
+        { ext: "PNG", file: "/brand/raster/mark-light.png" },
+        { ext: "JPG", file: "/brand/raster/mark-light.jpg" },
+      ],
+    },
   ],
 };
 
