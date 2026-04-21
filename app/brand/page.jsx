@@ -278,7 +278,7 @@ function ColorCard({ color }) {
     <div style={{ borderRadius: 8, overflow: "hidden", border: color.dark ? "none" : "1px solid #e7e5e4" }}>
       <div
         onClick={handleClick}
-        style={{ background: color.hex, height: 140, width: "100%", cursor: "pointer", position: "relative", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: 4, transition: "opacity 0.2s", padding: "0 12px" }}
+        style={{ background: color.hex, height: 180, width: "100%", cursor: "pointer", position: "relative", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: 4, transition: "opacity 0.2s", padding: "0 12px" }}
       >
         <span style={{ fontSize: 16, fontFamily: "monospace", fontWeight: 500, letterSpacing: "0.02em", color: strongText }}>
           {color.hex.toUpperCase()}
