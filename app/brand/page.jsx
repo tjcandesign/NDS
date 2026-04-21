@@ -710,30 +710,50 @@ export default function BrandGuidelines() {
                 <div style={{ display: "grid", gridTemplateColumns: group.cols, gap: 16 }}>
                   {items.map((asset, i) => (
                     <div key={i} className="logo-card" style={{ border: "1px solid #e7e5e4", borderRadius: 8, overflow: "hidden", background: "#ffffff" }}>
-                      {/* Aspect-correct preview frame */}
+                      {/* Aspect-correct preview — this IS the downloadable file */}
                       <div style={{
-                        background: asset.preview.bg,
                         aspectRatio: asset.ratio,
                         width: "100%",
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center",
-                        padding: 24,
+                        background: "#f5f5f4",
                       }}>
-                        <img src={asset.preview.asset} alt="" style={{
-                          width: asset.preview.size,
-                          maxWidth: "100%",
-                          maxHeight: "100%",
-                          objectFit: "contain",
+                        <img src={asset.file} alt={asset.platform + " " + asset.name} style={{
+                          width: "100%",
+                          height: "100%",
+                          objectFit: "cover",
+                          display: "block",
                         }} />
                       </div>
-                      {/* Meta strip */}
-                      <div style={{ padding: "14px 16px", borderTop: "1px solid #e7e5e4", display: "flex", justifyContent: "space-between", alignItems: "baseline", gap: 12 }}>
-                        <div style={{ minWidth: 0 }}>
+                      {/* Meta + download */}
+                      <div style={{ padding: "14px 16px", borderTop: "1px solid #e7e5e4", display: "flex", justifyContent: "space-between", alignItems: "center", gap: 12 }}>
+                        <div style={{ minWidth: 0, flex: 1 }}>
                           <div style={{ fontSize: 10, letterSpacing: "0.14em", textTransform: "uppercase", color: "#a8a29e", marginBottom: 3 }}>{asset.platform}</div>
-                          <div style={{ fontSize: 14, fontWeight: 500, color: "#1c1917" }}>{asset.name}</div>
+                          <div style={{ fontSize: 14, fontWeight: 500, color: "#1c1917", marginBottom: 2 }}>{asset.name}</div>
+                          <div style={{ fontSize: 11, fontFamily: "monospace", color: "#78716c" }}>{asset.dims}</div>
                         </div>
-                        <div style={{ fontSize: 11, fontFamily: "monospace", color: "#78716c", whiteSpace: "nowrap" }}>{asset.dims}</div>
+                        <a
+                          href={asset.file}
+                          download
+                          style={{
+                            display: "inline-flex",
+                            alignItems: "center",
+                            gap: 4,
+                            padding: "6px 12px",
+                            border: "1px solid rgba(70,85,102,0.3)",
+                            color: "#1c1917",
+                            fontSize: 10,
+                            letterSpacing: "0.12em",
+                            textDecoration: "none",
+                            textTransform: "uppercase",
+                            transition: "border-color 0.2s, color 0.2s",
+                            cursor: "pointer",
+                            whiteSpace: "nowrap",
+                            flexShrink: 0,
+                          }}
+                          onMouseEnter={e => { e.currentTarget.style.borderColor = "#465566"; e.currentTarget.style.color = "#465566"; }}
+                          onMouseLeave={e => { e.currentTarget.style.borderColor = "rgba(70,85,102,0.3)"; e.currentTarget.style.color = "#1c1917"; }}
+                        >
+                          ↓ JPG
+                        </a>
                       </div>
                     </div>
                   ))}
