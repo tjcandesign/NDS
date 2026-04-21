@@ -431,11 +431,7 @@ export default function BrandGuidelines() {
                     <div style={{ flex: 1, display: "flex", alignItems: "center", justifyContent: "center" }}>
                       <img src={logo.file} alt={logo.variant} style={{ maxWidth: "100%", maxHeight: 120, objectFit: "contain" }} />
                     </div>
-                    <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", gap: 10 }}>
-                      <div style={{ minWidth: 0 }}>
-                        <div style={{ fontSize: 11, letterSpacing: "0.08em", textTransform: "uppercase", color: isDark ? "#a8a29e" : "#78716c", marginBottom: 4 }}>{logo.variant}</div>
-                        <div style={{ fontSize: 10, color: isDark ? "#78716c" : "#a8a29e" }}>{logo.downloads.map(d => d.ext).join(" · ")}</div>
-                      </div>
+                    <div style={{ display: "flex", justifyContent: "center", gap: 6 }}>
                       <DownloadGroup downloads={logo.downloads} isDark={isDark} />
                     </div>
                   </div>
