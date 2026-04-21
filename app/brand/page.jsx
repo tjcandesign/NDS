@@ -210,18 +210,6 @@ function hexToRgb(hex) {
   return `${r}, ${g}, ${b}`;
 }
 
-function CopyButton({ text }) {
-  const [copied, setCopied] = useState(false);
-  return (
-    <button
-      onClick={() => { navigator.clipboard.writeText(text); setCopied(true); setTimeout(() => setCopied(false), 1500); }}
-      style={{ background: "none", border: "1px solid rgba(70,85,102,0.3)", color: copied ? "#465566" : "#78716c", padding: "3px 10px", borderRadius: 2, fontSize: 11, cursor: "pointer", letterSpacing: "0.08em", transition: "color 0.2s" }}
-    >
-      {copied ? "COPIED" : "COPY"}
-    </button>
-  );
-}
-
 function DownloadButton({ file, label }) {
   return (
     <a
