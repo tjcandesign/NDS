@@ -589,7 +589,7 @@ export default function BrandGuidelines() {
 
         {/* ── TYPE STYLES ── */}
         <Section id="typestyles" label="04 — Type Styles">
-          <div style={{ display: "flex", flexDirection: "column", gap: 2 }}>
+          <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
             {BRAND.typeStyles.map((style, i) => (
               <div key={i} style={{ padding: "48px 40px", border: "1px solid #e7e5e4", borderRadius: 12, background: "#ffffff" }}>
                 <div style={{ display: "grid", gridTemplateColumns: "200px 1fr", gap: 48 }}>
