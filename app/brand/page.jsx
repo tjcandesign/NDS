@@ -374,29 +374,29 @@ export default function BrandGuidelines() {
 
         {/* ── LOGOS ── */}
         <Section id="logos" label="01 — Logo System">
-          {/* Wordmark, Lockup, and Circle Mark columns, each stacked dark/light */}
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 24 }}>
+          {/* Helper renders one logo card */}
+          {(() => null)()}
+
+          {/* Row 1 — Primary marks: Wordmark + NDS Lockup */}
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 32 }}>
             {[
-              { label: "Wordmark",    category: "wordmark" },
-              { label: "NDS Lockup",  category: "lockup"   },
-              { label: "Circle Mark", category: "circle"   },
+              { label: "Wordmark",   category: "wordmark" },
+              { label: "NDS Lockup", category: "lockup"   },
             ].map(col => (
               <div key={col.category}>
                 <div style={{ fontSize: 10, letterSpacing: "0.18em", textTransform: "uppercase", color: "#a8a29e", marginBottom: 16 }}>{col.label}</div>
                 <div style={{ display: "flex", flexDirection: "column", gap: 2 }}>
                   {BRAND.logos.filter(l => l.category === col.category).map((logo, i) => {
                     const isDark = logo.bg === "#364454";
-                    // Square aspect for the circle mark, wide for the others
-                    const aspectRatio = col.category === "circle" ? "1/1" : "5/3";
                     return (
-                      <div key={i} style={{ background: logo.bg, padding: "40px 32px", display: "flex", flexDirection: "column", gap: 20, aspectRatio, justifyContent: "space-between", border: isDark ? "none" : "1px solid #e7e5e4" }}>
+                      <div key={i} style={{ background: logo.bg, padding: "40px 32px", display: "flex", flexDirection: "column", gap: 20, aspectRatio: "5/3", justifyContent: "space-between", border: isDark ? "none" : "1px solid #e7e5e4" }}>
                         <div style={{ flex: 1, display: "flex", alignItems: "center", justifyContent: "center", padding: "0 16px" }}>
-                          <img src={logo.file} alt={logo.name} style={{ maxWidth: "100%", maxHeight: col.category === "circle" ? 120 : 70, objectFit: "contain" }} />
+                          <img src={logo.file} alt={logo.variant} style={{ maxWidth: "100%", maxHeight: 80, objectFit: "contain" }} />
                         </div>
                         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", gap: 12 }}>
                           <div style={{ minWidth: 0 }}>
-                            <div style={{ fontSize: 10, letterSpacing: "0.08em", textTransform: "uppercase", color: isDark ? "#a8a29e" : "#78716c", marginBottom: 4, whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>{logo.name}</div>
-                            <div style={{ fontSize: 9, color: isDark ? "#78716c" : "#a8a29e" }}>{logo.downloads.map(d => d.ext).join(" · ")}</div>
+                            <div style={{ fontSize: 11, letterSpacing: "0.08em", textTransform: "uppercase", color: isDark ? "#a8a29e" : "#78716c", marginBottom: 4 }}>{logo.variant}</div>
+                            <div style={{ fontSize: 10, color: isDark ? "#78716c" : "#a8a29e" }}>{logo.downloads.map(d => d.ext).join(" · ")}</div>
                           </div>
                           <DownloadGroup downloads={logo.downloads} isDark={isDark} />
                         </div>
@@ -408,18 +408,86 @@ export default function BrandGuidelines() {
             ))}
           </div>
 
-          <div style={{ marginTop: 48, padding: "32px 40px", border: "1px solid #e7e5e4", borderRadius: 12, background: "#ffffff" }}>
-            <div style={{ fontSize: 11, letterSpacing: "0.14em", textTransform: "uppercase", color: "#465566", marginBottom: 16 }}>Usage Rules</div>
-            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 24 }}>
+          {/* Row 2 — Secondary: Circle Mark, three variants side by side */}
+          <div style={{ marginTop: 40 }}>
+            <div style={{ fontSize: 10, letterSpacing: "0.18em", textTransform: "uppercase", color: "#a8a29e", marginBottom: 16 }}>Circle Mark — Secondary</div>
+            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 16 }}>
+              {BRAND.logos.filter(l => l.category === "circle").map((logo, i) => {
+                const isDark = logo.bg === "#364454";
+                return (
+                  <div key={i} style={{ background: logo.bg, padding: "36px 28px", display: "flex", flexDirection: "column", gap: 20, aspectRatio: "1/1", justifyContent: "space-between", border: isDark ? "none" : "1px solid #e7e5e4" }}>
+                    <div style={{ flex: 1, display: "flex", alignItems: "center", justifyContent: "center" }}>
+                      <img src={logo.file} alt={logo.variant} style={{ maxWidth: "100%", maxHeight: 120, objectFit: "contain" }} />
+                    </div>
+                    <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", gap: 10 }}>
+                      <div style={{ minWidth: 0 }}>
+                        <div style={{ fontSize: 11, letterSpacing: "0.08em", textTransform: "uppercase", color: isDark ? "#a8a29e" : "#78716c", marginBottom: 4 }}>{logo.variant}</div>
+                        <div style={{ fontSize: 10, color: isDark ? "#78716c" : "#a8a29e" }}>{logo.downloads.map(d => d.ext).join(" · ")}</div>
+                      </div>
+                      <DownloadGroup downloads={logo.downloads} isDark={isDark} />
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+
+          {/* Usage Rules */}
+          <div style={{ marginTop: 48, padding: "36px 40px", border: "1px solid #e7e5e4", borderRadius: 12, background: "#ffffff" }}>
+            <div style={{ fontSize: 12, letterSpacing: "0.14em", textTransform: "uppercase", color: "#465566", marginBottom: 24 }}>Usage Rules</div>
+            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 32 }}>
               {[
-                ["Always maintain clear space", "Minimum clear space = height of the cap-height of the wordmark on all sides."],
-                ["Never stretch or distort", "Scale proportionally only. Never adjust individual letterforms."],
-                ["Approved backgrounds only", "Use light wordmark on dark surfaces, dark wordmark on light. Avoid busy photography."],
-                ["Minimum size", "Wordmark: 80px wide minimum on screen. NDS mark: 24px minimum."],
-              ].map(([rule, desc], i) => (
-                <div key={i}>
-                  <div style={{ fontSize: 13, fontWeight: 500, marginBottom: 6, color: "#1c1917" }}>{rule}</div>
-                  <div style={{ fontSize: 13, fontWeight: 400, color: "#78716c", lineHeight: 1.6 }}>{desc}</div>
+                {
+                  title: "Always maintain clear space",
+                  desc: "Minimum clear space = height of the cap-height of the wordmark on all sides.",
+                  icon: (
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#465566" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                      <path d="M3 9V3h6M21 9V3h-6M3 15v6h6M21 15v6h-6" />
+                      <rect x="7" y="7" width="10" height="10" rx="1" />
+                    </svg>
+                  ),
+                },
+                {
+                  title: "Never stretch or distort",
+                  desc: "Scale proportionally only. Never adjust individual letterforms.",
+                  icon: (
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#465566" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                      <circle cx="12" cy="12" r="9" />
+                      <line x1="5.6" y1="5.6" x2="18.4" y2="18.4" />
+                    </svg>
+                  ),
+                },
+                {
+                  title: "Approved backgrounds only",
+                  desc: "Use light wordmark on dark surfaces, dark wordmark on light. Avoid busy photography.",
+                  icon: (
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#465566" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                      <rect x="3" y="3" width="8" height="8" rx="1" />
+                      <rect x="13" y="3" width="8" height="8" rx="1" fill="#465566" />
+                      <rect x="3" y="13" width="8" height="8" rx="1" fill="#465566" />
+                      <rect x="13" y="13" width="8" height="8" rx="1" />
+                    </svg>
+                  ),
+                },
+                {
+                  title: "Minimum size",
+                  desc: "Wordmark: 80px wide minimum on screen. NDS mark: 24px minimum.",
+                  icon: (
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#465566" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                      <path d="M3 17h18" />
+                      <path d="M5 17V13M9 17V15M13 17V11M17 17V14M21 17V9" />
+                    </svg>
+                  ),
+                },
+              ].map((rule, i) => (
+                <div key={i} style={{ display: "flex", gap: 16, alignItems: "flex-start" }}>
+                  <div style={{ flexShrink: 0, width: 44, height: 44, borderRadius: 8, background: "rgba(70,85,102,0.08)", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                    {rule.icon}
+                  </div>
+                  <div>
+                    <div style={{ fontSize: 16, fontWeight: 500, marginBottom: 6, color: "#1c1917" }}>{rule.title}</div>
+                    <div style={{ fontSize: 15, fontWeight: 400, color: "#57534e", lineHeight: 1.6 }}>{rule.desc}</div>
+                  </div>
                 </div>
               ))}
             </div>
