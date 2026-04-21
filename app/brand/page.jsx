@@ -284,7 +284,7 @@ function ColorCard({ color }) {
           {color.hex.toUpperCase()}
         </span>
         <span style={{ fontSize: 12, fontFamily: "monospace", color: softText, letterSpacing: "0.01em" }}>
-          rgb({hexToRgb(color.hex)})
+          RGB({hexToRgb(color.hex)})
         </span>
         {copied && (
           <span style={{
