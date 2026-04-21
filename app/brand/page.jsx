@@ -368,7 +368,7 @@ export default function BrandGuidelines() {
       <div style={{ maxWidth: 1100, margin: "0 auto", padding: "0 64px 120px" }}>
 
         {/* ── LOGOS ── */}
-        <Section id="logos" label="01 \u2014 Logo System">
+        <Section id="logos" label="01 — Logo System">
           {/* Wordmark, Lockup, and Circle Mark columns, each stacked dark/light */}
           <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 24 }}>
             {[
