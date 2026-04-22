@@ -85,7 +85,7 @@ export default async function About() {
                 className="w-full h-auto object-cover"
               />
             ) : showAboutImagePlaceholder ? (
-              <div className="w-full aspect-[3/4] bg-stone-200" />
+              <div className="w-full aspect-[3/4] bg-white" />
             ) : null}
           </div>
         </div>
