@@ -60,7 +60,7 @@ export function ContactForm({ formConfig }: { formConfig: FormConfig }) {
       setSubmittedEmail(obj.email || '')
       setSubmitted(true)
     } catch {
-      setError("We couldn't submit your inquiry right now. Please email us directly at hello@nichedesignstudio.com and we'll get right back to you.")
+      setError("We couldn't submit your inquiry right now. Please email us directly at hello@nichedesignstudiodc.com and we'll get right back to you.")
     } finally {
       setSubmitting(false)
     }
@@ -79,7 +79,7 @@ export function ContactForm({ formConfig }: { formConfig: FormConfig }) {
       await submitToSheet(obj)
       setVisionDone(true)
     } catch {
-      setVisionError("Couldn't save your additional details. You can reply to our outreach email or send these details to hello@nichedesignstudio.com.")
+      setVisionError("Couldn't save your additional details. You can reply to our outreach email or send these details to hello@nichedesignstudiodc.com.")
     } finally {
       setVisionSubmitting(false)
     }
