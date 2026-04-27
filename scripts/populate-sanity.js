@@ -33,7 +33,7 @@ const siteSettingsData = {
   _id: 'siteSettings',
   title: 'Niche Design Studio',
   tagline: 'Interior Architecture & Design',
-  email: 'hello@nichedesignstudios.com',
+  email: 'hello@nichedesignstudiodc.com',
   phone: '(202) 555-0100',
   address: 'Washington, DC',
   instagram: 'https://www.instagram.com/melkimball/',
@@ -121,7 +121,7 @@ async function populateSanity() {
 
     console.log('\n📋 Data populated:')
     console.log('  - Site Title: Niche Design Studio')
-    console.log('  - Email: hello@nichedesignstudios.com')
+    console.log('  - Email: hello@nichedesignstudiodc.com')
     console.log('  - Address: Washington, DC')
     console.log('  - Instagram: https://www.instagram.com/melkimball/')
     console.log('  - Navigation Links: 4 items (About, Portfolio, Journal, Contact)')
