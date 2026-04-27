@@ -118,7 +118,7 @@ const FALLBACK_SETTINGS: SiteSettings = {
   _id: 'siteSettings',
   title: 'Niche Design Studios',
   tagline: 'Interior Design',
-  email: 'hello@nichedesignstudio.com',
+  email: 'hello@nichedesignstudiodc.com',
   phone: '(202) 555-0100',
   address: 'Washington, DC',
   instagram: 'https://www.instagram.com/melkimball/',
