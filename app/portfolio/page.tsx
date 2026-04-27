@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 async function getProjects() {
   try {
     return await client.fetch(`
-      *[_type == "project"] | order(order asc, completionYear desc) {
+      *[_type == "project"] | order(coalesce(orderRank, "zzz") asc, completionYear desc) {
         _id, title, slug, category, location, completionYear, shortDescription, coverImage, scope
       }
     `)
