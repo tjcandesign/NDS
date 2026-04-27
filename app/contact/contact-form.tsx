@@ -156,7 +156,7 @@ export function ContactForm({ formConfig }: { formConfig: FormConfig }) {
                   <label key={type} className="flex items-center gap-3 text-stone-700 cursor-pointer">
                     <input
                       type="radio"
-                      name="project-type"
+                      name="projectType"
                       value={type.toLowerCase()}
                       required
                       className="accent-stone-700 w-4 h-4"
