@@ -116,7 +116,7 @@ You have a "Page" document type for future use (About page, etc.)
 
 1. **Go to Sanity Studio** → **Site Settings**
 2. **Find "Contact Email"** field
-3. **Change** `hello@nichedesignstudios.com` to your new email
+3. **Change** `hello@nichedesignstudiodc.com` to your new email
 4. **Click "Publish"**
 5. **Wait 30-60 seconds**
 6. **Check footer** - email is updated!
@@ -159,7 +159,7 @@ The Site Settings document hasn't been created in Sanity yet. Here's what I've d
    ```
    Site Title: Niche Design Studios
    Tagline: Interior Architecture & Design
-   Contact Email: hello@nichedesignstudios.com
+   Contact Email: hello@nichedesignstudiodc.com
    Phone: (202) 555-0100
    Address: Washington, DC
    Instagram URL: https://www.instagram.com/melkimball/
