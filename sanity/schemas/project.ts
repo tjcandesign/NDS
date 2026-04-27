@@ -132,12 +132,6 @@ export default defineType({
       initialValue: false,
     }),
     defineField({
-      name: 'order',
-      title: 'Display Order',
-      type: 'number',
-      description: 'Lower numbers appear first.',
-    }),
-    defineField({
       name: 'published',
       title: 'Publish Project',
       type: 'boolean',
