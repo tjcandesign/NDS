@@ -331,16 +331,24 @@ export function ContactForm({ formConfig }: { formConfig: FormConfig }) {
                 <div className="pt-8">
                   <button
                     type="submit"
-                    className="w-full py-4 bg-navy-blue text-white text-sm tracking-widest uppercase hover:bg-navy-blue-dark transition-colors font-medium rounded-lg"
+                    disabled={visionSubmitting}
+                    className="w-full py-4 bg-navy-blue text-white text-sm tracking-widest uppercase hover:bg-navy-blue-dark transition-colors font-medium rounded-lg disabled:opacity-60 disabled:cursor-not-allowed"
                   >
-                    Submit Additional Information
+                    {visionSubmitting ? 'Submitting…' : 'Submit Additional Information'}
                   </button>
 
-                  <p className="text-xs text-stone-300 text-center mt-6">
+                  {visionError && (
+                    <p className="text-sm text-red-700 bg-red-50 border border-red-200 rounded-md px-4 py-3 mt-4 text-center">
+                      {visionError}
+                    </p>
+                  )}
+
+                  <p className="text-xs text-stone-500 text-center mt-6">
                     Thank you for providing more details. We'll use this to better serve your project!
                   </p>
                 </div>
               </form>
+              )}
             </div>
           )}
         </div>
