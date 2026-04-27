@@ -65,7 +65,7 @@ export const ALL_PROJECTS_QUERY = `
 
 // All projects including drafts (for preview mode)
 export const ALL_PROJECTS_PREVIEW_QUERY = `
-  *[_type == "project"] | order(order asc, completionYear desc) {
+  *[_type == "project"] | order(coalesce(orderRank, "zzz") asc, completionYear desc) {
     _id,
     title,
     slug,
