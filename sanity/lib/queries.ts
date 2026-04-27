@@ -129,7 +129,7 @@ export const PROJECT_PREVIEW_QUERY = `
 
 // Featured projects for homepage
 export const FEATURED_PROJECTS_QUERY = `
-  *[_type == "project" && featured == true && published == true] | order(order asc) {
+  *[_type == "project" && featured == true && published == true] | order(coalesce(orderRank, "zzz") asc) {
     _id,
     title,
     slug,
