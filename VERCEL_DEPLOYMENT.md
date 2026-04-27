@@ -69,7 +69,7 @@ Visit your deployment URL:
 
 ### Domains
 - **Settings** → **Domains** - Add custom domain
-  - Example: `nichedesignstudios.com` (if you own the domain)
+  - Example: `nichedesignstudiodc.com` (if you own the domain)
 
 ### Auto-Redeployment
 - Vercel automatically redeploys when you push to GitHub main branch
@@ -82,7 +82,7 @@ Visit your deployment URL:
 
 1. Go to **Settings** → **Domains**
 2. Click **"Add"**
-3. Enter your domain (e.g., `nichedesignstudios.com`)
+3. Enter your domain (e.g., `nichedesignstudiodc.com`)
 4. Follow DNS configuration instructions
 5. Vercel provides free SSL certificate
 
