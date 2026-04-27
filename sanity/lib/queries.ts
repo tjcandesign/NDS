@@ -44,9 +44,12 @@ export const PAGE_QUERY = `
   }
 `
 
-// All projects for portfolio page (only published)
+// All projects for portfolio page (only published).
+// Ordering is controlled by drag-and-drop in Studio (orderable-document-list plugin),
+// which writes a string `orderRank` onto each doc. coalesce() pushes any project
+// that hasn't been touched-by-drag yet to the end so the sort is stable.
 export const ALL_PROJECTS_QUERY = `
-  *[_type == "project" && published == true] | order(order asc, completionYear desc) {
+  *[_type == "project" && published == true] | order(coalesce(orderRank, "zzz") asc, completionYear desc) {
     _id,
     title,
     slug,
