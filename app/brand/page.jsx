@@ -671,6 +671,65 @@ export default function BrandGuidelines() {
                   }}>
                     {font.role}
                   </div>
+
+                  {/* Google Fonts links — page + direct download */}
+                  {(font.fontsPageUrl || font.downloadUrl) && (
+                    <div style={{ display: "flex", flexWrap: "wrap", gap: 10, marginTop: 24 }}>
+                      {font.fontsPageUrl && (
+                        <a
+                          href={font.fontsPageUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          style={{
+                            display: "inline-flex",
+                            alignItems: "center",
+                            gap: 6,
+                            padding: "9px 16px",
+                            background: "#1c1917",
+                            color: "#fafaf9",
+                            fontSize: 11,
+                            fontFamily: "'Inter', sans-serif",
+                            letterSpacing: "0.12em",
+                            textTransform: "uppercase",
+                            textDecoration: "none",
+                            borderRadius: 4,
+                            transition: "background 0.2s",
+                          }}
+                          onMouseEnter={e => { e.currentTarget.style.background = "#465566"; }}
+                          onMouseLeave={e => { e.currentTarget.style.background = "#1c1917"; }}
+                        >
+                          Google Fonts &rarr;
+                        </a>
+                      )}
+                      {font.downloadUrl && (
+                        <a
+                          href={font.downloadUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          style={{
+                            display: "inline-flex",
+                            alignItems: "center",
+                            gap: 6,
+                            padding: "9px 16px",
+                            background: "transparent",
+                            color: "#1c1917",
+                            fontSize: 11,
+                            fontFamily: "'Inter', sans-serif",
+                            letterSpacing: "0.12em",
+                            textTransform: "uppercase",
+                            textDecoration: "none",
+                            border: "1px solid rgba(70,85,102,0.3)",
+                            borderRadius: 4,
+                            transition: "border-color 0.2s, color 0.2s",
+                          }}
+                          onMouseEnter={e => { e.currentTarget.style.borderColor = "#465566"; e.currentTarget.style.color = "#465566"; }}
+                          onMouseLeave={e => { e.currentTarget.style.borderColor = "rgba(70,85,102,0.3)"; e.currentTarget.style.color = "#1c1917"; }}
+                        >
+                          &darr; Download .zip
+                        </a>
+                      )}
+                    </div>
+                  )}
                 </div>
 
                 {/* ── Specimen Details ── */}
