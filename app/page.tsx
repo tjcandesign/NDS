@@ -9,7 +9,7 @@ import HeroParallaxImage from '@/components/HeroParallaxImage'
 async function getProjects() {
   try {
     return await client.fetch(`
-      *[_type == "project"] | order(order asc) {
+      *[_type == "project"] | order(coalesce(orderRank, "zzz") asc) {
         _id, title, slug, category, shortDescription, coverImage, images[0...2]
       }
     `)
