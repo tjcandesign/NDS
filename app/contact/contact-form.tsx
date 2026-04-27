@@ -20,12 +20,69 @@ interface FormConfig {
   professionalsOptions: string[]
 }
 
+const SHEETS_URL = process.env.NEXT_PUBLIC_GOOGLE_SHEETS_URL || ''
+
+// POST a flat object as FormData to the Apps Script Web App.
+// Apps Script doesn't return CORS headers by default, so we fire-and-forget
+// with mode: 'no-cors'. The submission still lands in the sheet — we just
+// can't read the response. If `fetch` throws (network failure), we surface
+// that to the user.
+async function submitToSheet(data: Record<string, string>) {
+  if (!SHEETS_URL) throw new Error('NEXT_PUBLIC_GOOGLE_SHEETS_URL is not set')
+  const fd = new FormData()
+  Object.entries(data).forEach(([k, v]) => fd.append(k, v ?? ''))
+  await fetch(SHEETS_URL, { method: 'POST', mode: 'no-cors', body: fd })
+}
+
 export function ContactForm({ formConfig }: { formConfig: FormConfig }) {
   const [submitted, setSubmitted] = useState(false)
+  const [submitting, setSubmitting] = useState(false)
+  const [error, setError] = useState<string | null>(null)
 
-  const handleFirstSubmit = (e: React.FormEvent) => {
+  // Carry the inquirer's email across stages so we can stamp it on the
+  // optional Vision row in the sheet to tie the two together.
+  const [submittedEmail, setSubmittedEmail] = useState('')
+
+  // Vision (stage 2) state
+  const [visionDone, setVisionDone] = useState(false)
+  const [visionSubmitting, setVisionSubmitting] = useState(false)
+  const [visionError, setVisionError] = useState<string | null>(null)
+
+  const handleFirstSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    setSubmitted(true)
+    setError(null)
+    setSubmitting(true)
+    try {
+      const fd = new FormData(e.currentTarget)
+      const obj = Object.fromEntries(fd.entries()) as Record<string, string>
+      obj.stage = 'inquiry'
+      await submitToSheet(obj)
+      setSubmittedEmail(obj.email || '')
+      setSubmitted(true)
+    } catch {
+      setError("We couldn't submit your inquiry right now. Please email us directly at hello@nichedesignstudio.com and we'll get right back to you.")
+    } finally {
+      setSubmitting(false)
+    }
+  }
+
+  const handleVisionSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+    setVisionError(null)
+    setVisionSubmitting(true)
+    try {
+      const fd = new FormData(e.currentTarget)
+      const obj = Object.fromEntries(fd.entries()) as Record<string, string>
+      // Stamp the email from stage 1 so the two rows can be matched in the sheet
+      if (submittedEmail && !obj.email) obj.email = submittedEmail
+      obj.stage = 'vision'
+      await submitToSheet(obj)
+      setVisionDone(true)
+    } catch {
+      setVisionError("Couldn't save your additional details. You can reply to our outreach email or send these details to hello@nichedesignstudio.com.")
+    } finally {
+      setVisionSubmitting(false)
+    }
   }
 
   return (
