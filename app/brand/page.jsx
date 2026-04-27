@@ -26,7 +26,10 @@ const BRAND = {
     {
       name: "Display",
       family: "'Playfair Display', serif",
-      googleUrl: "https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap",
+      // Page on fonts.google.com (preview, character map, etc.)
+      fontsPageUrl: "https://fonts.google.com/specimen/Playfair+Display",
+      // Direct .zip download of the entire family
+      downloadUrl: "https://fonts.google.com/download?family=Playfair+Display",
       role: "Headlines, hero type, section titles, editorial moments. Also the basis for the wordmark logotype.",
       weights: ["400", "500", "600", "700"],
       specimen: "Spaces That Tell Your Story",
@@ -34,7 +37,8 @@ const BRAND = {
     {
       name: "Body / UI",
       family: "'Inter', sans-serif",
-      googleUrl: "https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap",
+      fontsPageUrl: "https://fonts.google.com/specimen/Inter",
+      downloadUrl: "https://fonts.google.com/download?family=Inter",
       role: "Navigation, labels, body copy, buttons, all UI elements",
       weights: ["300", "400", "500", "600"],
       specimen: "Design rooted in place and purpose.",
