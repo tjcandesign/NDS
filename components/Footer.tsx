@@ -39,9 +39,15 @@ export default async function Footer() {
           <p className="text-sm">{settings.address}</p>
           <a
             href={`mailto:${settings.email}`}
-            className="text-sm hover:text-stone-100 transition-colors"
+            className="block text-sm hover:text-stone-100 transition-colors"
           >
             {settings.email}
+          </a>
+          <a
+            href="tel:+13017850054"
+            className="block text-sm hover:text-stone-100 transition-colors mt-1"
+          >
+            301-785-0054
           </a>
         </div>
 
