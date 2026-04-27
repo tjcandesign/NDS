@@ -65,6 +65,11 @@ export interface Project {
   scope?: string[]
   body?: any
   featured: boolean
+  // Drag-and-drop ordering — set by the orderable-document-list plugin in Studio.
+  // Stored as a fractional-index string (e.g. "a0", "a0V") so reordering doesn't
+  // require renumbering every doc. Optional because pre-existing docs won't have
+  // it until they've been touched at least once in the new ordered list.
+  orderRank?: string
 }
 
 export interface FormConfig {
