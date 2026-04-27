@@ -229,9 +229,15 @@ export function ContactForm({ formConfig }: { formConfig: FormConfig }) {
                 <p className="text-stone-600 italic">Fondly,<br />Niche Design Studio</p>
               </div>
 
-              <form action="https://formspree.io/f/placeholder" method="POST" className="space-y-8">
-                {/* Hidden - submit first form data */}
-                <input type="hidden" name="_next" value={typeof window !== 'undefined' ? window.location.href : ''} />
+              {visionDone ? (
+                <div className="bg-stone-50 rounded-lg p-8 shadow-lg">
+                  <h3 className="font-serif text-xl text-stone-900 mb-3">Got it — thank you.</h3>
+                  <p className="text-stone-700 leading-relaxed">
+                    Your additional details are saved. We'll incorporate them into our review and follow up shortly.
+                  </p>
+                </div>
+              ) : (
+              <form onSubmit={handleVisionSubmit} className="space-y-8">
 
                 {/* ── Additional Vision Questions ─────────────────────────────── */}
                 <fieldset className="bg-stone-50 rounded-lg shadow-lg space-y-6">
