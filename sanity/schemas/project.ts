@@ -141,11 +141,6 @@ export default defineType({
   ],
   orderings: [
     {
-      title: 'Display Order',
-      name: 'orderAsc',
-      by: [{ field: 'order', direction: 'asc' }],
-    },
-    {
       title: 'Completion Year, Newest',
       name: 'completionYearDesc',
       by: [{ field: 'completionYear', direction: 'desc' }],
