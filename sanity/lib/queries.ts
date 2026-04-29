@@ -19,6 +19,14 @@ export const SETTINGS_QUERY = `
       title,
       description,
     },
+    // Resolve the hero-project reference into a usable object so the
+    // home page can render it without an additional round-trip.
+    heroProject->{
+      _id,
+      title,
+      slug,
+      coverImage,
+    },
   }
 `
 
