@@ -6,12 +6,17 @@ import { PortableText } from 'next-sanity'
 import { getSettings, getHomePageText } from '@/lib/sanity'
 import HeroParallaxImage from '@/components/HeroParallaxImage'
 
-async function getProjects() {
+// Featured projects shown in the homepage "Featured Projects" section.
+// Driven by the `featured` boolean toggle on each project; ordered via the
+// drag-and-drop orderable-document-list. Filters published == true so an
+// in-progress draft can't accidentally appear on the live home page.
+async function getFeaturedProjects() {
   try {
     return await client.fetch(`
-      *[_type == "project"] | order(coalesce(orderRank, "zzz") asc) {
-        _id, title, slug, category, shortDescription, coverImage, images[0...2]
-      }
+      *[_type == "project" && featured == true && published == true]
+        | order(coalesce(orderRank, "zzz") asc) {
+          _id, title, slug, category, shortDescription, coverImage, images[0...2]
+        }
     `)
   } catch {
     return []
