@@ -26,6 +26,14 @@ export interface SiteSettings {
   seoDescription: string
   navigationLinks: NavigationLink[]
   processSteps: ProcessStep[]
+  // Resolved from Sanity reference: the Project chosen as the home page hero.
+  // Optional — falls back to the first featured project if unset.
+  heroProject?: {
+    _id: string
+    title: string
+    slug: { current: string }
+    coverImage: any
+  } | null
 }
 
 export interface Service {
