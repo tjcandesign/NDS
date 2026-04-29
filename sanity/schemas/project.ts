@@ -138,6 +138,14 @@ export default defineType({
       initialValue: false,
       description: 'When unchecked, project only appears in preview mode. Check to make it live.',
     }),
+    // Required by @sanity/orderable-document-list. The plugin sets/updates this
+    // automatically when projects are dragged in the Studio list view.
+    // Hidden from the editor UI because no human should ever touch it.
+    defineField({
+      name: 'orderRank',
+      type: 'string',
+      hidden: true,
+    }),
   ],
   orderings: [
     {
