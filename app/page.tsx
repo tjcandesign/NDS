@@ -7,13 +7,15 @@ import { getSettings, getHomePageText } from '@/lib/sanity'
 import HeroParallaxImage from '@/components/HeroParallaxImage'
 
 // Featured projects shown in the homepage "Featured Projects" section.
-// Driven by the `featured` boolean toggle on each project; ordered via the
-// drag-and-drop orderable-document-list. Filters published == true so an
-// in-progress draft can't accidentally appear on the live home page.
+// Driven solely by the `featured` boolean toggle on each project; ordered via
+// the drag-and-drop orderable-document-list. We do NOT filter by `published`
+// so the home page matches /portfolio's behavior (which also doesn't gate on
+// the legacy `published` field). Drafts are isolated via Sanity's native
+// preview/published perspectives, not the schema-level boolean.
 async function getFeaturedProjects() {
   try {
     return await client.fetch(`
-      *[_type == "project" && featured == true && published == true]
+      *[_type == "project" && featured == true]
         | order(coalesce(orderRank, "zzz") asc) {
           _id, title, slug, category, shortDescription, coverImage, images[0...2]
         }
