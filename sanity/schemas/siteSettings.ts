@@ -48,6 +48,15 @@ export default defineType({
       rows: 3,
     }),
     defineField({
+      name: 'heroProject',
+      title: 'Home Page Hero Project',
+      type: 'reference',
+      to: [{ type: 'project' }],
+      description:
+        'The project whose cover image appears as the full-bleed hero on the home page. ' +
+        'If left empty, the first Featured Portfolio Project is used as a fallback.',
+    }),
+    defineField({
       name: 'navigationLinks',
       title: 'Navigation Links',
       type: 'array',
