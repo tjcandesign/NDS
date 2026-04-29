@@ -40,13 +40,14 @@ async function getHomePage() {
 }
 
 export default async function Home() {
-  const projects = await getProjects()
+  const featuredProjects = await getFeaturedProjects()
   const homePage = await getHomePage()
   const settings = await getSettings()
   const homePageText = await getHomePageText()
-  // Use Barnaby Woods project for hero, fallback to first project
-  const heroProject = projects.find((p: any) => p.slug?.current === 'barnaby-woods-project') || projects[0]
-  const featuredProjects = projects.slice(0, 6) // First 6 for featured section
+  // Hero source order:
+  //   1. Site Settings → "Home Page Hero Project" (Sanity reference, set by editor)
+  //   2. Fallback to the first featured project so the hero never goes blank
+  const heroProject = (settings as any).heroProject || featuredProjects[0]
 
   return (
     <>
