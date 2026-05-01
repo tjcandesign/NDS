@@ -48,8 +48,15 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
       {/* ── Full-bleed hero ───────────────────────────────────────── */}
       {project.coverImage && (
         <div className="relative w-full h-[88vh] min-h-[560px] bg-stone-200 overflow-hidden">
+          {/*
+            width + height tells Sanity to crop the image server-side at this
+            aspect ratio (4:3 landscape). With `hotspot: true` enabled on the
+            schema, Sanity centers the crop on whichever focal point the
+            editor sets in Studio. The browser's object-cover does any minor
+            additional adjustment — the hotspot stays visible.
+          */}
           <Image
-            src={urlFor(project.coverImage).width(2400).url()}
+            src={urlFor(project.coverImage).width(2400).height(1800).url()}
             alt={project.coverImage.alt || project.title}
             fill
             className="object-cover"
