@@ -1,4 +1,5 @@
 import { defineField, defineType } from 'sanity'
+import { HeroCoverImageInput } from '../components/HeroCoverImageInput'
 
 export default defineType({
   name: 'project',
