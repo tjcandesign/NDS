@@ -61,6 +61,11 @@ export default defineType({
       title: 'Cover Image',
       type: 'image',
       options: { hotspot: true },
+      // Custom input adds a labeled 4:3 "Site Hero Preview" panel matching
+      // the crop used on the project detail page. Lets editors see exactly
+      // what the front-end will render instead of the four generic sample
+      // thumbnails shown by default in the hotspot dialog.
+      components: { input: HeroCoverImageInput },
       fields: [
         defineField({
           name: 'alt',
